@@ -16,8 +16,7 @@ import { useAuthContext } from '../../AuthContext.js';
 axios.defaults.withCredentials=true;
 
 function ViewReports2() {
-    const {user} = useAuthContext()
-    const email = user.email
+
     const [reports, setReports] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [SidebarVisibility, setSiderVisibility] = useState(false);

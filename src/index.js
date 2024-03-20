@@ -16,9 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <Provider store={store}>
-   <AuthProvider>
-    <App />
-   </AuthProvider>
+   <AuthProvider children = { <App />}/>
+   
+   
   </Provider>
   </React.StrictMode>
  
