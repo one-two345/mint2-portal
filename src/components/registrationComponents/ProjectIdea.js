@@ -180,7 +180,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
               >
                 <option value="">Select a category</option>
                 <option value="Agriculture">Agriculture</option>
-                <option value="Agriculture">Technology</option>
+                <option value="Technology">Technology</option>
                 <option value="Industry">Industry</option>
                 <option value="Health">Health</option>
                 <option value="Construction">Construction</option>

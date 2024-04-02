@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios'
-import { AppBar, Typography, Toolbar, Avatar, Button} from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Avatar, Button} from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillPersonFill } from "react-icons/bs";
