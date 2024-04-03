@@ -8,6 +8,7 @@ const SetProjectStatus = ({email}) => {
   
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
+  const {isAuthenticated, login} = useAuthContext()
   let email1;
   const cookies = document.cookie;
   if (cookies) {
@@ -28,7 +29,7 @@ const SetProjectStatus = ({email}) => {
       console.error("No cookies found");
   }
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated} = useAuthContext()
+
     
  
   useEffect(
@@ -37,9 +38,11 @@ const SetProjectStatus = ({email}) => {
       .then((result)=>{
         console.log(result);
         setProjects(result.data);
+
       })
       .catch(err=>console.log(err))
       setLoaded(true);
+      login(true)
     }
   ,[email1]);
   function submitStatus(id){

@@ -187,7 +187,7 @@ const UploadReport = ({email}) => {
       console.error("No cookies found");
   }
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated} = useAuthContext()
+  const {isAuthenticated, login} = useAuthContext()
     
    
   useEffect(
@@ -199,6 +199,7 @@ const UploadReport = ({email}) => {
       })
       .catch(err=>console.log(err))
       setLoaded(true);
+      login(true)
     }
   ,[email1]);
   function submitReport(){

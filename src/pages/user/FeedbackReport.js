@@ -99,7 +99,7 @@ const FeedbackReport = () => {
       console.error("No cookies found");
   }
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated} = useAuthContext()
+  const {isAuthenticated, login} = useAuthContext()
     
   
   useEffect(
@@ -112,6 +112,7 @@ const FeedbackReport = () => {
   useEffect(function(){
     console.log(reports);
     setLoaded(true);
+    login(true)
   }, [reports])
 
   function showMessages(messages){

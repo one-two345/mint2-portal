@@ -152,7 +152,7 @@ const ConfirmAppointment = () => {
   let i = 1;
   //console.log(email1);
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated} = useAuthContext()
+  const {isAuthenticated, login} = useAuthContext()
     
   
   useEffect(
@@ -164,6 +164,7 @@ const ConfirmAppointment = () => {
       })
       .catch(err=>console.log(err))
       setLoaded(true);
+      login(true)
     }
   ,[email]);
   function displayAppoint(){

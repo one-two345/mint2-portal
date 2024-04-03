@@ -145,12 +145,15 @@ const UserDashboard = () => {
  
   const navigate = useNavigate();
   //const [isAuthenticated, setIsAuthenticated] = useState(undefined)
-  const {isAuthenticated} = useAuthContext()
+  const {isAuthenticated, login} = useAuthContext()
   //console.log(email);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
+  useEffect(
+    ()=>{ login(true)},
+    []);
 
   return (
   isAuthenticated === undefined ? (
