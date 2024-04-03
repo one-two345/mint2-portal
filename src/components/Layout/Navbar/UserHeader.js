@@ -163,9 +163,7 @@ import useStyles from './styles';
                 <Stack
                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
-                   {isAuthenticated1 === undefined ? (
-                        <Typography variant="h6">Loading...</Typography>
-                    ) : isAuthenticated1 ? (
+                   { isAuthenticated1 ? (
                         <Stack direction="row" gap="16px" alignItems="center">
                             <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
