@@ -211,7 +211,7 @@ function ProjectFeedback() {
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const location = useLocation();
-  const {user} = useAuthContext()
+ 
   let email;
   const cookies = document.cookie;
 if (cookies) {

@@ -1,15 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { useAuthContext } from '../../AuthContext';
+import Logout from '../../components/Logout';
 
 const SetProjectStatus = ({email}) => {
   
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
-  const { user } = useAuthContext();
-  console.log(user)
-  const email1 = user.email
+  let email1;
+  const cookies = document.cookie;
+  if (cookies) {
+      const emailCookie = cookies.split(';')[0];
+      if (emailCookie) {
+          const emailValue = emailCookie.split('=')[1];
+          if (emailValue) {
+              email1 = emailValue.replaceAll('"', '');
+              // Now you can use the email variable safely
+              console.log(email);
+          } else {
+              console.error("Email value is undefined");
+          }
+      } else {
+          console.error("Email cookie is undefined");
+      }
+  } else {
+      console.error("No cookies found");
+  }
+  const [isAuthenticated, setIsAuthenticated] = useState(null)
+    
+    useEffect(
+      function(){
+       
+        const checkAuthentication = async () => {
+          try {
+            const response = await axios.get('http://localhost:5001/check-auth-status');
+            
+            const isAuthenticated = response.data.isAuthenticated;
+            console.log(isAuthenticated)    
+            setIsAuthenticated(isAuthenticated)
+          
+    
+          
+          } catch (error) {
+            console.error('Error checking authentication status:', error);
+            return false;
+          }
+        };
+        
+        // Example usage
+         checkAuthentication();
+      }
+    ,[]);
   useEffect(
     function(){
       axios.get('http://localhost:5001/admin/userStatus/fetch-'+email1)
@@ -57,12 +98,13 @@ const SetProjectStatus = ({email}) => {
   }
 }
   return(
+    isAuthenticated ?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             <h1>Update Project Status</h1>
             {loaded && displayDashboard()}
         </div>
-    </div>
+    </div> : <Logout/>
   );
 }
 export default SetProjectStatus;

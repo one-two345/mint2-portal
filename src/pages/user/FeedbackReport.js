@@ -71,23 +71,64 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuthContext } from '../../AuthContext';
+import Logout from '../../components/Logout';
 
 const FeedbackReport = () => {
   
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const [reports, setReports] = useState([]);
-  const { user } = useAuthContext();
-  console.log(user)
-  const email1 = user.email
+  let email;
+  const cookies = document.cookie;
+  if (cookies) {
+      const emailCookie = cookies.split(';')[0];
+      if (emailCookie) {
+          const emailValue = emailCookie.split('=')[1];
+          if (emailValue) {
+              email = emailValue.replaceAll('"', '');
+              // Now you can use the email variable safely
+              console.log(email);
+          } else {
+              console.error("Email value is undefined");
+          }
+      } else {
+          console.error("Email cookie is undefined");
+      }
+  } else {
+      console.error("No cookies found");
+  }
+  const [isAuthenticated, setIsAuthenticated] = useState(null)
+    
+    useEffect(
+      function(){
+       
+        const checkAuthentication = async () => {
+          try {
+            const response = await axios.get('http://localhost:5001/check-auth-status');
+            
+            const isAuthenticated = response.data.isAuthenticated;
+            console.log(isAuthenticated)    
+            setIsAuthenticated(isAuthenticated)
+          
+    
+          
+          } catch (error) {
+            console.error('Error checking authentication status:', error);
+            return false;
+          }
+        };
+        
+        // Example usage
+         checkAuthentication();
+      }
+    ,[]);
   useEffect(
     function(){
-      axios.post('http://localhost:5001/report/find', {email:email1})
+      axios.post('http://localhost:5001/report/find', {email})
       .then((result)=>{console.log(result.data); setReports(result.data);})
       .catch(err=>console.log(err))
     }
-  ,[email1]);
+  ,[email]);
   useEffect(function(){
     console.log(reports);
     setLoaded(true);
@@ -120,6 +161,7 @@ const FeedbackReport = () => {
     }
   }
   return(
+    isAuthenticated ?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
         <table class="table">
@@ -136,7 +178,7 @@ const FeedbackReport = () => {
                 </tbody>  
               </table>
         </div>
-    </div>
+    </div> : <Logout/>
   );
 }
 export default FeedbackReport;

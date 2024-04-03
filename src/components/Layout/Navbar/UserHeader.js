@@ -81,7 +81,7 @@ import useStyles from './styles';
         const checkAuthentication = async () => {
           try {
             const response = await axios.get('http://localhost:5001/check-auth-status');
-            const response2 = await axios.get('http://localhost:5001/admind/dashboard');
+            const response2 = await axios.get('http://localhost:5001/userd/dashboard');
             const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
             console.log(isAuthenticated)

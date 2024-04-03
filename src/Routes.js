@@ -40,7 +40,8 @@ import UserDashboard from './pages/user/UserDashboard';
 import ConfirmAppointment from './pages/user/ConfirmAppointment';
 import CheckStatus from './pages/user/CheckStatus';
 
-import AdminRoutes from './pages/AdminRoutes.js';
+import AdminRoutes from './AdminRoutes.js';
+import UserRoutes from './userRoutes.js';
 
 import { useAuthContext } from './AuthContext.js';
 
@@ -56,8 +57,8 @@ const ConditionalNavbar = () => {
   path.startsWith('/register') ||
   path.startsWith('/admin') || 
   path.startsWith('/admin2') || 
-  path.startsWith('/admin3') 
- 
+  path.startsWith('/admin3') ||
+  path.startsWith('/user') 
    ) {
     return null
   }
@@ -67,12 +68,6 @@ const ConditionalNavbar = () => {
   //   return <AdminHeader />;
   // }
 
-   // Check if the path starts with '/user'
-    if (path.startsWith('/user') || 
-    path.startsWith('/confirm-appointment') || 
-    path.startsWith('/check-status') ) {
-      return <UserHeader />;
-    }
 
 
   // If the path is neither Login/Register nor under /admin, render Navbar
@@ -88,7 +83,8 @@ const ConditionalFooter = () => {
 
   if (path.startsWith('/admin') || 
   path.startsWith('/admin2') || 
-  path.startsWith('/admin3') ) {
+  path.startsWith('/admin3') || 
+  path.startsWith('/user') ) {
     return null
   }
   return <Footer />;
@@ -103,13 +99,7 @@ console.log(user)
       <ConditionalNavbar />
       
       <Routes>
-    
-      <Route path='/user' element={<UserDashboard />} />
-      <Route path='/confirm-appointment' element={<ConfirmAppointment />} />
-      <Route path='/check-status' element={<CheckStatus />} />
-      <Route  path='/viewNews' element={<ViewNews/>}></Route>
-      <Route  path='/startApplication' element={<StartApplication/>}></Route>
-
+           
 
         <Route path="/graph" element={<GraphicalAnalysis />} />
         <Route path="/protect" element={<ProtectAdmin/>}/>
@@ -136,7 +126,7 @@ console.log(user)
         <Route  path='/institutes/other' element={<Others />}></Route>   
                              
       </Routes>          
-    
+      <UserRoutes/>  
       <AdminRoutes/>           
      
       <ConditionalFooter />

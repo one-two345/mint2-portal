@@ -85,7 +85,7 @@ function UserHeader() {
                             {/* {user.result.name && */}
                              
                               <>
-                              <Typography sx= {{color: 'white'}}  variant="h6">{`Hi, ${userName}`}</Typography>
+                              <Typography  variant="h6" sx= {{color: 'white'}}> <div className=" me-2" ><BsFillPersonFill  className='login-user-icon'/>{` Hi, ${userName}`}</div></Typography>
                               <Button variant="contained"  color="secondary" onClick={logout}>Logout</Button>
                               </>                                 
                             

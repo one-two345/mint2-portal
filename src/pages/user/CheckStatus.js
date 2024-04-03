@@ -250,7 +250,7 @@
 
 // export default CheckStatus;
 import React, { useState, useEffect } from 'react';
-import { useAuthContext } from '../../AuthContext';
+import Logout from '../../components/Logout';
 import axios from 'axios';
 
 const CheckStatus = () => {
@@ -269,9 +269,50 @@ const CheckStatus = () => {
   // }, []);
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
-  const { user } = useAuthContext();
-  console.log(user)
-  const email = user.email
+  let email;
+  const cookies = document.cookie;
+if (cookies) {
+    const emailCookie = cookies.split(';')[0];
+    if (emailCookie) {
+        const emailValue = emailCookie.split('=')[1];
+        if (emailValue) {
+             email = emailValue.replaceAll('"', '');
+            // Now you can use the email variable safely
+            console.log(email);
+        } else {
+            console.error("Email value is undefined");
+        }
+    } else {
+        console.error("Email cookie is undefined");
+    }
+} else {
+    console.error("No cookies found");
+}
+const [isAuthenticated, setIsAuthenticated] = useState(null)
+    
+useEffect(
+  function(){
+   
+    const checkAuthentication = async () => {
+      try {
+        const response = await axios.get('http://localhost:5001/check-auth-status');
+        
+        const isAuthenticated = response.data.isAuthenticated;
+        console.log(isAuthenticated)    
+        setIsAuthenticated(isAuthenticated)
+      
+
+      
+      } catch (error) {
+        console.error('Error checking authentication status:', error);
+        return false;
+      }
+    };
+    
+    // Example usage
+     checkAuthentication();
+  }
+,[]);
   useEffect(
     function(){
       axios.get('http://localhost:5001/admin/userStatus/fetch-'+email)
@@ -550,6 +591,7 @@ else if(status===5){
 }
 }
   return (
+    isAuthenticated ?
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-10">
@@ -582,7 +624,7 @@ else if(status===5){
           </div>
         </div>
       </div>
-    </div>
+    </div> : <Logout/>
   );
 };
 
