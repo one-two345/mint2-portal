@@ -74,6 +74,7 @@ import useStyles from './styles';
 
  const Navbar = () => {
     const {isAuthenticated} = useAuthContext()
+    console.log(isAuthenticated)
     const [isAuthenticated1, setIsAuthenticated] = useState(null) ;
     const location = useLocation();
     const navigate =useNavigate();

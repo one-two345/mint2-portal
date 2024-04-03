@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   const login = () => {
     // For simplicity, consider any non-empty username/password as a successful login
@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
  
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login,}}>
+    <AuthContext.Provider value={{ user, login,}}>
       {children}
     </AuthContext.Provider>
   );

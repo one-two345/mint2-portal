@@ -141,9 +141,9 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isAuthenticated, setIsAuthenticated ] = useState(null)
+  // const [isAuthenticated, setIsAuthenticated ] = useState(null)
   const history = useNavigate();
-  const {login }  = useAuthContext()
+  const {isAuthenticated, login }  = useAuthContext()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -171,6 +171,7 @@ const Login = () => {
         }
         if (result.data.message === 'ok') {
           login();
+          console.log(isAuthenticated)
           if (result.data.role === 'admin') {
             document.cookie += 'email="'+email+'"';
             document.cookie = 'role="'+result.data.role+'"';
