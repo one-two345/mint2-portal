@@ -80,8 +80,8 @@ import useStyles from './styles';
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
-            const response2 = await axios.get('http://localhost:5001/userd/dashboard');
+            const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
+            const response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
             const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
             console.log(isAuthenticated)
@@ -111,7 +111,7 @@ import useStyles from './styles';
    
     const logout = async () => {
       try {
-        await axios.get('http://localhost:5001/logout');
+        await axios.get('https://research-portal-server-9.onrender.com/logout');
         setIsAuthenticated(false);
         navigate('/login')
         //window.location.href = '/login'; 

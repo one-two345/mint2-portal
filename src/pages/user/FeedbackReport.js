@@ -9,7 +9,7 @@
 //   const email1 = email;
 //   useEffect(
 //     function(){
-//       axios.post('http://localhost:5001/report/find', {email:email1})
+//       axios.post('https://research-portal-server-9.onrender.com/report/find', {email:email1})
 //       .then((result)=>{console.log(result.data); setReports(result.data);})
 //       .catch(err=>console.log(err))
 //     }
@@ -104,7 +104,7 @@ const FeedbackReport = () => {
        
         const checkAuthentication = async () => {
           try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
+            const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
             
             const isAuthenticated = response.data.isAuthenticated;
             console.log(isAuthenticated)    
@@ -124,7 +124,7 @@ const FeedbackReport = () => {
     ,[]);
   useEffect(
     function(){
-      axios.post('http://localhost:5001/report/find', {email})
+      axios.post('https://research-portal-server-9.onrender.com/report/find', {email})
       .then((result)=>{console.log(result.data); setReports(result.data);})
       .catch(err=>console.log(err))
     }

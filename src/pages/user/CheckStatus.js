@@ -20,7 +20,7 @@
 //   const email = email;
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/fetch-'+email)
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
@@ -295,7 +295,7 @@ useEffect(
    
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/check-auth-status');
+        const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
         
         const isAuthenticated = response.data.isAuthenticated;
         console.log(isAuthenticated)    
@@ -315,7 +315,7 @@ useEffect(
 ,[]);
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/fetch-'+email)
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
