@@ -124,6 +124,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logout from '../../components/Logout';
 import AppointmnetImg from '../../images/user/appoint.png';
+import { useAuthContext } from '../../AuthContext';
 
 
 const ConfirmAppointment = () => {
@@ -150,31 +151,10 @@ const ConfirmAppointment = () => {
   const [loaded, setLoaded] = useState(false);
   let i = 1;
   //console.log(email1);
-  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  //const [isAuthenticated, setIsAuthenticated] = useState(null)
+  const {isAuthenticated} = useAuthContext()
     
-    useEffect(
-      function(){
-       
-        const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
-            
-            const isAuthenticated = response.data.isAuthenticated;
-            console.log(isAuthenticated)    
-            setIsAuthenticated(isAuthenticated)
-          
-    
-          
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
-        
-        // Example usage
-         checkAuthentication();
-      }
-    ,[]);
+  
   useEffect(
     function(){
       axios.get('https://research-portal-server-9.onrender.com/admin/appointment/load-'+email)

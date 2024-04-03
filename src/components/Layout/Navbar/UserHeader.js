@@ -63,6 +63,7 @@ import '../../../images/assets/css/admin.css';
 import { BsFillPersonFill } from "react-icons/bs";
 import { AppBar, Typography, Toolbar, Avatar, Button} from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { useAuthContext } from "../../../AuthContext";
 
 import { Link,useNavigate, useLocation, useNavigateocation, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -72,19 +73,21 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 
  const Navbar = () => {
+    const {isAuthenticated} = useAuthContext()
+    const [isAuthenticated1, setIsAuthenticated] = useState(null) ;
     const location = useLocation();
     const navigate =useNavigate();
     const classes = useStyles();
-    const [isAuthenticated, setIsAuthenticated] = useState(undefined) ;
+   
     const [userName, setUserName] = useState('')
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
-            const response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
-            const isAuthenticated = response.data.isAuthenticated;
+           // const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
+             const response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
+            // const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
-            console.log(isAuthenticated)
+            // console.log(isAuthenticated)
             setIsAuthenticated(isAuthenticated)
             setUserName(userName)
           } catch (error) {
@@ -101,8 +104,8 @@ import useStyles from './styles';
     function isLoggedIn() {
         // Check if a user identifier exists in session storage
         //return sessionStorage.getItem('user') !== null;
-      console.log(isAuthenticated)
-      return isAuthenticated;
+      console.log(isAuthenticated1)
+      return isAuthenticated1;
       
 
     }
@@ -125,7 +128,7 @@ import useStyles from './styles';
        
         console.log('Admin is logged in');
     } else {
-        console.log(isAuthenticated)
+        console.log(isAuthenticated1)
         console.log('Admin is not logged in');
     }
     
@@ -159,9 +162,9 @@ import useStyles from './styles';
                 <Stack
                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
-                   {isAuthenticated === undefined ? (
+                   {isAuthenticated1 === undefined ? (
                         <Typography variant="h6">Loading...</Typography>
-                    ) : isAuthenticated ? (
+                    ) : isAuthenticated1 ? (
                         <Stack direction="row" gap="16px" alignItems="center">
                             <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>

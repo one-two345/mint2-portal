@@ -160,6 +160,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Logout from '../../components/Logout';
+import { useAuthContext } from '../../AuthContext';
 
 const UploadReport = ({email}) => {
   
@@ -185,31 +186,10 @@ const UploadReport = ({email}) => {
   } else {
       console.error("No cookies found");
   }
-  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  //const [isAuthenticated, setIsAuthenticated] = useState(null)
+  const {isAuthenticated} = useAuthContext()
     
-    useEffect(
-      function(){
-       
-        const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
-            
-            const isAuthenticated = response.data.isAuthenticated;
-            console.log(isAuthenticated)    
-            setIsAuthenticated(isAuthenticated)
-          
-    
-          
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
-        
-        // Example usage
-         checkAuthentication();
-      }
-    ,[]);
+   
   useEffect(
     function(){
       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email1)

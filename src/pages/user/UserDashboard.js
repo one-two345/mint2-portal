@@ -144,43 +144,10 @@ const UserDashboard = () => {
 
  
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(undefined)
+  //const [isAuthenticated, setIsAuthenticated] = useState(undefined)
+  const {isAuthenticated} = useAuthContext()
   //console.log(email);
-  useEffect(function(){
-    function checkIfUser(){
-      if(document.cookie){
-        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
 
-        }
-        else{
-          navigate('/');
-        }
-      }
-      else{
-        navigate('/'); 
-      }
-    }
-    const checkAuthentication = async () => {
-      try {
-        const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
-        
-        const isAuthenticated = response.data.isAuthenticated;
-        console.log(isAuthenticated)    
-        setIsAuthenticated(isAuthenticated)
-      
-
-      
-      } catch (error) {
-        console.error('Error checking authentication status:', error);
-        return false;
-      }
-    };
-    
-    // Example usage
-     checkAuthentication();
-
-    checkIfUser();
-  },[]);
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
