@@ -104,7 +104,7 @@ import useStyles from './styles';
     function isLoggedIn() {
         // Check if a user identifier exists in session storage
         //return sessionStorage.getItem('user') !== null;
-      console.log(isAuthenticated1)
+      console.log(isAuthenticated)
       return isAuthenticated;
       
 
@@ -128,7 +128,7 @@ import useStyles from './styles';
        
         console.log('Admin is logged in');
     } else {
-        console.log(isAuthenticated1)
+        console.log(isAuthenticated)
         console.log('Admin is not logged in');
     }
     
