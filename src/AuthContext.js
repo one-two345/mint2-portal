@@ -6,11 +6,11 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
-  const login = () => {
+  const login = (bool) => {
     // For simplicity, consider any non-empty username/password as a successful login
     
       // Set the user object with username and a dynamically generated email
-      setIsAuthenticated(true);
+      setIsAuthenticated(bool);
    
   };
 

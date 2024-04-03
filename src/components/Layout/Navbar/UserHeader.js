@@ -73,9 +73,8 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 
  const Navbar = () => {
-    const {isAuthenticated} = useAuthContext()
-    console.log(isAuthenticated)
-    const [isAuthenticated1, setIsAuthenticated] = useState(null) ;
+    const {isAuthenticated, login} = useAuthContext()
+    console.log(isAuthenticated)  
     const location = useLocation();
     const navigate =useNavigate();
     const classes = useStyles();
@@ -89,7 +88,7 @@ import useStyles from './styles';
             // const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
             // console.log(isAuthenticated)
-            setIsAuthenticated(isAuthenticated)
+         
             setUserName(userName)
           } catch (error) {
             console.error('Error checking authentication status:', error);
@@ -106,7 +105,7 @@ import useStyles from './styles';
         // Check if a user identifier exists in session storage
         //return sessionStorage.getItem('user') !== null;
       console.log(isAuthenticated1)
-      return isAuthenticated1;
+      return isAuthenticated;
       
 
     }
@@ -116,7 +115,7 @@ import useStyles from './styles';
     const logout = async () => {
       try {
         await axios.get('https://research-portal-server-9.onrender.com/logout');
-        setIsAuthenticated(false);
+        login(false)
         navigate('/login')
         //window.location.href = '/login'; 
       } catch (error) {
@@ -163,7 +162,7 @@ import useStyles from './styles';
                 <Stack
                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
-                   { isAuthenticated1 ? (
+                   { isAuthenticated ? (
                         <Stack direction="row" gap="16px" alignItems="center">
                             <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>

@@ -170,7 +170,7 @@ const Login = () => {
           })
         }
         if (result.data.message === 'ok') {
-          login();
+          login(true);
           console.log(isAuthenticated)
           if (result.data.role === 'admin') {
             document.cookie += 'email="'+email+'"';
