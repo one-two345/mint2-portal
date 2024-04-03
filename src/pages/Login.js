@@ -141,7 +141,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-   const [isAuthenticated, setIsAuthenticated ] = useState(null)
+
   const history = useNavigate();
   const {isAuthenticated, login }  = useAuthContext()
 
@@ -195,24 +195,24 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
+      // const checkAuthentication = async () => {
+      //   try {
+      //     //const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+      //     const isAuthenticated = response.data.isAuthenticated;
+      //     console.log(isAuthenticated)    
+      //     setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+      //   } catch (error) {
+      //     console.error('Error checking authentication status:', error);
+      //     return false;
+      //   }
+      // };
       
-      // Example usage
-       checkAuthentication();
+      // // Example usage
+      //  checkAuthentication();
   };
   
 
