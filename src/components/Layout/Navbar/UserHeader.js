@@ -116,6 +116,7 @@ import useStyles from './styles';
       try {
         await axios.get('https://research-portal-server-9.onrender.com/logout');
         login(false)
+        console.log(isAuthenticated)
         navigate('/login')
         //window.location.href = '/login'; 
       } catch (error) {
