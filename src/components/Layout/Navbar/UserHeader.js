@@ -87,7 +87,8 @@ import useStyles from './styles';
              const response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
             // const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
-            // console.log(isAuthenticated)
+
+            console.log(userName)
          
             setUserName(userName)
           } catch (error) {
