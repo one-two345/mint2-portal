@@ -131,6 +131,7 @@ const ConfirmAppointment = () => {
   let email;
   const cookies = document.cookie;
   if (cookies) {
+    console.log(cookies)
       const emailCookie = cookies.split(';')[0];
       if (emailCookie) {
           const emailValue = emailCookie.split('=')[1];
