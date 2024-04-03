@@ -75,7 +75,7 @@ import useStyles from './styles';
     const location = useLocation();
     const navigate =useNavigate();
     const classes = useStyles();
-    const [isAuthenticated, setIsAuthenticated] = useState(false) ;
+    const [isAuthenticated, setIsAuthenticated] = useState(undefined) ;
     const [userName, setUserName] = useState('')
     useEffect(() => {
         const checkAuthentication = async () => {
@@ -159,22 +159,16 @@ import useStyles from './styles';
                 <Stack
                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
-                    {isAuthenticated ? (
+                   {isAuthenticated === undefined ? (
+                        <Typography variant="h6">Loading...</Typography>
+                    ) : isAuthenticated ? (
                         <Stack direction="row" gap="16px" alignItems="center">
-                            {/* {user?.result.imageUrl && (
-                                 <Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
-                            )} */}
-                            {/* {user.result.name && */}
-                             
-                              <>
-                              <Typography  variant="h6" sx= {{color: 'white'}}> <div className=" me-2" ><BsFillPersonFill  className='login-user-icon'/>{` Hi, ${userName}`}</div></Typography>
-                              <Button variant="contained"  color="secondary" onClick={logout}>Logout</Button>
-                              </>                                 
-                            
+                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
+                            <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
                         </Stack>
-                    ): (
+                    ) : ( 
                         <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
-                   )}
+                    )}
                 </Stack>
             </Toolbar>
         </AppBar>

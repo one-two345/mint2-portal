@@ -118,6 +118,7 @@
 // export default UserDashboard;
 import React, { useState, useEffect } from 'react';
 import { useAuthContext } from '../../AuthContext';
+import { Typography } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ConfirmAppointment from './ConfirmAppointment';
 import CheckStatus from './CheckStatus';
@@ -143,7 +144,7 @@ const UserDashboard = () => {
 
  
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(undefined)
   //console.log(email);
   useEffect(function(){
     function checkIfUser(){
@@ -185,23 +186,12 @@ const UserDashboard = () => {
   };
 
   return (
-    isAuthenticated ?
-    <div className="container mt-5">
-    <div className="row">
-     
-    </div>
-    <div className="row">
- 
-      
+  isAuthenticated === undefined ? (
+      <Typography variant="h6">Loading...</Typography>
+  ) :isAuthenticated ?
+    <div className="container mt-5">      
       <div className="col-md-9">
-        {selectedOption === 'confirmAppointment' && <ConfirmAppointment  />}
-        {selectedOption === 'checkStatus' && <CheckStatus />}
-        {selectedOption === 'uploadReport' && <UploadReport />}
-        {selectedOption === 'feedbackReport' && <FeedbackReport />}
-        {selectedOption === 'setProjectStatus' && <SetProjectStatus />}
-        {(selectedOption !== 'confirmAppointment' && selectedOption !== 'checkStatus' 
-        && selectedOption !== 'uploadReport' && selectedOption !== 'feedbackReport' && selectedOption !== 'setProjectStatus') 
-        && <div style={{marginLeft:"10%", marginBottom:"50%"}}>
+        <div style={{marginLeft:"10%", marginBottom:"50%"}}>
           <h1 style={{color:"#11676d"}}>User Home</h1>
           <h3>Welcome to the user dashboard. Here you can:
             <ul>
@@ -211,9 +201,8 @@ const UserDashboard = () => {
               <li>Upload your progress report if your project is accepted</li>
             </ul>
           </h3>
-        </div>}
-      </div>
-    </div>
+        </div>
+      </div>    
   </div> : <Logout/>
   );
 };
