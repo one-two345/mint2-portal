@@ -172,7 +172,7 @@ import useStyles from './styles';
                 >
                    { document.cookie ? (
                         <Stack direction="row" gap="16px" alignItems="center">
-                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, { document.cookies.split(';')[1].split('=')[1]}</Typography>
+                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, { document.cookie.split(';')[2].split('=')[1]}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
                         </Stack>
                     ) : ( 
