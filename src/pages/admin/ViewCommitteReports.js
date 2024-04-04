@@ -18,28 +18,28 @@ function ViewCommitteeReports() {
     const [isAuthenticated, setIsAuthenticated] = useState(null)
 
     useEffect(function(){
-        axios.get('http://localhost:5001/admin2Reports/getAll')
+        axios.get('https://research-portal-server-9.onrender.com/admin2Reports/getAll')
         .then((result)=>{setReports(result.data); console.log(result)})
         .catch(err=>console.log(err))
         setLoaded(true);
-        const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
+        // const checkAuthentication = async () => {
+        //   try {
+        //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
             
-            const isAuthenticated = response.data.isAuthenticated;
-            console.log(isAuthenticated)    
-            setIsAuthenticated(isAuthenticated)
+        //     const isAuthenticated = response.data.isAuthenticated;
+        //     console.log(isAuthenticated)    
+        //     setIsAuthenticated(isAuthenticated)
           
     
           
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
+        //   } catch (error) {
+        //     console.error('Error checking authentication status:', error);
+        //     return false;
+        //   }
+        // };
         
-        // Example usage
-         checkAuthentication();
+        // // Example usage
+        //  checkAuthentication();
     }, [])
 
     function displayReports(){
@@ -71,7 +71,7 @@ function ViewCommitteeReports() {
         }
     }
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div className="">
 
           <h1>Technical Committee Reports</h1>

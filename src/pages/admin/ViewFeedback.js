@@ -10,7 +10,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/footer');
+//         const response = await axios.get('https://research-portal-server-9.onrender.com/footer');
 //         console.log('Feedback Data:', response.data); // Check if data is logged correctly
 //         setFeedbackData(response.data);
 //       } catch (error) {
@@ -62,7 +62,7 @@ const ViewFeedback = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/footer');
+        const response = await axios.get('https://research-portal-server-9.onrender.com/footer');
         console.log('Feedback Data:', response.data); // Check if data is logged correctly
         setFeedbackData(response.data);
       } catch (error) {
@@ -71,29 +71,29 @@ const ViewFeedback = () => {
     };
   
     fetchData();
-    const checkAuthentication = async () => {
-      try {
-        const response = await axios.get('http://localhost:5001/check-auth-status');
+    // const checkAuthentication = async () => {
+    //   try {
+    //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
         
-        const isAuthenticated = response.data.isAuthenticated;
-        console.log(isAuthenticated)    
-        setIsAuthenticated(isAuthenticated)
+    //     const isAuthenticated = response.data.isAuthenticated;
+    //     console.log(isAuthenticated)    
+    //     setIsAuthenticated(isAuthenticated)
       
 
       
-      } catch (error) {
-        console.error('Error checking authentication status:', error);
-        return false;
-      }
-    };
+    //   } catch (error) {
+    //     console.error('Error checking authentication status:', error);
+    //     return false;
+    //   }
+    // };
     
-    // Example usage
-     checkAuthentication();
+    // // Example usage
+    //  checkAuthentication();
   }, []);
   
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div>
 
 <div className="">

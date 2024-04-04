@@ -13,7 +13,7 @@
 //   const[loaded, setLoaded] = useState(false);
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/appointment/getAll')
+//       axios.get('https://research-portal-server-9.onrender.com/admin/appointment/getAll')
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
@@ -53,7 +53,7 @@
 //   const dateInput = document.getElementById(id);
 //   const newDate = new Date(dateInput.value).toISOString(); 
 //   console.log(newDate);
-//   axios.get('http://localhost:5001/admin/appointment/setAppointment_'+id+"_"+newDate)
+//   axios.get('https://research-portal-server-9.onrender.com/admin/appointment/setAppointment_'+id+"_"+newDate)
 //   .then((result)=>{
 //     console.log(result);
 //     if(result.data==="Already set"){
@@ -140,31 +140,31 @@ function SetAppointmentDate() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/appointment/getAll')
+      axios.get('https://research-portal-server-9.onrender.com/admin/appointment/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+      // const checkAuthentication = async () => {
+      //   try {
+      //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+      //     const isAuthenticated = response.data.isAuthenticated;
+      //     console.log(isAuthenticated)    
+      //     setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+      //   } catch (error) {
+      //     console.error('Error checking authentication status:', error);
+      //     return false;
+      //   }
+      // };
       
-      // Example usage
-       checkAuthentication();
+      // // Example usage
+      //  checkAuthentication();
     }
   ,[]);
   function displayProjects(){
@@ -198,7 +198,7 @@ function updateStatus(id){
   const dateInput = document.getElementById(id);
   const newDate = new Date(dateInput.value).toISOString(); 
   console.log(newDate);
-  axios.get('http://localhost:5001/admin/appointment/setAppointment_'+id+"_"+newDate)
+  axios.get('https://research-portal-server-9.onrender.com/admin/appointment/setAppointment_'+id+"_"+newDate)
   .then((result)=>{
     console.log(result);
     if(result.data==="Already set"){
@@ -209,7 +209,7 @@ function updateStatus(id){
   window.location.reload(false);
 }
 return (
-  isAuthenticated ? 
+  document.cookie ? 
   <div >
     
  

@@ -13,13 +13,13 @@
 //   const[loaded, setLoaded] = useState(false);
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/getAll')
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
 //       })
 //       .catch(err=>console.log(err))
-//       axios.get('http://localhost:5001/admin2Feedback/getFeedback')
+//       axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getFeedback')
 //       .then((result)=>{setFeedbacks(result.data); console.log(feedbacks)})
 //       .catch(err=>console.log(err))
 //       setLoaded(true);
@@ -71,7 +71,7 @@
 // }
 // function updateStatus(id, newStatus){
 //   console.log("Clicked!")
-//   axios.get('http://localhost:5001/admin/userStatus/'+id+"-"+newStatus)
+//   axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
 //   .then(result=>console.log(result))
 //   .catch(err=>console.log(err));
 //   window.location.reload(false);
@@ -216,34 +216,34 @@ function UpdateUserStatus() {
   
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
       })
       .catch(err=>console.log(err))
-      axios.get('http://localhost:5001/admin2Feedback/getFeedback')
+      axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getFeedback')
       .then((result)=>{setFeedbacks(result.data); console.log(feedbacks)})
       .catch(err=>console.log(err))
       setLoaded(true);
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+      // const checkAuthentication = async () => {
+      //   try {
+      //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+      //     const isAuthenticated = response.data.isAuthenticated;
+      //     console.log(isAuthenticated)    
+      //     setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+      //   } catch (error) {
+      //     console.error('Error checking authentication status:', error);
+      //     return false;
+      //   }
+      // };
       
-      // Example usage
-       checkAuthentication();
+      // // Example usage
+      //  checkAuthentication();
     }
   ,[]);
   function displayProjects(){
@@ -307,7 +307,7 @@ function organizeFeedback(id, status){
 }
 function updateStatus(id, newStatus){
   console.log("Clicked!")
-  axios.get('http://localhost:5001/admin/userStatus/'+id+"-"+newStatus)
+  axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
   .then(result=>console.log(result))
   .catch(err=>console.log(err));
   window.location.reload(false);
@@ -543,7 +543,7 @@ function buttonsDisplay(num){
   }
 }
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div className=" ">
     
             <h1 className='mb-3'>Update User Status</h1>  

@@ -27,29 +27,29 @@ function AddAdmin() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(null)
     
-    useEffect(
-      function(){
+    // useEffect(
+    //   function(){
        
-        const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
+    //     const checkAuthentication = async () => {
+    //       try {
+    //         const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
             
-            const isAuthenticated = response.data.isAuthenticated;
-            console.log(isAuthenticated)    
-            setIsAuthenticated(isAuthenticated)
+    //         const isAuthenticated = response.data.isAuthenticated;
+    //         console.log(isAuthenticated)    
+    //         setIsAuthenticated(isAuthenticated)
           
     
           
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
+    //       } catch (error) {
+    //         console.error('Error checking authentication status:', error);
+    //         return false;
+    //       }
+    //     };
         
-        // Example usage
-         checkAuthentication();
-      }
-    ,[]);
+    //     // Example usage
+    //      checkAuthentication();
+    //   }
+    // ,[]);
     const handleSubmit = (e) => {
       e.preventDefault();
       axios.defaults.withCredentials=true
@@ -75,7 +75,7 @@ function AddAdmin() {
     
       if (password === confirmPassword && password.length >= 8 && /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!.])[A-Za-z\d@#$%^&*!.]{8,}/.test(password)) {
         axios
-          .post("http://localhost:5001/auth/register2", {
+          .post("https://research-portal-server-9.onrender.com/auth/register2", {
             fName,
             LName,
             password,
@@ -128,7 +128,7 @@ function AddAdmin() {
     };
   
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div style = {{marginLeft: '0'}}>
    
          <div style = {{marginLeft: '0'}}>

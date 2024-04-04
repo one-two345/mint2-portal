@@ -9,45 +9,45 @@ function Admin() {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null)
 
-  useEffect(() => {
-    axios.defaults.withCredentials = true;
-    axios.get('http://localhost:5001/admind/dashboard') // Update the route path here
-      .then((result) => {
-        console.log(result)
-        if (result.data.message === 'ok') {
-          setMessage('Welcome to the admin dashboard.');
+  // useEffect(() => {
+  //   axios.defaults.withCredentials = true;
+  //   axios.get('http://localhost:5001/admind/dashboard') // Update the route path here
+  //     .then((result) => {
+  //       console.log(result)
+  //       if (result.data.message === 'ok') {
+  //         setMessage('Welcome to the admin dashboard.');
           
-        } else {
-          window.location.reload(true);
-          window.location.href = '/login';
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        window.location.href = '/login'; // Handle errors by redirecting to the login page
-      });
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+  //       } else {
+  //         window.location.reload(true);
+  //         window.location.href = '/login';
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       window.location.href = '/login'; // Handle errors by redirecting to the login page
+  //     });
+  //     const checkAuthentication = async () => {
+  //       try {
+  //         const response = await axios.get('http://localhost:5001/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+  //         const isAuthenticated = response.data.isAuthenticated;
+  //         console.log(isAuthenticated)    
+  //         setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+  //       } catch (error) {
+  //         console.error('Error checking authentication status:', error);
+  //         return false;
+  //       }
+  //     };
       
-      // Example usage
-       checkAuthentication();
-  }, []);
+  //     // Example usage
+  //      checkAuthentication();
+  // }, []);
 
   return (
-    isAuthenticated?
+    document.cookie?
     <div>
      
       
@@ -55,7 +55,7 @@ function Admin() {
           <div className="col-xs-12 col-md-7 mb-5"  style={{ height: "400px" }}>
             <br />
             <h1 style={{color:"orange"}}>MinT Grant Admin Home</h1>
-            <h3>{message}</h3> <br /> <br />
+            <h3>Welcome to the admin dashboard.</h3> <br /> <br />
           </div>
         </div> : <Logout/>
     
