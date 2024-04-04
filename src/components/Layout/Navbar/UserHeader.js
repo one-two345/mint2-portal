@@ -122,7 +122,7 @@ import useStyles from './styles';
         
         document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      
+        document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         // Redirect to the login page after logout
         navigate('/login');
         //window.location.href = '/login'; 
@@ -172,7 +172,7 @@ import useStyles from './styles';
                 >
                    { document.cookie ? (
                         <Stack direction="row" gap="16px" alignItems="center">
-                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
+                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, { cookies.split(';')[1].split('=')[1]}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
                         </Stack>
                     ) : ( 
