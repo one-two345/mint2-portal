@@ -20,7 +20,9 @@ import PostPublications from './pages/admin3/PostPublications.js'
 import PostAcceptedProjects from './pages/admin3/PostAcceptedProjects.js';
 import PostInstitutes from './pages/admin3/PostInstitutes.js';
 import PostCollaborations from './pages/admin3/PostCollaborations.js'
+import PostHistory from './pages/admin3/PostHistory';
 import PostNews from './pages/admin3/PostNews.js'
+
 import ViewFile from './pages/admin/ViewFile.js';
 import ViewFeedback from "./pages/admin/ViewFeedback.js"
 import ViewNews from './pages/ViewNews.js';
@@ -193,6 +195,7 @@ return(
             <Route path='calls/add-call' element={<PostCalls/>}/>
             <Route path='publications/add-publication' element={<PostPublications/>}/>
             <Route path='accepted-projects/add-accepted-project' element={<PostAcceptedProjects/>}/>
+            <Route path='history/add-history' element={<PostHistory/>}/>
             <Route path='institutes/post-to-institutes' element={<PostInstitutes/>}/>
             <Route path='collaboration/post-to-collaboration' element={<PostCollaborations/>}/>
 

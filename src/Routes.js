@@ -24,6 +24,8 @@ import Publications from './pages/Publications';
 import Institutes from './pages/Institutes';
 import ProjectDescription from './pages/ProjectDescription';
 import AcceptedProjects from './pages/AcceptedProjects';
+import History from './pages/History.js';
+import Achivments from './components/HistoryComponents/Achivments.js';
 import FooterForm from './components/footerComponents/FooterForm.js';
 import StartApplication from './pages/StartApplication.js';
 
@@ -107,6 +109,9 @@ console.log(user)
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/resources" element={<Resources />} />
         <Route  path='/resources/accepted-projects' element={<AcceptedProjects/>}/>
+        <Route  path='/resources/history' element={<History/>}/>
+        <Route path='/achivment/:id' element={<Achivments/>}/>
+
         <Route  path='/footer' element={<FooterForm/>}/>
         <Route  path='/resources/publications' element={<Publications/>}/>
         <Route  path='/institutes' element={<Institutes />}/>

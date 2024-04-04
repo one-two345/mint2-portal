@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Stack } from '@mui/material';
 import  {useState}  from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../images/Logo.jpg';
@@ -116,7 +117,7 @@ const Navbar = () => {
       {/* {user.result.name && */}
        
         <div stye= {{width: '50px'}}>
-        <span style= {{color: 'yellow', marginBottom: '5px'}}  >{`Hi, ${userName}`}  </span> 
+        <span style= {{color: 'yellow', marginBottom: '5px'}}  >Hi, { document.cookie.split(';')[2].split('=')[1]} </span> 
        <Button style = {{marginRight: '0'}} variant="contained"  color="secondary" onClick={logout}>Logout</Button>
         </div>                                 
         
