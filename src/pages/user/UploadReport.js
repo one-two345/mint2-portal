@@ -199,7 +199,7 @@ const UploadReport = ({email}) => {
       })
       .catch(err=>console.log(err))
       setLoaded(true);
-      login(true)
+      
     }
   ,[email1]);
   function submitReport(){

@@ -74,7 +74,7 @@ import useStyles from './styles';
 
  const Navbar = () => {
     //const {isAuthenticated, login} = useAuthContext()
-    console.log(isAuthenticated)  
+    
     const location = useLocation();
     const navigate =useNavigate();
     const classes = useStyles();
@@ -102,14 +102,14 @@ import useStyles from './styles';
       }, []);
       
     
-    function isLoggedIn() {
-        // Check if a user identifier exists in session storage
-        //return sessionStorage.getItem('user') !== null;
-      console.log(isAuthenticated)
-      return isAuthenticated;
+    // function isLoggedIn() {
+    //     // Check if a user identifier exists in session storage
+    //     //return sessionStorage.getItem('user') !== null;
+    //   console.log(isAuthenticated)
+    //   return isAuthenticated;
       
 
-    }
+    // }
 
     
     // Function to perform logout

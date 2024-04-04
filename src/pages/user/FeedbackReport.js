@@ -112,7 +112,7 @@ const FeedbackReport = () => {
   useEffect(function(){
     console.log(reports);
     setLoaded(true);
-    login(true)
+   
   }, [reports])
 
   function showMessages(messages){

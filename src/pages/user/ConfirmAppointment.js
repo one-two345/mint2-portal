@@ -46,7 +46,7 @@ const ConfirmAppointment = () => {
       })
       .catch(err=>console.log(err))
       setLoaded(true);
-      login(true)
+     
     }
   ,[email]);
   function displayAppoint(){

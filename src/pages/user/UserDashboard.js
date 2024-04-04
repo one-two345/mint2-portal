@@ -151,9 +151,7 @@ const UserDashboard = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
-  useEffect(
-    ()=>{ login(true)},
-    []);
+
 
   return (
   document.cookies ?
