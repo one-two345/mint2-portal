@@ -6,6 +6,8 @@ import Logo from '../images/Logo.jpg';
 import { AiTwotoneHome } from "react-icons/ai";
 import axios from 'axios';
 import "../App.css";
+import { AiTwotoneHome } from "react-icons/ai";
+
 // import Announcements from '../pages/Announcements';
 
 const Navbar = () => {
