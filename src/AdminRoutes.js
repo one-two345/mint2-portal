@@ -124,6 +124,13 @@ const admin3SidebarItems = [   {
   label: 'Post To Collaborations',
   path: '/admin3/collaboration/post-to-collaboration',
   icon: <Group />,
+  
+},
+{
+  label: 'Post History',
+  path: '/admin3/history/add-history',
+  icon: <Group />,
+  
 },
 ]
 
