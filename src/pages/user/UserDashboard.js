@@ -154,7 +154,7 @@ const UserDashboard = () => {
 
 
   return (
-  document.cookies ?
+  document.cookie?
     <div className="container mt-5">      
       <div className="col-md-9">
         <div style={{marginLeft:"10%", marginBottom:"50%"}}>
