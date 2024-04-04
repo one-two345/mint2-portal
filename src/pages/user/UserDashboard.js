@@ -145,7 +145,7 @@ const UserDashboard = () => {
  
   const navigate = useNavigate();
   //const [isAuthenticated, setIsAuthenticated] = useState(undefined)
-  const {isAuthenticated, login} = useAuthContext()
+  //const {isAuthenticated, login} = useAuthContext()
   //console.log(email);
 
   const handleOptionClick = (option) => {
@@ -156,9 +156,7 @@ const UserDashboard = () => {
     []);
 
   return (
-  isAuthenticated === undefined ? (
-      <Typography variant="h6">Loading...</Typography>
-  ) :isAuthenticated ?
+  document.cookies ?
     <div className="container mt-5">      
       <div className="col-md-9">
         <div style={{marginLeft:"10%", marginBottom:"50%"}}>

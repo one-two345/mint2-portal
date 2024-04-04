@@ -187,7 +187,7 @@ const UploadReport = ({email}) => {
       console.error("No cookies found");
   }
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated, login} = useAuthContext()
+  //const {isAuthenticated, login} = useAuthContext()
     
    
   useEffect(
@@ -330,7 +330,7 @@ const UploadReport = ({email}) => {
     }
   }
   return(
-    isAuthenticated ?
+    cookies ?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             {loaded && displayDashboard()}

@@ -73,7 +73,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 
  const Navbar = () => {
-    const {isAuthenticated, login} = useAuthContext()
+    //const {isAuthenticated, login} = useAuthContext()
     console.log(isAuthenticated)  
     const location = useLocation();
     const navigate =useNavigate();
@@ -110,15 +110,21 @@ import useStyles from './styles';
       
 
     }
+
     
     // Function to perform logout
    
     const logout = async () => {
       try {
-        await axios.get('https://research-portal-server-9.onrender.com/logout');
-        login(false)
-        console.log(isAuthenticated)
-        navigate('/login')
+        //await axios.get('https://research-portal-server-9.onrender.com/logout');
+        //login(false)
+        //console.log(isAuthenticated)
+        
+        document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      
+        // Redirect to the login page after logout
+        navigate('/login');
         //window.location.href = '/login'; 
       } catch (error) {
         console.error('Logout failed:', error);
@@ -126,13 +132,13 @@ import useStyles from './styles';
     };
     
     // Example usage:
-    if (isLoggedIn()) {
+    // if (isLoggedIn()) {
        
-        console.log('Admin is logged in');
-    } else {
-        console.log(isAuthenticated)
-        console.log('Admin is not logged in');
-    }
+    //     console.log('Admin is logged in');
+    // } else {
+    //     console.log(isAuthenticated)
+    //     console.log('Admin is not logged in');
+    // }
     
     // const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     // const dispatch = useDispatch();
@@ -164,7 +170,7 @@ import useStyles from './styles';
                 <Stack
                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
-                   { isAuthenticated ? (
+                   { document.cookie ? (
                         <Stack direction="row" gap="16px" alignItems="center">
                             <Typography variant="h6" sx={{ color: 'white' }}>Hi, {userName}</Typography>
                             <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>

@@ -8,7 +8,7 @@ const SetProjectStatus = ({email}) => {
   
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
-  const {isAuthenticated, login} = useAuthContext()
+  //const {isAuthenticated, login} = useAuthContext()
   let email1;
   const cookies = document.cookie;
   if (cookies) {
@@ -81,7 +81,7 @@ const SetProjectStatus = ({email}) => {
   }
 }
   return(
-    isAuthenticated ?
+    cookies ?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             <h1>Update Project Status</h1>

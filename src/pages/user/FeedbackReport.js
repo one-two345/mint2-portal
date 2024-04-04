@@ -99,7 +99,7 @@ const FeedbackReport = () => {
       console.error("No cookies found");
   }
   //const [isAuthenticated, setIsAuthenticated] = useState(null)
-  const {isAuthenticated, login} = useAuthContext()
+  //const {isAuthenticated, login} = useAuthContext()
     
   
   useEffect(
@@ -142,7 +142,7 @@ const FeedbackReport = () => {
     }
   }
   return(
-    isAuthenticated ?
+    cookies?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
         <table class="table">
