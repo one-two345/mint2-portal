@@ -13,7 +13,7 @@ const History = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/resources/history")
+      .get("https://research-portal-server-9.onrender.com/resources/history")
       .then((response) => {
         const parsedData =
           typeof response.data === "string"

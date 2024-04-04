@@ -1,13 +1,10 @@
 import React from 'react';
-import { Button, Stack } from '@mui/material';
 import  {useState}  from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../images/Logo.jpg';
 import { AiTwotoneHome } from "react-icons/ai";
 import axios from 'axios';
 import "../App.css";
-
-
 // import Announcements from '../pages/Announcements';
 
 const Navbar = () => {
@@ -36,21 +33,15 @@ const Navbar = () => {
   };
   const logout = async () => {
     try {
-      //await axios.get('https://research-portal-server-9.onrender.com/logout');
-      //login(false)
-      //console.log(isAuthenticated)
-      
-      document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      // Redirect to the login page after logout
-      navigate('/login');
+      await axios.get('http://localhost:5001/logout')
+      .then(result => {console.log(result)})
+      .catch(err=>{console.log(err)})
+      navigate('/login')
       //window.location.href = '/login'; 
     } catch (error) {
       console.error('Logout failed:', error);
     }
   };
-  
   function goToDashboard(){
     const currentRole = document.cookie.split(';')[1].split('=')[1].replaceAll('"', '');
     if(currentRole === "user"){
@@ -117,26 +108,30 @@ const Navbar = () => {
   <a className={`nav-link ${window.location.pathname === '/news' ? 'active' : ''}`} href="/news" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>News</a>
   <a className={`nav-link ${window.location.pathname === '/graph' ? 'active' : ''}`} href="/graph" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Reports</a>
 </div>
-{document.cookie ? (
-  <Stack direction="row" gap="16px" alignItems="center">
-      {/* {user?.result.imageUrl && (
-           <Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
-      )} */}
-      {/* {user.result.name && */}
-       
-        <div stye= {{width: '50px'}}>
-        <span style= {{color: 'yellow', marginBottom: '5px'}}  >Hi, { document.cookie.split(';')[2].split('=')[1]} </span> 
-       <Button style = {{marginRight: '0'}} variant="contained"  color="secondary" onClick={logout}>Logout</Button>
-        </div>                                 
-        
-  </Stack>
-): (
-<div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-  <Button style = {{backgroundColor: 'white', color: '#11676d', fontWeight: '600', width: '100%'}}  component={Link} to="/login" variant="contained" color="primary">Log in</Button>
-  <span style = {{color: 'yellow'}}>or</span>
-  <Button style = {{backgroundColor: 'white', color: '#11676d', fontWeight: '600', width: '100%'}}   component={Link} to="/auth/register" variant="contained" color="primary">Register</Button>
-</div>
-)}
+{isLoggedOut &&
+          <div className="navbar-nav ml-auto" >
+              <Link className="nav-link d-none d-lg-inline btn " to="/login" 
+               style={{backgroundColor: "white", color:"#11676d",  marginRight:'5px', borderRadius:"10px", fontSize: '16px' }}
+              >Login</Link>
+
+
+            <Link className="nav-link d-none d-lg-inline reg"  to="/register" 
+              style={{background: "white", color:"#11676d",   borderRadius:"10px" , fontSize: '16px'}} 
+              >Register</Link>
+            </div>
+            }
+{!isLoggedOut &&
+          <div className="navbar-nav ml-auto" >
+              <button className="nav-link d-none d-lg-inline btn " onClick={goToDashboard}
+              style={{backgroundColor: "white", color:"#11676d", border: "solid", borderWidth:"0.5px" , marginRight:'5px', borderRadius:"10px", fontSize: '16px' }} 
+              >Back to Dashboard</button>
+
+
+              <button className="nav-link d-none d-lg-inline btn " onClick={logout}
+              style={{backgroundColor: "white", color:"#11676d", border: "solid",  borderWidth:"0.5px" , borderRadius:"10px" , fontSize: '16px'}} 
+              >Logout</button>
+            </div>
+            }
         </div>
       </div>
     </nav>
@@ -144,4 +139,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
