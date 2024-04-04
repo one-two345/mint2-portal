@@ -290,7 +290,7 @@ if (cookies) {
     console.error("No cookies found");
 }
 //const [isAuthenticated, setIsAuthenticated] = useState(null)
-const {isAuthenticated, login} = useAuthContext()
+//const {isAuthenticated, login} = useAuthContext()
     
 // useEffect(
 //   function(){
@@ -324,7 +324,7 @@ const {isAuthenticated, login} = useAuthContext()
       })
       .catch(err=>console.log(err))
       setLoaded(true);
-      login(true)
+  
     }
   ,[email]);
   function displayProjects(){
@@ -594,7 +594,7 @@ else if(status===5){
 }
 }
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-10">
