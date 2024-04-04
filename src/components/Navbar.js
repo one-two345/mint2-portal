@@ -113,31 +113,31 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [isAuthenticated, setIsAuthenticated] = useState(null) ;
   const [userName, setUserName] = useState('')
-  useEffect(() => {
-      const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
-            const response2 = await axios.get('http://localhost:5001/userd/dashboard');
-            console.log(response2)
-            const isAuthenticated = response.data.isAuthenticated;
-            const userName = response2.data.decoded.name
-            console.log(isAuthenticated)
-            setIsAuthenticated(isAuthenticated)
-            setUserName(userName)
+  // useEffect(() => {
+  //     const checkAuthentication = async () => {
+  //         try {
+  //           const response = await axios.get('http://localhost:5001/check-auth-status');
+  //           const response2 = await axios.get('http://localhost:5001/userd/dashboard');
+  //           console.log(response2)
+  //           const isAuthenticated = response.data.isAuthenticated;
+  //           const userName = response2.data.decoded.name
+  //           console.log(isAuthenticated)
+  //           setIsAuthenticated(isAuthenticated)
+  //           setUserName(userName)
  
           
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
+  //         } catch (error) {
+  //           console.error('Error checking authentication status:', error);
+  //           return false;
+  //         }
+  //       };
         
-        // Example usage
-         checkAuthentication();
+  //       // Example usage
+  //        checkAuthentication();
 
       
-  }
-  , []);
+  // }
+  // , []);
   
   
   function isLoggedIn() {
@@ -211,6 +211,35 @@ const Navbar = () => {
 
         <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
         <div className="navbar-nav mx-auto" style={{marginTop:"50px"}}>
+             <a className={`nav-link d-flex align-items-center ${window.location.pathname === '/' ? 'active' : ''}`} href="/" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}> <AiTwotoneHome style={{marginRight:"7px"}}/>Home</a>
+             <a className={`nav-link ${window.location.pathname === '/announcements' ? 'active' : ''}`} href="/announcements" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Announcements</a>
+        <div className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
+      <a
+      className={`nav-link dropdown-toggle`}
+      href="# "
+      id="resourcesDropdown"
+      role="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded={isDropdownOpen}
+      onClick={toggleDropdown}
+      style={{color:"gray"}}
+    >
+      Resources
+    </a>
+    <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="resourcesDropdown">
+      <a className="dropdown-item" href="/resources/history" onClick={closeDropdown}>History</a>
+      <a className="dropdown-item" href="/resources/accepted-projects" onClick={closeDropdown}>Accepted Projects</a>
+      <a className="dropdown-item" href="/resources/publications" onClick={closeDropdown}>Publications</a>
+    </div>
+  </div>
+  <a className={`nav-link ${window.location.pathname === '/institutes' ? 'active' : ''}`} href="/institutes" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Institutes</a>
+  <a className={`nav-link ${window.location.pathname === '/collaborations' ? 'active' : ''}`} href="/collaborations" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Collaborations</a>
+  <a className={`nav-link ${window.location.pathname === '/aboutus' ? 'active' : ''}`} href="/aboutus" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>About Us</a>
+  <a className={`nav-link ${window.location.pathname === '/contactus' ? 'active' : ''}`} href="/contactus" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Contact Us</a>
+  <a className={`nav-link ${window.location.pathname === '/news' ? 'active' : ''}`} href="/news" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>News</a>
+  <a className={`nav-link ${window.location.pathname === '/graph' ? 'active' : ''}`} href="/graph" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Reports</a>
+</div> <div className="navbar-nav mx-auto" style={{marginTop:"50px"}}>
   <a className={`nav-link d-flex align-items-center ${window.location.pathname === '/' ? 'active' : ''}`} href="/" onClick={closeMenu} style={{marginRight: '10px', color: 'white'}}> <AiTwotoneHome/>Home</a>
   <a className={`nav-link ${window.location.pathname === '/announcements' ? 'active' : ''}`} href="/announcements" onClick={closeMenu} style={{marginRight: '10px', color: 'white'}}>Announcements</a>
   <div className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
@@ -240,7 +269,7 @@ const Navbar = () => {
   <a className={`nav-link ${window.location.pathname === '/graph' ? 'active' : ''}`} href="/graph" onClick={closeMenu} style={{marginRight: '10px', color: 'white'}}>Reports</a>
 </div>
    
-    {isAuthenticated ? (
+    {document.cookie ? (
                         <Stack direction="row" gap="16px" alignItems="center">
                             {/* {user?.result.imageUrl && (
                                  <Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
@@ -248,7 +277,7 @@ const Navbar = () => {
                             {/* {user.result.name && */}
                              
                               <div stye= {{width: '50px'}}>
-                              <span style= {{color: 'yellow', marginBottom: '5px'}}  >{`Hi, ${userName}`}  </span> 
+                              <span style= {{color: 'yellow', marginBottom: '5px'}}  >Hi, { document.cookie.split(';')[2].split('=')[1]} </span> 
                              <Button style = {{marginRight: '0'}} variant="contained"  color="secondary" onClick={logout}>Logout</Button>
                               </div>                                 
                               
@@ -267,3 +296,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
