@@ -22,25 +22,25 @@ function PostCalls() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   
   const navigate=useNavigate()
-  useEffect (() => {const checkAuthentication = async () => {
-    try {
-      const response = await axios.get('http://localhost:5001/check-auth-status');
+  // useEffect (() => {const checkAuthentication = async () => {
+  //   try {
+  //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
       
-      const isAuthenticated = response.data.isAuthenticated;
-      console.log(isAuthenticated)    
-      setIsAuthenticated(isAuthenticated)
+  //     const isAuthenticated = response.data.isAuthenticated;
+  //     console.log(isAuthenticated)    
+  //     setIsAuthenticated(isAuthenticated)
     
 
     
-    } catch (error) {
-      console.error('Error checking authentication status:', error);
-      return false;
-    }
-  };
+  //   } catch (error) {
+  //     console.error('Error checking authentication status:', error);
+  //     return false;
+  //   }
+  // };
   
-  // Example usage
-   checkAuthentication();
-  }, [])
+  // // Example usage
+  //  checkAuthentication();
+  // }, [])
  
 
   const [formData, setFormData] = useState({
@@ -65,7 +65,7 @@ function PostCalls() {
   // function handleSubmit(e) {
   //   e.preventDefault();
   //   axios
-  //     .post("http://localhost:5001/announcements/addCall", {
+  //     .post("https://research-portal-server-9.onrender.com/announcements/addCall", {
   //       title,
   //       description,
   //       field,
@@ -112,7 +112,7 @@ function PostCalls() {
     data.append('guideline', formData.guideline);
 
     try {
-      const response = axios.post("http://localhost:5001/announcements/addCall", data);
+      const response = axios.post("https://research-portal-server-9.onrender.com/announcements/addCall", data);
       console.log(response.data);
         alert('Do you want to submit')
         toast.info('Call form submitted successfully!');
@@ -126,7 +126,7 @@ function PostCalls() {
 };
 
   return (
-    isAuthenticated  ?
+    document.cookie  ?
     <div className="">          
            
             <form onSubmit={handleSubmit}>

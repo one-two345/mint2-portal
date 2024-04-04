@@ -89,9 +89,7 @@ function ViewReports() {
   return (
     document.cookie ?
       
-          <div >
-           
-     
+          <div >                
           <div class="col-xs-12 col-md-7 mb-5">
                 {loaded && displayReports()}
           </div>

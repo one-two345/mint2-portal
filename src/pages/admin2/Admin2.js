@@ -15,48 +15,48 @@ function Admin2() {
   // const {email} = location.state;
   // console.log(email);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    axios.defaults.withCredentials = true;
-    axios.get('http://localhost:5001/admind2/dashboard') // Update the route path here
-      .then((result) => {
-        console.log(result)
-        if (result.data.message === 'ok') {
-          setMessage('Welcome to the admin dashboard.');
-        } else {
+  //   axios.defaults.withCredentials = true;
+  //   axios.get('http://localhost:5001/admind2/dashboard') // Update the route path here
+  //     .then((result) => {
+  //       console.log(result)
+  //       if (result.data.message === 'ok') {
+  //         setMessage('Welcome to the admin dashboard.');
+  //       } else {
           
-         navigate('/login')
+  //        navigate('/login')
           
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
         
-       navigate('/login') // Handle errors by redirecting to the login page
+  //      navigate('/login') // Handle errors by redirecting to the login page
         
-      });
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+  //     });
+  //     const checkAuthentication = async () => {
+  //       try {
+  //         const response = await axios.get('http://localhost:5001/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+  //         const isAuthenticated = response.data.isAuthenticated;
+  //         console.log(isAuthenticated)    
+  //         setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+  //       } catch (error) {
+  //         console.error('Error checking authentication status:', error);
+  //         return false;
+  //       }
+  //     };
       
-      // Example usage
-       checkAuthentication();
-  }, []);
+  //     // Example usage
+  //      checkAuthentication();
+  // }, []);
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div>
       <div className="container mt-5" >
         <div className="row">

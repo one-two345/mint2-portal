@@ -20,7 +20,7 @@
 //   console.log(email);
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/getAll')
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
@@ -29,7 +29,7 @@
 //       setLoaded(true);
 //       const checkAuthentication = async () => {
 //         try {
-//           const response = await axios.get('http://localhost:5001/check-auth-status');
+//           const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
 //           const isAuthenticated = response.data.isAuthenticated;
 //           console.log(isAuthenticated)    
@@ -129,7 +129,7 @@
 //   const feedback2 = document.getElementById(id+'-quality').value;
 //   //console.log(title);
 //   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
-//   axios.post('http://localhost:5001/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
+//   axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
 //   .then(result=>console.log(result))
 //   .catch(err=>console.log(err));
 //   window.location.reload(false);
@@ -205,6 +205,7 @@ import Sidebar from './Sidebar.js';
 import '../../images/assets/css/admin.css';
 import { Modal } from 'react-bootstrap';
 import { useAuthContext } from '../../AuthContext.js';
+import Logout from '../../components/Logout.js';
 
 function ProjectFeedback() {
   let i = 1;
@@ -236,7 +237,7 @@ if (cookies) {
 
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
@@ -388,7 +389,7 @@ async function updateStatus(id, newStatus, title){
   const feedback2 = document.getElementById(id+'-quality').value;
   //console.log(title);
   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
- await axios.post('http://localhost:5001/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
+ await axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
   .then(result=>console.log(result))
   .catch(err=>console.log(err));
   window.location.reload(false);
@@ -416,6 +417,9 @@ function buttonsDisplay(num){
   }
 }
   return (
+
+
+    document.cookie ?
     <div className=" ">
      
       
@@ -440,7 +444,7 @@ function buttonsDisplay(num){
                 </tbody>  
               </table>
               </TableContainer>
-          </div>
+          </div>: <Logout/>
   
   )
 }

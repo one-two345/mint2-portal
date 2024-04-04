@@ -23,28 +23,28 @@ function ViewReports2() {
     const [isAuthenticated, setIsAuthenticated] = useState(null)
     
     useEffect(function(){
-        axios.get('http://localhost:5001/report/getAll')
+        axios.get('https://research-portal-server-9.onrender.com/report/getAll')
         .then((result)=>{setReports(result.data); console.log(result)})
         .catch(err=>console.log(err))
         setLoaded(true);
-        const checkAuthentication = async () => {
-            try {
-              const response = await axios.get('http://localhost:5001/check-auth-status');
+        // const checkAuthentication = async () => {
+        //     try {
+        //       const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
               
-              const isAuthenticated = response.data.isAuthenticated;
-              console.log(isAuthenticated)    
-              setIsAuthenticated(isAuthenticated)
+        //       const isAuthenticated = response.data.isAuthenticated;
+        //       console.log(isAuthenticated)    
+        //       setIsAuthenticated(isAuthenticated)
             
       
             
-            } catch (error) {
-              console.error('Error checking authentication status:', error);
-              return false;
-            }
-          };
+        //     } catch (error) {
+        //       console.error('Error checking authentication status:', error);
+        //       return false;
+        //     }
+        //   };
           
-          // Example usage
-           checkAuthentication();
+        //   // Example usage
+        //    checkAuthentication();
     }, [])
 
     function displayReports(){
@@ -88,12 +88,12 @@ function ViewReports2() {
         const reportID = id.split('-')[0];
         const projID = id.split('-')[1];
         const feedback = document.getElementById(reportID+"-input").value;
-        axios.post('http://localhost:5001/report/setMessage', {reportID:reportID, message: feedback})
+        axios.post('https://research-portal-server-9.onrender.com/report/setMessage', {reportID:reportID, message: feedback})
         .then((result)=>{console.log(result); toast.info("Feedback Submitted Successfully");})
         .catch(err=>console.log(err))
     }
   return ( 
-     isAuthenticated ?
+     document.cookie ?
       <div >       
           <div>
          

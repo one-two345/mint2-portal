@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../../images/assets/css/admin.css'
 import Sidebar from './Sidebar.js';
 import axios from 'axios';
+import Logout from '../../components/Logout.js';
 import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
 
@@ -25,7 +26,7 @@ function PostHistory() {
       
     });
 
-    const defaultImageURL = 'http://localhost:5001/images/noimage.png'
+    const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
     const [imagePreview, setImagePreview] = useState(defaultImageURL);
     
     const handleFileSelect = (event) => {
@@ -97,8 +98,8 @@ function PostHistory() {
     data.append('file', formData.file);
        
     try {
-        //      const response =  axios.post('http://localhost:5001/admin/accepted-projects/add-accepted-project', data);
-      const response =  axios.post('http://localhost:5001/admin/history/add-history', data);
+        //      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/accepted-projects/add-accepted-project', data);
+      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/history/add-history', data);
        console.log(response.data);
       alert('Do you want to submit')
       toast.info('News submitted successfully!');
@@ -110,6 +111,8 @@ function PostHistory() {
   };
 
   return (
+
+    document.cookie ?
     <div className="">
      
       <div className='container mt-5'>       
@@ -237,7 +240,7 @@ function PostHistory() {
       
     </div>
     
-  </div>
+  </div> : <Logout/>
    
   )
 }

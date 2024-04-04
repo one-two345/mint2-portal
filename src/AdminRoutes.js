@@ -29,9 +29,10 @@ import ViewNews from './pages/ViewNews.js';
 import ProtectAdmin from './ProtectAdmin.js';
 import ViewReports from './pages/admin/ViewReports.js';
 
-import Header1 from './components/Layout/Navbar/Navbar1.js'
-import Header2 from './components/Layout/Navbar/Navbar2.js'
-import Header3 from './components/Layout/Navbar/Navbar3.js'
+// import Header1 from './components/Layout/Navbar/Navbar1.js'
+// import Header2 from './components/Layout/Navbar/Navbar2.js'
+// import Header3 from './components/Layout/Navbar/Navbar3.js'
+import UserHeader from './components/Layout/Navbar/UserHeader.js';
 import Footer from './pages/Footer.js';
 import Sider from  './components/Layout/Sidebar.js'
 import {ThemedLayout} from './components/Layout/ThemdLayout.js'
@@ -133,7 +134,7 @@ return(
                 element={
                     
                             <ThemedLayout
-                                Header={() =><Header1 />}
+                                Header={() =><UserHeader />}
                                 Footer = {()=> <Footer/>}
                                 Sider={() =><Sider   sidebarItems= {adminSidebarItems} />}
                               
@@ -157,7 +158,7 @@ return(
             
           <Route path='/admin2' element= {
                 <ThemedLayout
-                Header={() =><Header2 />}
+                Header={() =><UserHeader />}
                 Footer = {()=> <Footer/>}
                 
                 Sider={() => <Sider    sidebarItems = { admin2SidebarItems} />}
@@ -178,7 +179,7 @@ return(
 
           <Route path='/admin3' element= {
                 <ThemedLayout
-                Header={() =><Header3 />}
+                Header={() =><UserHeader />}
                 Footer = {()=> <Footer/>}
                 
                 Sider={() => <Sider    sidebarItems = { admin3SidebarItems} />}

@@ -15,7 +15,7 @@ axios.defaults.withCredentials=true;
 
 function Post_News() {
   
-  const defaultImageURL = 'http://localhost:5001/images/noimage.png'
+  const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
   const [imagePreview, setImagePreview] = useState(defaultImageURL);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -28,28 +28,28 @@ function Post_News() {
 
   });
   const [isAuthenticated, setIsAuthenticated] = useState(null)
-  useEffect (() => {const checkAuthentication = async () => {
-    try {
-      const response = await axios.get('http://localhost:5001/check-auth-status');
+  // useEffect (() => {const checkAuthentication = async () => {
+  //   try {
+  //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
       
-      const isAuthenticated = response.data.isAuthenticated;
-      console.log(isAuthenticated)    
-      setIsAuthenticated(isAuthenticated)
+  //     const isAuthenticated = response.data.isAuthenticated;
+  //     console.log(isAuthenticated)    
+  //     setIsAuthenticated(isAuthenticated)
     
 
     
-    } catch (error) {
-      console.error('Error checking authentication status:', error);
-      return false;
-    }
-  };
+  //   } catch (error) {
+  //     console.error('Error checking authentication status:', error);
+  //     return false;
+  //   }
+  // };
   
-  // Example usage
-   checkAuthentication();
-  }, [])
+  // // Example usage
+  //  checkAuthentication();
+  // }, [])
 
 
-  // const defaultImageURL = 'http://localhost:5001/images/noimage.png'
+  // const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
   // const [imagePreview, setImagePreview] = useState(defaultImageURL);
   
 
@@ -123,7 +123,7 @@ function Post_News() {
       data.append('image', formData.image);
 
       try {
-        const response = axios.post('http://localhost:5001/admin/news/add-news', data);
+        const response = axios.post('https://research-portal-server-9.onrender.com/admin/news/add-news', data);
         console.log(response.data);
           alert('Do you want to submit')
           toast.info('News form submitted successfully!');
@@ -176,7 +176,7 @@ main()
   */
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div >
       
                                       

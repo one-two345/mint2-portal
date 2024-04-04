@@ -22,30 +22,30 @@ function PostInstitutes() {
 
   });
 
-  const defaultImageURL = 'http://localhost:5001/images/noimage.png'
+  const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
   const [imagePreview, setImagePreview] = useState(defaultImageURL);
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   
 
-  useEffect (() => {const checkAuthentication = async () => {
-    try {
-      const response = await axios.get('http://localhost:5001/check-auth-status');
+  // useEffect (() => {const checkAuthentication = async () => {
+  //   try {
+  //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
       
-      const isAuthenticated = response.data.isAuthenticated;
-      console.log(isAuthenticated)    
-      setIsAuthenticated(isAuthenticated)
+  //     const isAuthenticated = response.data.isAuthenticated;
+  //     console.log(isAuthenticated)    
+  //     setIsAuthenticated(isAuthenticated)
     
 
     
-    } catch (error) {
-      console.error('Error checking authentication status:', error);
-      return false;
-    }
-  };
+  //   } catch (error) {
+  //     console.error('Error checking authentication status:', error);
+  //     return false;
+  //   }
+  // };
   
-  // Example usage
-   checkAuthentication();
-  }, [])
+  // // Example usage
+  //  checkAuthentication();
+  // }, [])
 
   const handleFileSelect = (event) => {
     const selectedFile = event.target.files[0];
@@ -129,7 +129,7 @@ function PostInstitutes() {
      
 
       try {
-        const response = axios.post('http://localhost:5001/admin/institutes/post-to-institutes', data);
+        const response = axios.post('https://research-portal-server-9.onrender.com/admin/institutes/post-to-institutes', data);
         console.log(response.data);
           alert('Do you want to submit')
           toast.info('Institutes form submitted successfully!');
@@ -142,7 +142,7 @@ function PostInstitutes() {
   };
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div >
       
                                       
