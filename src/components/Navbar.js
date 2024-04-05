@@ -114,6 +114,7 @@ const Navbar = () => {
   <a className={`nav-link ${window.location.pathname === '/graph' ? 'active' : ''}`} href="/graph" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Reports</a>
 </div>
 {isLoggedOut &&
+  <div>
           <div className="navbar-nav ml-auto" >
               <Link className="nav-link d-none d-lg-inline btn " to="/login" 
                style={{backgroundColor: "white", color:"#11676d",  marginRight:'5px', borderRadius:"10px", fontSize: '16px' }}
@@ -124,8 +125,20 @@ const Navbar = () => {
               style={{background: "white", color:"#11676d",   borderRadius:"10px" , fontSize: '16px'}} 
               >Register</Link>
             </div>
+            <div className="navbar-nav ml-auto d-inline d-lg-none" >
+              <Link className="nav-link btn" to="/login" 
+               style={{backgroundColor: "white", color:"#11676d",  marginRight:'5px', borderRadius:"10px", fontSize: '16px' }}
+              >Login</Link>
+
+
+            <Link className="nav-link reg"  to="/auth/register" 
+              style={{background: "white", color:"#11676d",   borderRadius:"10px" , fontSize: '16px'}} 
+              >Register</Link>
+            </div>
+            </div>
             }
 {!isLoggedOut &&
+          <div>
           <div className="navbar-nav ml-auto" >
               <button className="nav-link d-none d-lg-inline btn " onClick={goToDashboard}
               style={{backgroundColor: "white", color:"#11676d", border: "solid", borderWidth:"0.5px" , marginRight:'5px', borderRadius:"10px", fontSize: '16px' }} 
@@ -135,6 +148,17 @@ const Navbar = () => {
               <button className="nav-link d-none d-lg-inline btn " onClick={logout}
               style={{backgroundColor: "white", color:"#11676d", border: "solid",  borderWidth:"0.5px" , borderRadius:"10px" , fontSize: '16px'}} 
               >Logout</button>
+            </div>
+            <div className="navbar-nav ml-auto d-inline d-lg-none" >
+              <button className="nav-link btn " onClick={goToDashboard}
+              style={{backgroundColor: "white", color:"#11676d", border: "solid", borderWidth:"0.5px" , marginRight:'5px', borderRadius:"10px", fontSize: '16px' }} 
+              >Back to Dashboard</button>
+
+
+              <button className="nav-link btn " onClick={logout}
+              style={{backgroundColor: "white", color:"#11676d", border: "solid",  borderWidth:"0.5px" , borderRadius:"10px" , fontSize: '16px'}} 
+              >Logout</button>
+            </div>
             </div>
             }
         </div>
