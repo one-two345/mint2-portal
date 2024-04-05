@@ -34,7 +34,7 @@ const DiscoverSectors = () => {
         </div>
         
         <div className="col-md-6" style={{height:"600px"}}>
-          
+          <div style={{display:"flex"}}>
           <div style={videoContainerStyle}>
           <img src={video1} alt="Potential Sector Image 1" style={videoStyle} height="250px" width="300px"/>
           </div>
@@ -43,6 +43,7 @@ const DiscoverSectors = () => {
           </div>
           <div style={{ ...videoContainerStyle, marginLeft: '150px' }}>
           <img src={video3} alt="Potential Sector Image 3" style={{...videoStyle, marginBottom:"50px"}} height="250px" width="300px"/>
+          </div>
           </div>
 
 
