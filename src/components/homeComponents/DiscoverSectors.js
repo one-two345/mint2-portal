@@ -33,7 +33,7 @@ const DiscoverSectors = () => {
           <a href = "/institutes" style={{marginLeft: "250px", color: "white", backgroundColor:"black", marginTop:"30px"}}  className="btn btn-warning  ">Connect with institutes</a>
         </div>
         
-        <div className="col-md-6" style={{height:"600px", padding:"10%"}}>
+        <div className="col-md-6" style={{height:"600px", display:"flex"}}>
           
           <div style={videoContainerStyle}>
           <img src={video1} alt="Potential Sector Image 1" style={videoStyle} height="250px" width="300px"/>
