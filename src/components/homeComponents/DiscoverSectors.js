@@ -33,16 +33,16 @@ const DiscoverSectors = () => {
           <a href = "/institutes" style={{marginLeft: "250px", color: "white", backgroundColor:"black", marginTop:"30px"}}  className="btn btn-warning  ">Connect with institutes</a>
         </div>
         
-        <div className="col-md-6" style={{height:"600px"}}>
+        <div className="col-md-6" style={{height:"600px", padding:"10%"}}>
           
           <div style={videoContainerStyle}>
-          <img src={video1} alt="Potential Sector Image 1" style={videoStyle} height="30%" width="22%"/>
+          <img src={video1} alt="Potential Sector Image 1" style={videoStyle} height="250px" width="300px"/>
           </div>
-          <div style={{ ...videoContainerStyle, marginLeft: '10%' }}>
-          <img src={video2} alt="Potential Sector Image 2" style={videoStyle} height="30%" width="22%"/>
+          <div style={{ ...videoContainerStyle, marginLeft: '70px' }}>
+          <img src={video2} alt="Potential Sector Image 2" style={videoStyle} height="250px" width="300px"/>
           </div>
-          <div style={{ ...videoContainerStyle, marginLeft: '20px', marginBottom:"5%" }}>
-          <img src={video3} alt="Potential Sector Image 3" style={{...videoStyle, marginBottom:"7%"}} height="30%" width="22%"/>
+          <div style={{ ...videoContainerStyle, marginLeft: '150px' }}>
+          <img src={video3} alt="Potential Sector Image 3" style={{...videoStyle, marginBottom:"50px"}} height="250px" width="300px"/>
           </div>
 
 
