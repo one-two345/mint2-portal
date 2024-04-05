@@ -79,6 +79,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
       formData.append("letter", letter);
       console.log(letter);
     }
+    console.log(formData);
     try {
       const response = await axios.put(
         "https://research-portal-server-9.onrender.com/auth/submitProject",

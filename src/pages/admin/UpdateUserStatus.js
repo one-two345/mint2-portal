@@ -5,6 +5,7 @@ import axios from 'axios';
 import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Sidebar from './Sidebar.js';
+import {toast, ToastContainer} from 'react-toastify';
 
 function UpdateUserStatus() {
   let i = 1;
@@ -74,7 +75,8 @@ function updateStatus(id, newStatus){
   axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
   .then(result=>console.log(result))
   .catch(err=>console.log(err));
-  window.location.reload(false);
+  // window.location.reload(false);
+  toast.success("Updated Status of User Project");
 }
 function generateRow(project){
   if(project.status === 1){
@@ -268,6 +270,7 @@ function buttonsDisplay(num){
                 </tbody>  
               </table>
             </TableContainer>
+            <ToastContainer/>
           </div>
     
    
