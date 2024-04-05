@@ -33,10 +33,15 @@ const Navbar = () => {
   };
   const logout = async () => {
     try {
-      await axios.get('http://localhost:5001/logout')
-      .then(result => {console.log(result)})
-      .catch(err=>{console.log(err)})
-      navigate('/login')
+      //await axios.get('https://research-portal-server-9.onrender.com/logout');
+      //login(false)
+      //console.log(isAuthenticated)
+      
+      document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      // Redirect to the login page after logout
+      navigate('/login');
       //window.location.href = '/login'; 
     } catch (error) {
       console.error('Logout failed:', error);
