@@ -16,6 +16,7 @@ const Home = () => {
       <HeroSection/>
       <Introduction/> 
       <DiscoverSectors />
+      <br />
       <RegistrationSteps />
       <QuickLinks />
       <LatestUpdates />
