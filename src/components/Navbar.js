@@ -113,7 +113,7 @@ const Navbar = () => {
   <a className={`nav-link ${window.location.pathname === '/news' ? 'active' : ''}`} href="/news" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>News</a>
   <a className={`nav-link ${window.location.pathname === '/graph' ? 'active' : ''}`} href="/graph" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Reports</a>
   {isLoggedOut &&
-          <div className="navbar-nav ml-auto" >
+          <div className="nav-link ml-auto" >
               <Link className="nav-link d-none d-lg-inline btn " to="/login" 
                style={{backgroundColor: "white", color:"#11676d",  marginRight:'5px', borderRadius:"10px", fontSize: '16px' }}
               >Login</Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
             </div>
             }
 {!isLoggedOut &&
-          <div className="navbar-nav ml-auto" >
+          <div className="nav-link ml-auto" >
               <button className="nav-link d-none d-lg-inline btn " onClick={goToDashboard}
               style={{backgroundColor: "white", color:"#11676d", border: "solid", borderWidth:"0.5px" , marginRight:'5px', borderRadius:"10px", fontSize: '16px' }} 
               >Back to Dashboard</button>
