@@ -150,6 +150,18 @@ const History = () => {
                 id={`col${index + 1}`}
               >
                 <div className="card-body text-center">
+                <a
+                    href={`/achivment/${project._id}`}
+                    // onClick={() => handleDownload(project.filePath, getFileNameFromPath(project.filePath))}
+                
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      backgroundColor: "black",
+                      alignSelf: "center",
+                      borderRadius: "5px",
+                    }}
+                  >
                   <img
                     src={`${project.imagePath
                       .replace(/\//g, "\\")
@@ -178,19 +190,8 @@ const History = () => {
                   </h6>
                   Here, instead of linking directly to a file download, you can
                   open a modal or handle file download as per your requirements
-                  <a
-                    href={`/achivment/${project._id}`}
-                    // onClick={() => handleDownload(project.filePath, getFileNameFromPath(project.filePath))}
-                    className="d-block mx-auto"
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                      backgroundColor: "black",
-                      alignSelf: "center",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    Explore
+                 
+                   <p     className="d-block mx-auto">Explore</p> 
                   </a>
                 </div>
               </div>
