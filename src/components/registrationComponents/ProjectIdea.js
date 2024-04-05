@@ -69,12 +69,15 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     formData.append("institute", institute);
     if (cvFile) {
       formData.append("cvFile", cvFile);
+      console.log(cvFile);
     }
     if (proposalFile) {
       formData.append("proposalFile", proposalFile);
+      console.log(proposalFile);
     }
     if (letter) {
       formData.append("letter", letter);
+      console.log(letter);
     }
     try {
       const response = await axios.put(
