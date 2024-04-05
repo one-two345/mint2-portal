@@ -132,10 +132,8 @@ const RoutesComponent = () => {
         <Route path='/institutes/other' element={<Others />}></Route>  
       </Routes>
 
-      {/* User Routes */}
-      {isUserRoute && <UserRoutes />}
-      {/* Admin Routes */}
-      {isAdminRoute && <AdminRoutes />}
+      <UserRoutes />
+      <AdminRoutes />
 
        <ConditionalFooter />
     </Router>
