@@ -1,7 +1,6 @@
 
 // src/Routes.js
 import React  from 'react';
-// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Route, Routes, useNavigate, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -28,7 +27,7 @@ import AcceptedProjects from './pages/AcceptedProjects';
 import History from './pages/History.js';
 import Achivments from './components/HistoryComponents/Achivments.js';
 import FooterForm from './components/footerComponents/FooterForm.js';
-//import StartApplication from './pages/StartApplication.js';
+import StartApplication from './pages/StartApplication.js';
 
 
 
@@ -38,10 +37,10 @@ import ProtectAdmin from './ProtectAdmin.js';
 
 //user page 
 
-// import UserHeader from './components/UserComponents/UserHeader';
-// import UserDashboard from './pages/user/UserDashboard';
-// import ConfirmAppointment from './pages/user/ConfirmAppointment';
-// import CheckStatus from './pages/user/CheckStatus';
+import UserHeader from './components/UserComponents/UserHeader';
+import UserDashboard from './pages/user/UserDashboard';
+import ConfirmAppointment from './pages/user/ConfirmAppointment';
+import CheckStatus from './pages/user/CheckStatus';
 
 import AdminRoutes from './AdminRoutes.js';
 import UserRoutes from './userRoutes.js';
@@ -50,7 +49,6 @@ import { useAuthContext } from './AuthContext.js';
 
 
 const ConditionalNavbar = () => {
-  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate(); 
   const path = window.location.pathname;
 
@@ -59,8 +57,8 @@ const ConditionalNavbar = () => {
   if (
   path.startsWith('/login') ||
   path.startsWith('/register') ||
-  path.startsWith('/admin')  ||
-  path.startsWith('/admin2')  ||
+  path.startsWith('/admin') || 
+  path.startsWith('/admin2') || 
   path.startsWith('/admin3') ||
   path.startsWith('/user') 
    ) {
@@ -85,28 +83,27 @@ const ConditionalFooter = () => {
   
   const path = window.location.pathname;
 
-  if ( 
-  path.startsWith('/admin')  ||
-  path.startsWith('/admin2')  ||
-  path.startsWith('/admin3') ||
-  path.startsWith('/user') 
-   ) {
+  if (path.startsWith('/admin') || 
+  path.startsWith('/admin2') || 
+  path.startsWith('/admin3') || 
+  path.startsWith('/user') ) {
     return null
   }
   return <Footer />;
 }
 
-
 const RoutesComponent = () => {
   
 const  {user} = useAuthContext()
 console.log(user)
-const AllRoute=()=>{
-  return(
-    <>
-     <ConditionalNavbar />
-     <Routes>
-      <Route path="/graph" element={<GraphicalAnalysis />} />
+  return (
+    <Router>
+      <ConditionalNavbar />
+      
+      <Routes>
+           
+
+        <Route path="/graph" element={<GraphicalAnalysis />} />
         <Route path="/protect" element={<ProtectAdmin/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/announcements" element={<Announcements />} />
@@ -114,6 +111,7 @@ const AllRoute=()=>{
         <Route  path='/resources/accepted-projects' element={<AcceptedProjects/>}/>
         <Route  path='/resources/history' element={<History/>}/>
         <Route path='/achivment/:id' element={<Achivments/>}/>
+
         <Route  path='/footer' element={<FooterForm/>}/>
         <Route  path='/resources/publications' element={<Publications/>}/>
         <Route  path='/institutes' element={<Institutes />}/>
@@ -121,8 +119,9 @@ const AllRoute=()=>{
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/news" element={<News />} />
-     
-        <Route  path='viewNews' element={<ViewNews/>}></Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+        <Route  path='/viewNews' element={<ViewNews/>}></Route>
         <Route path='/resources/publications/description' element={<ProjectDescription/>}/>
         <Route  path='/institutes/national-research' element={<NationalResearchInstitutes />}></Route>
         <Route  path='/institutes/international-research' element={<InternationalResearchInstitutes />}></Route>
@@ -131,31 +130,14 @@ const AllRoute=()=>{
         <Route  path='/institutes/government' element={<GovernmentAgencies />}></Route>
         <Route  path='/institutes/other' element={<Others />}></Route>   
                              
-    
-     </Routes>
-     <UserRoutes/>  
+      </Routes>          
+      <UserRoutes/>  
       <AdminRoutes/>           
      
-     <ConditionalFooter />
-    </>
-  )
-}
-  return (
-    <Router>
-     
+      { !(path.startsWith('/admin') || path.startsWith('/user') || 
+  path.startsWith('/admin2') || 
+  path.startsWith('/admin3')) && <ConditionalFooter /> }
       
-      <Routes>
-           
-
-      
-      <Route path="/auth/register" element={<Register />} />
-      
-        <Route path="/login" element={<Login />} />
-        <Route element={<AllRoute/>}/>
-      
-      </Routes>          
-     
-   
       </Router>
       
       
