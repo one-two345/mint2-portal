@@ -131,7 +131,7 @@ const Navbar = () => {
               >Login</Link>
 
 
-            <Link className="nav-link reg"  to="/auth/register" 
+            <Link className="nav-link btn"  to="/auth/register" 
               style={{background: "white", color:"#11676d",   borderRadius:"10px" , fontSize: '16px'}} 
               >Register</Link>
             </div>
