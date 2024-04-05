@@ -121,7 +121,7 @@ console.log(user)
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
-        <Route  path='viewNews' element={<ViewNews/>}></Route>
+        <Route  path='/viewNews' element={<ViewNews/>}></Route>
         <Route path='/resources/publications/description' element={<ProjectDescription/>}/>
         <Route  path='/institutes/national-research' element={<NationalResearchInstitutes />}></Route>
         <Route  path='/institutes/international-research' element={<InternationalResearchInstitutes />}></Route>

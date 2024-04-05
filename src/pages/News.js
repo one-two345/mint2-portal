@@ -115,7 +115,7 @@ const News = () => {
       <div className="text-right mt-3">
         <Link
           style={{ marginBottom: '30px' }}
-          to="/view-more"
+          to="/viewNews"
           className="btn btn-primary"
         >
           View More
