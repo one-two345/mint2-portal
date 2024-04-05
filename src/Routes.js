@@ -130,11 +130,12 @@ console.log(user)
         <Route  path='/institutes/government' element={<GovernmentAgencies />}></Route>
         <Route  path='/institutes/other' element={<Others />}></Route>   
                              
-      </Routes>          
+      </Routes>   
+      <ConditionalFooter />       
       <UserRoutes/>  
       <AdminRoutes/>           
      
-      <ConditionalFooter />
+      
       </Router>
       
       
