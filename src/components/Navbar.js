@@ -63,7 +63,7 @@ const Navbar = () => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light shadow fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light shadow fixed-top" style={{width:"100%"}}>
       <div className="nav-show container-fluid">
         <a className="navbar-brand mr-auto" href="/">
          
