@@ -80,68 +80,67 @@ const ConditionalNavbar = () => {
 
 
 const ConditionalFooter = () => {
-  
   const path = window.location.pathname;
 
   if (path.startsWith('/admin') || 
-  path.startsWith('/admin2') || 
-  path.startsWith('/admin3') || 
-  path.startsWith('/user') ) {
-    return null
+      path.startsWith('/admin2') || 
+      path.startsWith('/admin3') || 
+      path.startsWith('/user')) {
+    return null;
   }
+  
   return <Footer />;
 }
 
 const RoutesComponent = () => {
-  
-const  {user} = useAuthContext()
-console.log(user)
+  const { user } = useAuthContext();
+  console.log(user);
+
+  const path = window.location.pathname;
+  const isAdminRoute = path.startsWith('/admin') || path.startsWith('/admin2') || path.startsWith('/admin3');
+  const isUserRoute = path.startsWith('/user');
+
   return (
     <Router>
       <ConditionalNavbar />
-      
       <Routes>
-           
-
         <Route path="/graph" element={<GraphicalAnalysis />} />
-        <Route path="/protect" element={<ProtectAdmin/>}/>
+        <Route path="/protect" element={<ProtectAdmin />} />
         <Route path="/" element={<Home />} />
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/resources" element={<Resources />} />
-        <Route  path='/resources/accepted-projects' element={<AcceptedProjects/>}/>
-        <Route  path='/resources/history' element={<History/>}/>
+        <Route path='/resources/accepted-projects' element={<AcceptedProjects/>}/>
+        <Route path='/resources/history' element={<History/>}/>
         <Route path='/achivment/:id' element={<Achivments/>}/>
 
-        <Route  path='/footer' element={<FooterForm/>}/>
-        <Route  path='/resources/publications' element={<Publications/>}/>
-        <Route  path='/institutes' element={<Institutes />}/>
+        <Route path='/footer' element={<FooterForm/>}/>
+        <Route path='/resources/publications' element={<Publications/>}/>
+        <Route path='/institutes' element={<Institutes />}/>
         <Route path="/collaborations" element={<Collaborations />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
-        <Route  path='/viewNews' element={<ViewNews/>}></Route>
+        <Route path='/viewNews' element={<ViewNews/>}></Route>
         <Route path='/resources/publications/description' element={<ProjectDescription/>}/>
-        <Route  path='/institutes/national-research' element={<NationalResearchInstitutes />}></Route>
-        <Route  path='/institutes/international-research' element={<InternationalResearchInstitutes />}></Route>
-        <Route  path='/institutes/labs' element={<Laboratories />}></Route>
-        <Route  path='/institutes/ict' element={<IctPartners />}></Route>
-        <Route  path='/institutes/government' element={<GovernmentAgencies />}></Route>
-        <Route  path='/institutes/other' element={<Others />}></Route>   
-                             
-      </Routes>          
-      <UserRoutes/>  
-      <AdminRoutes/>           
-     
-      { !(path.startsWith('/admin') || path.startsWith('/user') || 
-  path.startsWith('/admin2') || 
-  path.startsWith('/admin3')) && <ConditionalFooter /> }
-      
-      </Router>
-      
-      
+        <Route path='/institutes/national-research' element={<NationalResearchInstitutes />}></Route>
+        <Route path='/institutes/international-research' element={<InternationalResearchInstitutes />}></Route>
+        <Route path='/institutes/labs' element={<Laboratories />}></Route>
+        <Route path='/institutes/ict' element={<IctPartners />}></Route>
+        <Route path='/institutes/government' element={<GovernmentAgencies />}></Route>
+        <Route path='/institutes/other' element={<Others />}></Route>  
+      </Routes>
+
+      {/* User Routes */}
+      {isUserRoute && <UserRoutes />}
+      {/* Admin Routes */}
+      {isAdminRoute && <AdminRoutes />}
+
+       <ConditionalFooter />
+    </Router>
   );
 }
+
 
 export default RoutesComponent;
