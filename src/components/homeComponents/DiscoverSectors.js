@@ -34,7 +34,7 @@ const DiscoverSectors = () => {
         </div>
         
         <div className="col-md-6" style={{height:"600px"}}>
-          <div style={{display:"flex"}}>
+          <div style={{background: "#2b2b2b", marginLeft:"0%"}}>
           <div style={videoContainerStyle}>
           <img src={video1} alt="Potential Sector Image 1" style={videoStyle} height="250px" width="300px"/>
           </div>
