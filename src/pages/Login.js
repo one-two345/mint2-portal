@@ -150,10 +150,15 @@ const Login = () => {
   };
   useEffect(
     function(){
-      document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      function logout(){
+        document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        console.log("Logged out");
+      }
+      logout();
     }
+
     ,[])
   const handleLogin = (e) => {
     e.preventDefault();
