@@ -81,10 +81,23 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     }
     console.log(formData);
     try {
+      // const response = await axios.put(
+      //   "https://research-portal-server-9.onrender.com/auth/submitProject",
+      //   formData
+      // );
       const response = await axios.put(
-        "https://research-portal-server-9.onrender.com/auth/submitProject",
+        "http://196.189.29.1/auth/submitProject",
         formData
       );
+      console.log(response);
+      if (response.data === 'titlepresent') {
+        toast.error('This project is already taken or done, please choose another topic.');
+        setTimeout(() => {
+          navigate('/');
+        }, 7000);
+      } else {
+        nextStep();
+      }
       console.log(response);
       if (response.data === 'titlepresent') {
         toast.error('This project is already taken or done, please choose another topic.');
