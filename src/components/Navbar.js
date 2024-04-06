@@ -46,7 +46,7 @@ const Navbar = () => {
       document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       // Redirect to the login page after logout
-      navigate('/login');
+      navigate(window.location.pathname);
       //window.location.href = '/login'; 
     } catch (error) {
       console.error('Logout failed:', error);
