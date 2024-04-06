@@ -1,6 +1,6 @@
 
 // src/Routes.js
-import React  from 'react';
+import React, {useState, useEffect}  from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
