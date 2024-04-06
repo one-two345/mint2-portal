@@ -10,7 +10,8 @@ function ViewFile(){
         <div>
        
         <iframe
-              src={'http:\\\\https://research-portal-server-9.onrender.com\\'+filePath}
+            //   src={'http:\\\\https://research-portal-server-9.onrender.com\\'+filePath}
+            src={'https:\\\\research-portal-server-9.onrender.com\\'+filePath}
               style={{width:"100%"}}
               height={800}
         />
