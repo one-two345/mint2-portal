@@ -128,6 +128,7 @@ import SetProjectStatus from './SetProjectStatus';
 import '../../App.css';
 import { Link } from 'react-router-dom'
 import axios  from 'axios';
+import {toast, ToastContainer} from 'react-toastify';
 
 import Logout from '../../components/Logout'
 
@@ -168,6 +169,7 @@ const UserDashboard = () => {
             </ul>
           </h3>
         </div>
+        <ToastContainer/>
       </div>    
   </div> : <Logout/>
   );
