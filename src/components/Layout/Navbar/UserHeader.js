@@ -157,31 +157,36 @@ import useStyles from './styles';
 
     return (
     
-        <AppBar
-           
-            style= {{backgroundColor: "#11676d",  color: "#FF8F00"}}
-           
-            elevation={0}
-            className= {classes.appBar}
-           
-            
-        >
-            <Toolbar >
-                <Stack
-                    style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
-                >
-                   { document.cookie ? (
-                        <Stack direction="row" gap="16px" alignItems="center">
-                            <Typography variant="h6" sx={{ color: 'white' }}>Hi, { document.cookie.split(';')[2].split('=')[1]}</Typography>
-                            <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
-                        </Stack>
-                    ) : ( 
-                        <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
-                    )}
-                </Stack>
-            </Toolbar>
-        </AppBar>
-           
+      <AppBar
+      style={{
+          backgroundColor: "#FFFFFF", 
+          color: "#000000", 
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", 
+      }}
+      elevation={0} // No elevation
+      className={classes.appBar}
+  >
+      <Toolbar>
+          <Stack
+              style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+              }}
+          >
+              {document.cookie ? (
+                  <Stack direction="row" gap="16px" alignItems="center">
+                      <Typography variant="h6">Hi, {document.cookie.split(';')[2].split('=')[1]}</Typography>
+                      <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
+                  </Stack>
+              ) : (
+                  <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
+              )}
+          </Stack>
+      </Toolbar>
+  </AppBar>
+  
     );
 };
 

@@ -158,7 +158,7 @@ const UserDashboard = () => {
     <div className="container mt-5">      
       <div className="col-md-9">
         <div style={{marginLeft:"10%", marginBottom:"50%"}}>
-          <h1 style={{color:"#11676d"}}>User Home</h1>
+          <h1 style={{color:"#2b2b2b"}}>User Home</h1>
           <h3>Welcome to the user dashboard. Here you can:
             <ul>
               <br/>
