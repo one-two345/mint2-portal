@@ -84,7 +84,33 @@ import useStyles from './styles';
         const checkAuthentication = async () => {
           try {
            // const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
-             const response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
+            const role = document.cookie.split(';')[1].split('=')[1].replaceAll('"','');
+            let response2 = "";
+            //response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard');
+            if(role === "admin"){
+              response2 = await axios.get('https://research-portal-server-9.onrender.com/admind/dashboard')
+              // if(path.startsWith('/admin2') || path.startsWith('/admin3')){
+              //   navigate('/admin');
+              // }
+            }
+            else if(role === "admin2"){
+              response2 = await axios.get('https://research-portal-server-9.onrender.com/admind2/dashboard')
+              // if(!path.startsWith('/admin2')){
+              //   navigate('/admin2');
+              // }
+            }
+            else if(role === "admin3"){
+              response2 = await axios.get('https://research-portal-server-9.onrender.com/admind3/dashboard')
+              // if(!path.startsWith('/admin3')){
+              //   navigate('/admin3');
+              // }
+            }
+            else if(role === "user"){
+              response2 = await axios.get('https://research-portal-server-9.onrender.com/userd/dashboard')
+              // if(!path.startsWith('/admin3')){
+              //   navigate('/admin3');
+              // }
+            }
             // const isAuthenticated = response.data.isAuthenticated;
             const userName = response2.data.decoded.name
 

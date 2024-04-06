@@ -1,5 +1,5 @@
 import React from 'react';
-import  {useState}  from 'react';
+import  {useState, useEffect}  from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../images/Logo.jpg';
 import { AiTwotoneHome } from "react-icons/ai";
@@ -11,11 +11,16 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   console.log(document.cookie);
-  const isLoggedOut = (document.cookie === "");
+  const [isLoggedOut, setLoggedOut] = useState(document.cookie === "");
   const navigate = useNavigate();
   console.log("LoggedOut is " + isLoggedOut);
   console.log(document.cookie);
 
+  useEffect(
+    function(){
+      setLoggedOut(document.cookie === "")
+    }
+    ,[document.cookie]);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };

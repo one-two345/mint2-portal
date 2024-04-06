@@ -130,7 +130,7 @@
 // };
 
 // export default Login;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../images/login.png';
 import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import axios from 'axios';
@@ -148,12 +148,22 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  useEffect(
+    function(){
+      function logout(){
+        console.log("Cookie when page loaded: " + document.cookie);
+        document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        console.log("Logged out");
+      }
+      logout();
+      console.log("Cookie after loading: " + document.cookie);
+    }
 
+    ,[])
   const handleLogin = (e) => {
     e.preventDefault();
-    document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     axios
       .post('https://research-portal-server-9.onrender.com/authl/login', { email, password })
       .then((result) => {
@@ -226,8 +236,7 @@ const Login = () => {
   return (
     <div className="container mt-5">
       <div className="text-right mt-3">
-        <Link
-          to="/"
+        <button
           style={{
             marginBottom: '20px',
             backgroundColor: '#11676d',
@@ -235,9 +244,17 @@ const Login = () => {
             fontSize: '20px',
           }}
           className="btn btn-primary"
+          onClick={function(){
+            console.log("Cookie before logout: " + document.cookie);
+            document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            console.log("Cookie after logout: " + document.cookie);
+            history('/');
+          }}
         >
           Back to Home
-        </Link>
+        </button>
       </div>
       <div className="row justify-content-between align-items-center">
         <div className="col-md-6 text-center">
