@@ -245,16 +245,15 @@ body {
 
 
 /* HeroSection.css */
-
 .hero {
   position: relative;
   overflow: hidden;
-  height: 65vh;
+  height: 70vh; /* Set height to viewport height */
   display: flex;
   align-items: center;
+  justify-content: center; /* Center content horizontally and vertically */
   color: #fff;
   text-align: center;
-  border-radius: 0px;
 }
 
 .video-container {
@@ -275,28 +274,24 @@ video {
 
 .hero-content {
   z-index: 1;
-  animation: slideUp 3s ease-out; 
+  animation: slideUp 3s ease-out;
 }
 
 .hero-title {
-  font-size: 35px;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  margin-left: 300px;
-  color: #fff !important;
-  max-width: 600px;
-  animation: fadeInUp 2s ease-out; 
+  font-size: 5.5vw; /* Responsive font size */
+  font-weight: bolder;
+  margin-left: 10vw; /* Responsive margin */
+  margin-bottom: 2vh; /* Responsive margin */
+  margin-top: 3vw;
 }
 
-.hero-subtitle,
-.hero-description {
-  font-size: 2rem !important;
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0; 
-  animation: fadeInUp 2s ease-out inf; 
+.hero-subtitle {
+  font-size: 2.8vw; /* Responsive font size */
+  color: white; /* Original color */
+  margin-left: 25vw; /* Responsive margin */
+  max-width: 40vw; /* Responsive width */
+  text-align: center;
+  margin-top: 3vw;
 }
 
 @keyframes slideUp {
@@ -308,14 +303,17 @@ video {
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 10vw;
+    margin-left: 5vw;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .hero-subtitle {
+    font-size: 5vw;
+    max-width: 90vw;
+    color: white;
   }
 }
 
