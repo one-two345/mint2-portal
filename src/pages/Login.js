@@ -131,7 +131,7 @@
 
 // export default Login;
 import React, { useState } from 'react';
-import Logo from '../images/Logo.jpg';
+import Logo from '../images/login.png';
 import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
