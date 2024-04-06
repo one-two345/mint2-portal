@@ -262,7 +262,7 @@ const RoutesComponent = () => {
    
   const [isAdminRoute, setIsAdminRoute] = useState(false);
   const path = window.location.pathname;
-    const isAdmin = path.startsWith('/admin') || path.startsWith('/user');
+    const isAdmin = path.startsWith('/admin') || path.startsWith('/user') ||path.startsWith('/login') || path.startsWith('/auth/register');
 
   useEffect(() => {
     
