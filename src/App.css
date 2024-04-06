@@ -542,7 +542,8 @@ video {
 
 /* Announcemnet pages  */
 .apply-now-btn {
-  margin-top: auto; 
+  margin-top: 10px; 
+  display: flex;
   align-self: flex-end; 
 }
 
