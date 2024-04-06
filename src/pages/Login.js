@@ -130,7 +130,7 @@
 // };
 
 // export default Login;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../images/login.png';
 import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import axios from 'axios';
@@ -148,12 +148,15 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
+  useEffect(
+    function(){
+      document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+    ,[])
   const handleLogin = (e) => {
     e.preventDefault();
-    document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     axios
       .post('https://research-portal-server-9.onrender.com/authl/login', { email, password })
       .then((result) => {
