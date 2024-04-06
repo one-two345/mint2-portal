@@ -246,7 +246,7 @@ const Login = () => {
             src={Logo}
             alt="Logo"
             className="img-fluid"
-            style={{ maxHeight: '200px' }}
+            style={{ height: '400px', width:'800px', marginBottom:"80px" }}
           />
           </Link>
         </div>
