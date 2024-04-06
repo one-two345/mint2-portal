@@ -24,53 +24,77 @@ const NationalCalls = (props) => {
     setLoaded(true);
   
   },[]);
+  function display(){
+    if(loaded)
+    {
+      for(let i=0; i<calls.length; i++){
+        if(calls[i].callType.toLowerCase()==="national" && (calls[i].field.toLowerCase()=== category.toLowerCase() || 
+        category === " "))
+        {
+          count++;
+        }
+      }
+      noOfPages = count/4;
+      if(noOfPages > parseInt(noOfPages, 10))
+      {
+        noOfPages = parseInt(noOfPages, 10) + 1;
+      }
+    for(let i=0; i<(calls.length); i++){
+      if(calls[i].callType.toLowerCase()==="national" && (calls[i].field.toLowerCase()=== category.toLowerCase() || 
+      category === " "))
+      {
+      data.push(
+        <div className="card quickCard mb-3" key={calls[i]._id}>
+        <div className="card-body">
 
-function display() {
-  if (loaded) {
-    const cards = calls
-      .filter(call =>
-        call.callType.toLowerCase() === "national" &&
-        (call.field.toLowerCase() === category.toLowerCase() || category === " ")
-      )
-      .map(call => (
-        <div className="card quickCard mb-3" key={call._id}>
-          <div className="card-body">
-            <h3 style={{ textTransform: 'uppercase' }} className="card-title">{call.title}</h3>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className="card-text">
-              Description: <span style={{ color: "black", fontWeight: "normal" }}>{call.description}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              Field of Study: <span style={{ color: "black", fontWeight: "normal" }}>{call.field}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              Start Date: <span style={{ color: "black", fontWeight: "normal" }}>{call.startDate.split("T")[0]}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              End Date: <span style={{ color: "black", fontWeight: "normal" }}>{call.endDate.split("T")[0]}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              Award(Monetary): <span style={{ color: "black", fontWeight: "normal" }}>{call.prizes}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              Instructions: <span style={{ color: "black", fontWeight: "normal" }}>{call.instructions}</span>
-            </p>
-            <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
-              Guidelines on how to fill the application: <span style={{ color: "black", fontWeight: "normal" }}>{call.guideline}</span>
-            </p>
-            <div className="apply-now-btn">
-              <a href='/auth/register' style={{ backgroundColor: "gray", color:"white" }} className="btn">
-                APPLY NOW
-              </a>
-            </div>
+        <h3 style={{ textTransform: 'uppercase' }} className="card-title">{calls[i].title}</h3>
+
+
+        <div style={{marginLeft: "50px"}}>          
+              {/* <p style={{ color: "green", fontWeight: "bold", fontSize: "18px" }} className="card-text">
+                Category: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].callType} calls</span>
+              </p> */}
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className="card-text">
+                Description: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].description}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                Field of Study: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].field}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                Start Date: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].startDate.split("T")[0]}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                End Date: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].endDate.split("T")[0]}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                Award(Monetary): <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].prizes}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                Instructions: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].instructions}</span>
+              </p>
+
+              <p style={{ color: "black", fontWeight: "bold", fontSize: "18px" }} className='card-text'>
+                Guidelines on how to fill the application: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].guideline}</span>
+              </p>
+          </div>
+          <a href='/auth/register' style={{ backgroundColor: "gray", color:"white"}}
+           className="btn apply-now-btn">
+              APPLY NOW
+            </a>
           </div>
         </div>
-      ));
-
-    return cards.reverse();
+      );
+      }
+    }
+    return data.reverse();
   }
-}
-
-
+  }
   function pageLogic(list){
     const displayedCalls = [];
     const selectBox = document.getElementById("pageNo");
