@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 
 import logo from "../../images/Logo.jpg";
 
-export const Title = ({collapsed }) => {
+export const Title = ({collapsed, role }) => {
     
 
     return (
