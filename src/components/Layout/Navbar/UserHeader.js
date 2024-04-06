@@ -178,10 +178,10 @@ import useStyles from './styles';
               {document.cookie ? (
                   <Stack direction="row" gap="16px" alignItems="center">
                       <Typography variant="h6">Hi, {document.cookie.split(';')[2].split('=')[1]}</Typography>
-                      <Button variant="contained" color="secondary" onClick={logout}>Logout</Button>
+                      <Button variant="contained" color="warning" onClick={logout}>Logout</Button>
                   </Stack>
               ) : (
-                  <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
+                  <Button component={Link} to="/login" variant="contained" color="warning">Sign In</Button>
               )}
           </Stack>
       </Toolbar>
