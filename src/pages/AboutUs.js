@@ -13,7 +13,7 @@ import image2 from "../images/News/news2.jpeg"
 import image3 from "../images/News/news3.jpeg"
 import image4 from "../images/News/news4.jpeg"
 import { Link } from 'react-router-dom';
-
+import '../App.css'
 
 
 function AboutUs() {
@@ -71,14 +71,16 @@ function AboutUs() {
         
        
    
-
+        <h1 className='text-center'>Who We Are</h1>
         <section >
           <br/><br/><br/><br/>
+     
           <div className='d-flex flex-wrap align-items-strech justify-content-evenly  mx-5 '>
+       
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '250px', height:'80px', position: 'absolute',top: '-10px', left: '15px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h1 >Our Visions</h1></div>
-                <div className='slanted-contents1 card pe-0  m-1   ' style={{ width: '480px',height:"300px", color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+                <div className='slanted-contents1 card pe-0  m-1 quickCard  ' style={{ width: '480px',height:"300px", color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
                
                   {/* <ul className='car p-5  fw-bold'>
                     <li  style={{opacity: '1',width: '100%'}}>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
@@ -88,7 +90,7 @@ function AboutUs() {
                     <li>Item #5uejSBDV IOSDAOUKJEPIDSVNA ou;jrkbvfcxjk</li>
                   </ul> */}
                   <div style={{padding:"30px"}}>
-                   <h3 className='car pt-5 mt-3 ' style={{width: '100%'}} >
+                   <h3 className='car pt-5 mt-3' style={{width: '100%'}} >
                    Build a country that is conducive for job and wealth creation through technology and innovation.                   
                   
                 </h3>  
@@ -101,7 +103,7 @@ function AboutUs() {
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '250px', height:'80px', position: 'absolute',top: '-10px', left: '15px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h1 >Our Missions</h1></div>
-                <div className='slanted-contents1 card pe-0  m-1   ' style={{width: '480px', color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+                <div className='slanted-contents1 card pe-0  m-1 quickCard  ' style={{width: '480px', color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
                
                   {/* <ul className='car p-5 ' style={{width: '100%'}}>
                     <li>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
@@ -124,7 +126,7 @@ function AboutUs() {
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '250px', height:'80px', position: 'absolute',top: '-10px', left: '15px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h2 >Our Values</h2></div>
-                <div className='slanted-contents1 card pe-0  m-1   ' style={{width: '480px', color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+                <div className='slanted-contents1 card pe-0  m-1 quickCard  ' style={{width: '480px', color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
                
                   {/* <ul className='car p-5 ' style={{width: '100%'}}>
                     <li>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
@@ -154,8 +156,8 @@ function AboutUs() {
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '280px', height:'80px', position: 'absolute',top: '-7px', left: '15px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h2 >policy/Strategy</h2></div>
-                <div className='slanted-contents1 card pe-0 m-1   ' style={{width: '480px', color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
-               \
+                <div className='slanted-contents1 card pe-0 m-1 quickCard  ' style={{width: '480px', color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+               
                   {/* <ul className='car p-5 ' style={{width: '100%'}}>
                     <li>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
                     <li>jjdsLJv jdsv jdsnxj kldsjkvxsurjkasdv xc odsbxjkdsibvjskd</li>
@@ -176,8 +178,8 @@ function AboutUs() {
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '370px', height:'80px', position: 'absolute',top: '-7px', left: '15px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h3 >Mandate and Responsibility</h3></div>
-                <div className='slanted-contents1 card pe-0  m-1   ' style={{width: '480px', color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
-               \
+                <div className='slanted-contents1 card pe-0  m-1 quickCard  ' style={{width: '480px', color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+               
                   {/* <ul className='car p-5 ' style={{width: '100%'}}>
                     <li>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
                     <li>jjdsLJv jdsv jdsnxj kldsjkvxsurjkasdv xc odsbxjkdsibvjskd</li>
@@ -198,8 +200,8 @@ function AboutUs() {
             <div className='mb-5'>
               <div style={{position: 'relative'}} >
                 <div className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'  style={{width: '300px', height:'80px', position: 'absolute',top: '-7px', left: '20px', zIndex: '5',  transform: 'rotate(-15deg)', borderRadius: '20px'}}><h2 >Organization Set UP</h2></div>
-                <div className='slanted-contents1 card pe-0  m-1   ' style={{width: '480px',height:"550px", color: 'white', borderRadius: '40px', backgroundColor: '#11676d'}}  >
-               \
+                <div className='slanted-contents1 card pe-0  m-1  quickCard ' style={{width: '480px',height:"550px", color: 'black', borderRadius: '40px', backgroundColor: '#11676d'}}  >
+               
                   {/* <ul className='car p-5 ' style={{width: '100%'}}>
                     <li>gchvkjcks dio vhsujkvdbn cyifejvsd cklojvdbskjxcl njj vdn   cklojvdbskjxcl njj vdn</li>
                     <li>jjdsLJv jdsv jdsnxj kldsjkvxsurjkasdv xc odsbxjkdsibvjskd</li>
@@ -220,7 +222,7 @@ function AboutUs() {
         </section>
         <br/><br/><br/><br/>
         
-        <div className='container  card pe-0 card-body'style={{width:"1000px", height:"725px",fontSize:"25px",color: 'white', borderRadius: '40px bold', backgroundColor: '#11676d',marginBottom:"135px",borderRadius:"50px"}} >
+        <div className='container  card pe-0 card-body quickCard'style={{width:"1000px", height:"725px",fontSize:"25px",color: 'black', borderRadius: '40px bold', backgroundColor: '#11676d',marginBottom:"135px",borderRadius:"50px"}} >
         <div className='btn btn-warning  d-flex align-items-center justify-content-center'  style={{width: '300px', height:'80px', position: 'absolute',top: '-12px',bottom:'20px', left: '350px', borderRadius: '20px',marginTop:"18px"}}><h1>About MInT</h1></div>
 
         <div style={{padding:"20px"}}>

@@ -83,8 +83,8 @@ const NationalCalls = (props) => {
                 Guidelines on how to fill the application: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].guideline}</span>
               </p>
           </div>
-          <a href='/auth/register' style={{ backgroundColor: "gray", color:"white", marginLeft:"900px"}}
-           className="btn ">
+          <a href='/auth/register' style={{ backgroundColor: "gray", color:"white"}}
+           className="btn apply-now-btn">
               APPLY NOW
             </a>
           </div>

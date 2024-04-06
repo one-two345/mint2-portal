@@ -102,6 +102,7 @@ const News = () => {
               <div className="d-flex px-4 my-2">
                 <Link
                   to='/viewNews'
+                  style={{color: "#fff"}}
                   state={{id:newsItem._id}}
                   className="btn btn-primary px-3"
                 >
@@ -114,7 +115,7 @@ const News = () => {
       </div>
       <div className="text-right mt-3">
         <Link
-          style={{ marginBottom: '30px' }}
+          style={{ marginBottom: '30px', color: "#fff" }}
           to="/viewNews"
           className="btn btn-primary"
         >

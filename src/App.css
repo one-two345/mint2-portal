@@ -536,3 +536,21 @@ video {
 
 
 /*achievement and awards card*/
+
+
+
+
+/* Announcemnet pages  */
+.apply-now-btn {
+  margin-top: 10px; 
+  display: flex;
+  align-self: flex-end; 
+}
+
+@media only screen and (max-width: 768px) {
+  .apply-now-btn {
+    margin-top: 10px;
+  }
+}
+
+

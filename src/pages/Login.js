@@ -155,7 +155,10 @@ const Login = () => {
         document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        console.log("Logged out");
+        const temporary = document.cookie;
+        if(temporary != ""){
+          window.location.reload(false);
+        }
       }
       logout();
       console.log("Cookie after loading: " + document.cookie);

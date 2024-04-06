@@ -211,9 +211,9 @@ const UploadReport = ({email}) => {
     let formData = new FormData();
     formData.append('file', file);
     console.log(file);
-
+    let message = "";
     axios.post('https://research-portal-server-9.onrender.com/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
-    .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
+    .then((res)=>{console.log(res); message = "Report Submitted Successfully!"; toast.success(message)})
     .catch(err=>console.log(err))
 
     }
@@ -227,9 +227,9 @@ const UploadReport = ({email}) => {
     let formData = new FormData();
     formData.append('file', file);
     console.log(file);
-
+    let message = "";
     axios.post('https://research-portal-server-9.onrender.com/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
-    .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
+    .then((res)=>{console.log(res); message = "File Submitted Successfully!"; toast.success(message)})
     .catch(err=>console.log(err))
 
     }
@@ -334,6 +334,7 @@ const UploadReport = ({email}) => {
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             {loaded && displayDashboard()}
+            <ToastContainer/>
         </div>
     </div> : <Logout/>
   );
