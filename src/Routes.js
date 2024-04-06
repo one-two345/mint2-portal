@@ -251,6 +251,8 @@ const ConditionalFooter = () => {
   if (path.startsWith('/admin') || 
       path.startsWith('/admin2') || 
       path.startsWith('/admin3') || 
+      path.startsWith('/auth/register')||
+      path.startsWith('login')||
       path.startsWith('/user')) {
     return null;
   }
