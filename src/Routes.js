@@ -56,7 +56,7 @@ const ConditionalNavbar = () => {
  
   if (
   path.startsWith('/login') ||
-  path.startsWith('/register') ||
+  path.startsWith('/auth/register') ||
   path.startsWith('/admin') || 
   path.startsWith('/admin2') || 
   path.startsWith('/admin3') ||
