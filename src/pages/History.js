@@ -211,7 +211,7 @@ const History = () => {
                         .replace(/\//g, "\\")
                         .split("public\\")
                         .join("")}`}
-                      className="card-img-top rounded-top quickCard"
+                      className="card-img-top rounded-top"
                       alt={`Accepted Project ${index + 1}`}
                       style={{
                         width: "100%",
