@@ -36,9 +36,9 @@ import UserHeader from './components/UserComponents/UserHeader';
 import UserDashboard from './pages/user/UserDashboard';
 import ConfirmAppointment from './pages/user/ConfirmAppointment';
 import CheckStatus from './pages/user/CheckStatus';
-
-import AdminRoutes from './AdminRoutes.js';
-import UserRoutes from './userRoutes.js';
+import UploadReport from './pages/user/UploadReport';
+import FeedbackReport from './pages/user/FeedbackReport';
+import SetProjectStatus from './pages/user/SetProjectStatus';
 
 /////
 
@@ -65,15 +65,12 @@ import PostNews from './pages/admin3/PostNews.js'
 
 import ViewFile from './pages/admin/ViewFile.js';
 import ViewFeedback from "./pages/admin/ViewFeedback.js"
-import ViewNews from './pages/ViewNews.js';
-import ProtectAdmin from './ProtectAdmin.js';
 import ViewReports from './pages/admin/ViewReports.js';
 
 // import Header1 from './components/Layout/Navbar/Navbar1.js'
 // import Header2 from './components/Layout/Navbar/Navbar2.js'
 // import Header3 from './components/Layout/Navbar/Navbar3.js'
-import UserHeader from './components/Layout/Navbar/UserHeader.js';
-import Footer from './pages/Footer.js';
+
 import Sider from  './components/Layout/Sidebar.js'
 import {ThemedLayout} from './components/Layout/ThemdLayout.js'
 import Admin2 from './pages/admin2/Admin2.js';
@@ -85,23 +82,9 @@ import SubmitReport from './pages/admin2/SubmitReport.js';
 import Admin3 from './pages/admin3/Admin3.js';
 
 ///////////////
-import { BrowserRouter as Router, Route, Routes, useNavigate, Outlet } from 'react-router-dom';
-
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import { Add,Chat as ChatIcon, Description, Update, Event, Info, Announcement, CheckCircle, AccountBalance, Group } from '@mui/icons-material';
-
-import Footer from './pages/Footer.js';
-import Sider from  './components/Layout/Sidebar.js'
-import {ThemedLayout} from './components/Layout/ThemdLayout.js'
 
 //user components
 
-import UserDashboard from './pages/user/UserDashboard.js';
-import ConfirmAppointment from './pages/user/ConfirmAppointment';
-import CheckStatus from './pages/user/CheckStatus';
-import UploadReport from './pages/user/UploadReport';
-import FeedbackReport from './pages/user/FeedbackReport';
-import SetProjectStatus from './pages/user/SetProjectStatus';
 ///
 
    
