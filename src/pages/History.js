@@ -4,7 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa"; // Importing the search icon
 import Logo from "../images/Logo.jpg";
-import { Button } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
+import "../App.css"
 
 axios.defaults.withCredentials = true;
 
@@ -94,52 +95,104 @@ const History = () => {
   //   window.location.href = `/achivment/${id}`;
   // };
   return (
-    <div className="d-flex flex-column align-items-center mt-3 ml-5 mr-5" style={{ minHeight: '100vh' }}>
-      
-      <div className=" row mt-5 " style={{backgroundColor:"#e4e8f0",borderRadius:"15px" }}>
-        <div className="col" style={{display:"flex",flexDirection:"column",textAlign:'center',marginTop: "30px", alignItems:"center",height:"70vh" }}>
-          <h1 className="roll-in-left" style={{fontSize:"50px",textAlign:"center"}}>Our History</h1>
-          <p style={{textAlign:"justify"}}> Embarking on a journey of digital transformation, the Ethiopian Ministry of Innovation and Technology (MinT) has
-              witnessed a remarkable evolution from its establishment in 1975 to the present day. 
-         <br /><br />
+    <div className="d-flex flex-column align-items-center mt-3 ml-5 mr-5" >
+      <div className="container">
+        <div className="row mt-5 quickCard" style={{ borderRadius: "15px" }}>
+          <div className="col-md-6" style={{ display: "flex", flexDirection: "column", textAlign: 'center', marginTop: "30px", alignItems: "center"}}>
+            <h1 className="roll-in-left" style={{ fontSize: "50px", textAlign: "center" }}>Our History</h1>
+            <p style={{ textAlign: "justify", color: "black" }}>Embarking on a journey of digital transformation, the Ethiopian Ministry of Innovation and Technology (MinT) has
+                witnessed a remarkable evolution from its establishment in 1975 to the present day.
+           <br /><br />
               The introduction of groundbreaking government initiatives marked a turning point, propelling the nation towards widespread
-              adoption of information and communication technologies (ICT). With each passing year, the MinT's unwavering commitment to 
+              adoption of information and communication technologies (ICT). With each passing year, the MinT's unwavering commitment to
               innovation has paved the way for a brighter digital future, empowering Ethiopia to thrive in the digital age.</p>
-          <p className="btn" style={{marginTop: "20px", fontSize: "20px"}}>
-            <a style={{textDecoration:"none",borderRadius:"5px"}} href="#">
-              Discover our past achievements
-            </a>
-          </p>
+            <p className="btn" style={{ marginTop: "20px", fontSize: "20px" }}>
+              {/* <Link className="quick-links">
+                Discover our past achievements
+              </Link> */}
+            </p>
+          </div>
+          <div className="col-md-6">
+            <div style={{ width: "100%", margin: "auto", marginTop: "20px", borderRadius: "15px", overflow: "hidden" }}>
+              <Carousel style={{ borderRadius: "15px" }}>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/424860358_744840527836695_776117035628600907_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fPU0XNPvd6UAb5dTbQ8&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfCv88_MT9O3eXgVu1ivI0XNLVIvjbgV7ynkAI_kaivuBw&oe=6616F12E"
+                    alt="First slide"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <Carousel.Caption>
+                    <p style={{ color: "white" }}>Prime Minister Abiy Ahmed (Dr.)'s main thoughts on "Ethiopian Start Up National Status"</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://pbs.twimg.com/media/GJnWGrcXMAAcKsp?format=jpg&name=large"
+                    alt="Second slide"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <Carousel.Caption>
+                    <p style={{ color: "white" }}>Dr. Belete Mola, who made an opening speech on the current review of Digital Ethiopia 2025 strategy</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/417698878_723209679999780_3421765219837723358_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ft0zqShTbvwAb7Hy8Bg&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfCJyIWH6TEvpF4O87v2-N2uF8IUxiEIuTTzt3-LlNyQxA&oe=661722CF"
+                    alt="Third slide"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <Carousel.Caption>
+                    <p style={{ color: "white" }}>Collaboration between Ministry of innovation and technology and GIZ</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/420496916_744908874496527_4673134507655620982_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=e6DLUM0uXzEAb4SE51K&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfAz89F1RGD0SolD_gDrZ73sFXNYTkxuBS6CEO0llt9IIA&oe=6616FAEE"
+                    alt="Fourth slide"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <Carousel.Caption>
+                    <p style={{ color: "white" }}>Ethiopia is working to be part of the 2028 unmanned landing mission on the moon by the foreigners</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/419327315_736973695290045_7878015930729396104_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2WbI2Um5ndsAb6D1Y-E&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfA7bCMt7U3aZ9CtAzEjrE4tRQP74a2OWJMRCh1G6Tr2ng&oe=6616FF25"
+                    alt="Fifth slide"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <Carousel.Caption>
+                    <p style={{ color: "white" }}>Ethio Robo Robotics Education and Competition Center in collaboration with the Ministry of Innovation and Technology.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
+            </div>
+          </div>
         </div>
-        <div className="col">
-          <img
-            style={{ width: "100%", height: "100%" }}
-            alt="history"
-            src="https://pbs.twimg.com/media/GJnWGrcXMAAcKsp?format=jpg&name=large"
-          ></img>
+  
+        <div className="my-5">
+          <h2 className="font-weight-bold text-center">Time line of Events</h2>
+        </div>
+  
+        <div className="card_history card mb-5 m-1" style={{ maxWidth: "65rem", margin: "0 auto", height: "30rem" }}>
+          <div className="d-flex justify-content-center align-items-center h-100">
+            <img
+              className="kenburns-top"
+              src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/434727280_740806204906794_5669519378009709643_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rMEqPCkE84wAX9p0vSg&_nc_ht=scontent.fadd2-1.fna&oh=00_AfCPdV29evCi7C6KQXaOhO_XroETHLFqiPRMH48qzHKz8A&oe=6612F4BE"
+              style={{ width: "100%", height: "100%" }}
+              alt="Event"
+            />
+          </div>
         </div>
       </div>
-
-      <div className="my-5">
-        <h2 className="font-weight-bold text-center">Time line of Events</h2>
-      </div>
-
-      <div
-        className="card_history card mb-5 m-1"
-        style={{ width: "65rem", height: "30rem" }}
-      >
-        <div className="d-flex justify-content-center align-items-center h-100">
-          {/* <img src={Logo} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} /> */}
-          <img
-            className="kenburns-top"
-            src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/434727280_740806204906794_5669519378009709643_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rMEqPCkE84wAX9p0vSg&_nc_ht=scontent.fadd2-1.fna&oh=00_AfCPdV29evCi7C6KQXaOhO_XroETHLFqiPRMH48qzHKz8A&oe=6612F4BE"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-      </div>
-
+  
       <h1 className="m-5" id="5">
-        Researches and Innovations
+        Explore Our Recent Researches and Innovations
       </h1>
       <div className="container mb-5">
         <div className="row">
@@ -150,51 +203,46 @@ const History = () => {
                 id={`col${index + 1}`}
               >
                 <div className="card-body text-center">
-                <a
+                  <a
                     href={`/achivment/${project._id}`}
-                    // onClick={() => handleDownload(project.filePath, getFileNameFromPath(project.filePath))}
-                
-                   
                   >
-                  <img
-                    src={`${project.imagePath
-                      .replace(/\//g, "\\")
-                      .split("public\\")
-                      .join("")}`}
-                    className="card-img-top rounded-top"
-                    alt={`Accepted Project ${index + 1}`}
-                    style={{
-                      width: "100%",
-                      height: "200px",
-                      objectFit: "cover",
-                    }} // Adjust image size here
-                  />
-                  <h5 className="card-title">{project.title}</h5>
-                  <h6 className="card-Investigator my-2">
-                    <b>Principal Investigator</b>: {project.p_investigator}
-                  </h6>
-                  <p className="card-text">
-                    {project.description.substring(0, 20)}...
-                  </p>
-                  <h6 className="card-Investigator my-2">
-                    <b>Funding Source(s):</b> {project.funding_source}
-                  </h6>
-                  <h6 className="card-Investigator my-2">
-                    <b>Author:</b> {project.author}
-                  </h6>
-                  Here, instead of linking directly to a file download, you can
-                  open a modal or handle file download as per your requirements
-                 
-                   <p     
-                   className="d-block mx-auto"
-                   style={{
-                    textDecoration: "none",
-                    color: "white",
-                    backgroundColor: "black",
-                    alignSelf: "center",
-                    borderRadius: "5px",
-                  }}
-                   >Explore</p> 
+                    <img
+                      src={`${project.imagePath
+                        .replace(/\//g, "\\")
+                        .split("public\\")
+                        .join("")}`}
+                      className="card-img-top rounded-top"
+                      alt={`Accepted Project ${index + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "200px",
+                        objectFit: "cover",
+                      }} // Adjust image size here
+                    />
+                    <h5 className="card-title" >{project.title}</h5>
+                    <h6 className="card-Investigator my-2" style={{color: "black"}}>
+                      <b>Principal Investigator</b>: {project.p_investigator}
+                    </h6>
+                    <p style={{color: "black"}} className="card-text">
+                      {project.description.substring(0, 20)}...
+                    </p>
+                    <h6 style={{color: "black"}} className="card-Investigator my-2">
+                      <b>Funding Source(s):</b> {project.funding_source}
+                    </h6>
+                    <h6 style={{color: "black"}} className="card-Investigator my-2">
+                      <b>Author:</b> {project.author}
+                    </h6>
+                    <p     
+                      className="d-block mx-auto"
+                      style={{
+                        color: "white",
+                        backgroundColor: "black",
+                        alignSelf: "center",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Explore
+                    </p> 
                   </a>
                 </div>
               </div>
@@ -204,6 +252,7 @@ const History = () => {
       </div>
     </div>
   );
+  
 };
 
 export default History;
