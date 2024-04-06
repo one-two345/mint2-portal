@@ -151,12 +151,14 @@ const Login = () => {
   useEffect(
     function(){
       function logout(){
+        console.log("Cookie when page loaded: " + document.cookie);
         document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         console.log("Logged out");
       }
       logout();
+      console.log("Cookie after loading: " + document.cookie);
     }
 
     ,[])
@@ -243,9 +245,11 @@ const Login = () => {
           }}
           className="btn btn-primary"
           onClick={function(){
+            console.log("Cookie before logout: " + document.cookie);
             document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            console.log("Cookie after logout: " + document.cookie);
             history('/');
           }}
         >
