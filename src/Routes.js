@@ -93,11 +93,10 @@ const ConditionalFooter = () => {
 }
 
 const RoutesComponent = () => {
-  const { user } = useAuthContext();
-  console.log(user);
+ 
 
   const path = window.location.pathname;
-  const isAdminRoute = path.startsWith('/admin') || path.startsWith('/admin2') || path.startsWith('/admin3');
+  const isAdminRoute = path.startsWith('/admin') || path.startsWith('/admin2') || path.startsWith('/admin3') || path.startsWith('/user');
   const isUserRoute = path.startsWith('/user');
 
   return (
@@ -135,7 +134,7 @@ const RoutesComponent = () => {
       <UserRoutes />
       <AdminRoutes />
 
-       <ConditionalFooter />
+       { !isAdminRoute && <Footer />}
     </Router>
   );
 }
