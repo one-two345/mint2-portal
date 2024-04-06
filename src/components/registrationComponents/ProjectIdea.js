@@ -82,7 +82,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     console.log('FormData:', formData);
     
     try {
-      const response = await axios.put(
+      const response = await axios.get(
         "https://research-portal-server-9.onrender.com/auth/submitProject",
         formData
       );
@@ -99,6 +99,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
       console.error("Error occurred during project submission: ", error);
     }
   };
+ 
 
   return (
     <div className="container mt-3" style={{width:"60%", marginBottom: "30px"}}>
