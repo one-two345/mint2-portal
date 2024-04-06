@@ -131,7 +131,7 @@
 
 // export default Login;
 import React, { useState } from 'react';
-import Logo from '../images/Logo.jpg';
+import Logo from '../images/login.png';
 import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -240,13 +240,13 @@ const Login = () => {
         </Link>
       </div>
       <div className="row justify-content-between align-items-center">
-        <div className="col-md-4 text-center">
+        <div className="col-md-6 text-center">
           <Link to= '/'>
           <img
             src={Logo}
             alt="Logo"
             className="img-fluid"
-            style={{ maxHeight: '200px' }}
+            style={{ height: '400px', width:'800px', marginBottom:"80px" }}
           />
           </Link>
         </div>
