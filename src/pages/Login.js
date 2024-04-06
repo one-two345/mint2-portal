@@ -234,8 +234,7 @@ const Login = () => {
   return (
     <div className="container mt-5">
       <div className="text-right mt-3">
-        <Link
-          to="/"
+        <button
           style={{
             marginBottom: '20px',
             backgroundColor: '#11676d',
@@ -243,9 +242,15 @@ const Login = () => {
             fontSize: '20px',
           }}
           className="btn btn-primary"
+          onClick={function(){
+            document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            history('/');
+          }}
         >
           Back to Home
-        </Link>
+        </button>
       </div>
       <div className="row justify-content-between align-items-center">
         <div className="col-md-6 text-center">
