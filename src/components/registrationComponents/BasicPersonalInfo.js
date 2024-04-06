@@ -102,7 +102,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
         <Link
           style={{
             marginBottom: "20px",
-            backgroundColor: "linear-gradient(to right, #eed61f, #dbb21e)", 
+            backgroundColor: "linear-gradient(to right, #ded61f, #dbb21e)", 
             border: "none",
             fontSize: "20px",
           }}
