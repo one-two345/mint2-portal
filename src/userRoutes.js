@@ -60,7 +60,7 @@ return(
                     
                             <ThemedLayout
                                 Header={() =><UserHeader/>}
-                                Footer = {()=> <Footer/>}
+                                // Footer = {()=> <Footer/>}
                                 Sider={() =><Sider   sidebarItems= {userSidebarItems} />}
                               
                             >

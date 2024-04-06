@@ -248,9 +248,7 @@ const ConditionalNavbar = () => {
 const ConditionalFooter = () => {
   const path = window.location.pathname;
 
-  if (path.startsWith('/admin') || 
-      path.startsWith('/admin2') || 
-      path.startsWith('/admin3') || 
+  if (path.startsWith('/admin') ||       
       path.startsWith('/user')||
       path.startsWith('/login') ||
       path.startsWith('/auth/register')) {
