@@ -68,18 +68,19 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     formData.append("email", email);
     formData.append("institute", institute);
     if (cvFile) {
+      console.log('cvFile:', cvFile);
       formData.append("cvFile", cvFile);
-      console.log(cvFile);
     }
     if (proposalFile) {
+      console.log('proposalFile:', proposalFile);
       formData.append("proposalFile", proposalFile);
-      console.log(proposalFile);
     }
     if (letter) {
+      console.log('letter:', letter);
       formData.append("letter", letter);
-      console.log(letter);
     }
-    console.log(formData);
+    console.log('FormData:', formData);
+    
     try {
       const response = await axios.put(
         "https://research-portal-server-9.onrender.com/auth/submitProject",
