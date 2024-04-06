@@ -18,7 +18,7 @@ export const Title = ({collapsed, role }) => {
                    
                 ) : (<>
                  <img src={logo} alt="Afroel" width="90px" height= '64px' />
-                 <span style={{marginLeft:'5px', fontSize: '14px', fontWeight: '700',  color: '#ffffff', }}>Ministry of Innovation & Technology</span>
+                 <span style={{marginLeft:'5px', fontSize: '14px', fontWeight: '700',  color: '#ffffff', }}>{role}</span>
                 </>
                    
                 )}
