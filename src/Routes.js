@@ -100,7 +100,7 @@ const RoutesComponent = () => {
     const path = window.location.pathname;
     const isAdmin = path.startsWith('/admin') || path.startsWith('/user');
     setIsAdminRoute(isAdmin);
-  }, []);
+  }, [isAdmin]);
   
 
   return (
