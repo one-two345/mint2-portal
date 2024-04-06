@@ -41,9 +41,6 @@ import AdminRoutes from './AdminRoutes.js';
 import UserRoutes from './userRoutes.js';
 
 /////
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes, useNavigate, Outlet } from 'react-router-dom';
-
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { Add,Chat as ChatIcon, Description, Update, Event, Info, Announcement, CheckCircle, AccountBalance, Group } from '@mui/icons-material';
