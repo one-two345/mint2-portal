@@ -93,11 +93,15 @@ const ConditionalFooter = () => {
 }
 
 const RoutesComponent = () => {
- 
+   
+  const [isAdminRoute, setIsAdminRoute] = useState(false);
 
-  const path = window.location.pathname;
-  const isAdminRoute = path.startsWith('/admin') || path.startsWith('/admin2') || path.startsWith('/admin3') || path.startsWith('/user');
-  const isUserRoute = path.startsWith('/user');
+  useEffect(() => {
+    const path = window.location.pathname;
+    const isAdmin = path.startsWith('/admin') || path.startsWith('/user');
+    setIsAdminRoute(isAdmin);
+  }, []);
+  
 
   return (
     <Router>
