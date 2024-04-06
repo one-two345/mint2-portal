@@ -32,7 +32,7 @@ import StartApplication from './pages/StartApplication.js';
 import ViewNews from './pages/ViewNews.js';
 import ProtectAdmin from './ProtectAdmin.js';
 //user page 
-import UserHeader from './components/UserComponents/UserHeader';
+import UserHeader from './components/Layout/Navbar/UserHeader';
 import UserDashboard from './pages/user/UserDashboard';
 import ConfirmAppointment from './pages/user/ConfirmAppointment';
 import CheckStatus from './pages/user/CheckStatus';
@@ -410,7 +410,7 @@ const RoutesComponent = () => {
         </Routes> 
 
 
-       { !isAdminRoute && <Footer />}
+        <ConditionalFooter/>
     </Router>
   );
 }
