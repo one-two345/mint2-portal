@@ -104,7 +104,7 @@ const News = () => {
                   to='/viewNews'
                   style={{color: "#fff"}}
                   state={{id:newsItem._id}}
-                  className="btn btn-warning px-3"
+                  className="btn btn-primary px-3"
                 >
                   Read More
                 </Link>
@@ -117,7 +117,7 @@ const News = () => {
         <Link
           style={{ marginBottom: '30px', color: "#fff" }}
           to="/viewNews"
-          className="btn btn-warning"
+          className="btn btn-primary"
         >
           View More
         </Link>

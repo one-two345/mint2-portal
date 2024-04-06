@@ -61,14 +61,14 @@ const News = () => {
                 </div>                
                 <h5 className="card-title fw-bold fs-3">{newsItem.title}</h5>
                 <p className="card-text text-muted">{newsItem.content}</p>
-                <Link to={`/news/${index}`} className="btn btn-warning">Read More</Link>
+                <Link to={`/news/${index}`} className="btn btn-primary">Read More</Link>
               </div>
             </div>
           </div>
         ))}
       </div>
       <div className="text-right mt-3">
-        <Link style={{marginBottom: "30px"}} to="/view-more" className="btn btn-warning">View More</Link>
+        <Link style={{marginBottom: "30px"}} to="/view-more" className="btn btn-primary">View More</Link>
       </div>
     </div>
   );
