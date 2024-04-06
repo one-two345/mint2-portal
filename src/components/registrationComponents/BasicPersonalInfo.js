@@ -102,12 +102,13 @@ const BasicPersonalInfo = ({ nextStep}) => {
         <Link
           style={{
             marginBottom: "20px",
-            backgroundColor: "linear-gradient(to right, #ded61f, #dbb21e)", 
+            background: "linear-gradient(to right, black, #ccc)", 
             border: "none",
             fontSize: "20px",
+            color: "#fff"
           }}
           to="/"
-          className="btn btn-primary"
+          className="btn "
         >
           Back to Home
         </Link>
