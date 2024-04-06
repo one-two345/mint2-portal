@@ -311,7 +311,7 @@ const RoutesComponent = () => {
                     
                             <ThemedLayout
                                 Header={() =><UserHeader/>}
-                                Footer = {()=> <Footer/>}
+                                // Footer = {()=> <Footer/>}
                                 Sider={() =><Sider   sidebarItems= {userSidebarItems} />}
                               
                             >
@@ -337,7 +337,7 @@ const RoutesComponent = () => {
                       
                               <ThemedLayout
                                   Header={() =><UserHeader />}
-                                  Footer = {()=> <Footer/>}
+                                  // Footer = {()=> <Footer/>}
                                   Sider={() =><Sider   sidebarItems= {adminSidebarItems} />}
                                 
                               >
@@ -361,7 +361,7 @@ const RoutesComponent = () => {
             <Route path='/admin2' element= {
                   <ThemedLayout
                   Header={() =><UserHeader />}
-                  Footer = {()=> <Footer/>}
+                  // Footer = {()=> <Footer/>}
                   
                   Sider={() => <Sider    sidebarItems = { admin2SidebarItems} />}
                 >
@@ -382,7 +382,7 @@ const RoutesComponent = () => {
             <Route path='/admin3' element= {
                   <ThemedLayout
                   Header={() =><UserHeader />}
-                  Footer = {()=> <Footer/>}
+                  // Footer = {()=> <Footer/>}
                   
                   Sider={() => <Sider    sidebarItems = { admin3SidebarItems} />}
                 >
