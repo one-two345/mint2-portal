@@ -91,9 +91,9 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     
     try {
 
-      const response = await axios.put(
+      const response = await axios.post(
         "https://research-portal-server-9.onrender.com/auth/submitProject",
-        formData, config
+        formData
       );
       console.log(response);
       console.log(formData)
