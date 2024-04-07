@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import FileBase from 'react-file-base64';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
@@ -11,9 +12,9 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
   const [newTeamMember, setNewTeamMember] = useState('');
   const [projectCategory, setProjectCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [cvFile, setCvFile] = useState(null);
-  const [proposalFile, setProposalFile] = useState(null);
-  const [letter, setLetter] = useState(null);
+  const [cvFile, setCvFile] = useState('');
+  const [proposalFile, setProposalFile] = useState('');
+  const [letter, setLetter] = useState('');
   const [email, setEmail] = useState("");
   const [institute, setInstitute] = useState("")
 
@@ -259,27 +260,36 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
               />
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="cvFile" className="form-label" style={{fontSize: "25px"}}>
-                CV (PDF)*
-              </label>
-              <input
-              style={{fontSize: "22px"}}
-                type="file"
-                accept="application/pdf"
-                className="form-control"
-                id="cvFile"
-                name="cvFile"
-                onChange={handleCVFileChange}
-                required
+          <div className="mb-3">
+            
+            <label htmlFor="cvFile" className="form-label" style={{fontSize: "25px"}}>
+              CV (PDF)*
+            </label>
+            {/* <input
+            style={{fontSize: "22px"}}
+              type="file"
+              accept="application/pdf"
+              className="form-control"
+              id="cvFile"
+              name="cvFile"
+              onChange={handleCVFileChange}
+              required
+            /> */}
+            <FileBase className="form-control"           
+                      name="description"
+                      value={cvFile}                    
+                      required 
+                      type="file" 
+                      multiple={false} 
+                      onDone={({ base64 }) => setCvFile( base64 )} 
               />
-            </div>
+          </div>
 
             <div className="mb-3">
               <label htmlFor="proposalFile" className="form-label" style={{fontSize: "25px"}}>
                 Concept Note (PDF)*
               </label>
-              <input
+              {/* <input
               style={{fontSize: "22px"}}
                 type="file"
                 accept="application/pdf"
@@ -288,14 +298,23 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 name="proposalFile"
                 onChange={handleProposalFileChange}
                 required
+              /> */}
+               <FileBase className="form-control"           
+                      name="description"
+                      value={proposalFile}                    
+                      required 
+                      type="file" 
+                      multiple={false} 
+                      onDone={({ base64 }) => setProposalFile( base64 )} 
               />
+          
             </div>
 
             <div className="mb-3">
               <label htmlFor="letter" className="form-label" style={{fontSize: "25px"}}>
                 Letter from Host Institutions*
               </label>
-              <input
+              {/* <input
               style={{fontSize: "22px"}}
                 type="file"
                 accept="application/pdf"
@@ -304,6 +323,14 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 name="letter"
                 onChange={handleLetterFileChange}
                 required
+              /> */}
+                <FileBase className="form-control"           
+                      name="description"
+                      value={letter}                    
+                      required 
+                      type="file" 
+                      multiple={false} 
+                      onDone={({ base64 }) => setLetter( base64 )} 
               />
             </div>
 
