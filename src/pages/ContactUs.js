@@ -32,7 +32,7 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5001/footer/add-footer',
+        'https://research-portal-server-9.onrender.com/footer/add-footer',
         data
       );
       console.log(response.data);
@@ -114,7 +114,6 @@ const ContactUs = () => {
                 type="text"
                 id="fullName"
                 name="fullName"
-                required
                 placeholder="Full name"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -127,7 +126,6 @@ const ContactUs = () => {
                 type="email"
                 id="email"
                 name="email"
-                required
                 placeholder="Enter Your Email"
                 value={formData.email}
                 onChange={handleChange}
