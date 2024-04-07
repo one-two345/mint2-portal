@@ -5,7 +5,7 @@ import axios from 'axios';
 import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Sidebar from './Sidebar.js';
-import {toast, ToastuContainer} from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 
 function UpdateUserStatus() {
   let i = 1;

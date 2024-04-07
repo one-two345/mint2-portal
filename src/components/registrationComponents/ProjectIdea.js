@@ -13,8 +13,11 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
   const [projectCategory, setProjectCategory] = useState("");
   const [description, setDescription] = useState("");
   const [cvFile, setCvFile] = useState('');
+  console.log(cvFile)
   const [proposalFile, setProposalFile] = useState('');
+  console(proposalFile)
   const [letter, setLetter] = useState('');
+  console.log(letter)
   const [email, setEmail] = useState("");
   const [institute, setInstitute] = useState("")
 
@@ -97,6 +100,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
         formData
       );
       console.log(response);
+      console.log(cvFile)
       console.log(formData)
       if (response.data === 'titlepresent') {
         toast.error('This project is already taken or done, please choose another topic.');
@@ -275,10 +279,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
               onChange={handleCVFileChange}
               required
             /> */}
-            <FileBase className="form-control"           
-                      name="description"
-                      value={cvFile}                    
-                      required 
+            <FileBase
                       type="file" 
                       multiple={false} 
                       onDone={({ base64 }) => setCvFile( base64 )} 
@@ -299,10 +300,8 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 onChange={handleProposalFileChange}
                 required
               /> */}
-               <FileBase className="form-control"           
-                      name="description"
-                      value={proposalFile}                    
-                      required 
+               <FileBase           
+                      
                       type="file" 
                       multiple={false} 
                       onDone={({ base64 }) => setProposalFile( base64 )} 
@@ -324,10 +323,8 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 onChange={handleLetterFileChange}
                 required
               /> */}
-                <FileBase className="form-control"           
-                      name="description"
-                      value={letter}                    
-                      required 
+                <FileBase        
+                      
                       type="file" 
                       multiple={false} 
                       onDone={({ base64 }) => setLetter( base64 )} 
