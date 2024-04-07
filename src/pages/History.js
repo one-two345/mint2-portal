@@ -183,7 +183,7 @@ const History = () => {
           <div className="d-flex justify-content-center align-items-center h-100">
             <img
               className="kenburns-top"
-              src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/434727280_740806204906794_5669519378009709643_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rMEqPCkE84wAX9p0vSg&_nc_ht=scontent.fadd2-1.fna&oh=00_AfCPdV29evCi7C6KQXaOhO_XroETHLFqiPRMH48qzHKz8A&oe=6612F4BE"
+              src="https://scontent-ams4-1.xx.fbcdn.net/v/t39.30808-6/434710449_740806234906791_6697716713902025575_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=xR9kkxBlzl4Ab7rSLfP&_nc_ht=scontent-ams4-1.xx&oh=00_AfDhfMSEC-TOwBLab9kyDOIzr8J6KDpVt5vNt-8rKYRJSA&oe=6618F06D"
               style={{ width: "100%", height: "100%" }}
               alt="Event"
             />

@@ -10,6 +10,7 @@ const Achivments = () => {
     
     axios.post('https://research-portal-server-9.onrender.com/history/homehistory', { id })
       .then(response => {
+        
         setAchievement(response.data.data);
         console.log(response.data.data)
       })
