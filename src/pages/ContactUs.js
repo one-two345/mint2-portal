@@ -32,11 +32,12 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5001/footer/add-footer',
+        'https://research-portal-server-9.onrender.com/footer/add-footer',
         data
       );
       console.log(response.data);
       toast.info('footer form submitted successfully!');
+      window.location.reload();
     } catch (error) {
       console.error('Error:', error.message);
       toast.error('An error occurred while submitting footer form.');
@@ -114,7 +115,6 @@ const ContactUs = () => {
                 type="text"
                 id="fullName"
                 name="fullName"
-                required
                 placeholder="Full name"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -127,7 +127,6 @@ const ContactUs = () => {
                 type="email"
                 id="email"
                 name="email"
-                required
                 placeholder="Enter Your Email"
                 value={formData.email}
                 onChange={handleChange}
