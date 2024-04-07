@@ -15,7 +15,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
   const [cvFile, setCvFile] = useState('');
   console.log(cvFile)
   const [proposalFile, setProposalFile] = useState('');
-  console(proposalFile)
+
   const [letter, setLetter] = useState('');
   console.log(letter)
   const [email, setEmail] = useState("");
@@ -279,7 +279,10 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
               onChange={handleCVFileChange}
               required
             /> */}
-            <FileBase
+            <FileBase className="form-control"           
+                      name="description"
+                      value={cvFile}                    
+                      required 
                       type="file" 
                       multiple={false} 
                       onDone={({ base64 }) => setCvFile( base64 )} 
@@ -300,8 +303,10 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 onChange={handleProposalFileChange}
                 required
               /> */}
-               <FileBase           
-                      
+               <FileBase className="form-control"           
+                      name="description"
+                      value={proposalFile}                    
+                      required 
                       type="file" 
                       multiple={false} 
                       onDone={({ base64 }) => setProposalFile( base64 )} 
@@ -323,7 +328,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 onChange={handleLetterFileChange}
                 required
               /> */}
-                <FileBase        
+                <FileBase className="form-control"           
                       
                       type="file" 
                       multiple={false} 
