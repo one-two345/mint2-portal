@@ -37,6 +37,7 @@ const ContactUs = () => {
       );
       console.log(response.data);
       toast.info('footer form submitted successfully!');
+      window.location.reload();
     } catch (error) {
       console.error('Error:', error.message);
       toast.error('An error occurred while submitting footer form.');
