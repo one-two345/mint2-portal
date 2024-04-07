@@ -17,8 +17,16 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
   const [email, setEmail] = useState("");
   const [institute, setInstitute] = useState("")
 
-  const MAX_FILE_SIZE = 3 * 1024 * 1024; // 3MB in bytes
 
+  const MAX_FILE_SIZE = 3 * 1024 * 1024; // 3MB in bytes
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    }
+  };
+  
+ 
   const handleCVFileChange = (e) => {
     const file = e.target.files[0];
     if (file && file.size <= MAX_FILE_SIZE) {
@@ -82,9 +90,10 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     console.log('FormData:', formData);
     
     try {
+
       const response = await axios.put(
         "https://research-portal-server-9.onrender.com/auth/submitProject",
-        formData
+        formData, config
       );
       console.log(response);
       console.log(formData)
