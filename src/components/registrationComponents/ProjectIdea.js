@@ -82,11 +82,12 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
     console.log('FormData:', formData);
     
     try {
-      const response = await axios.get(
+      const response = await axios.put(
         "https://research-portal-server-9.onrender.com/auth/submitProject",
         formData
       );
       console.log(response);
+      console.log(formData)
       if (response.data === 'titlepresent') {
         toast.error('This project is already taken or done, please choose another topic.');
         setTimeout(() => {
