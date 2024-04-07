@@ -102,7 +102,7 @@ function PostHistory() {
       const response =  axios.post('https://research-portal-server-9.onrender.com/admin/history/add-history', data);
        console.log(response.data);
       alert('Do you want to submit')
-      toast.info('News submitted successfully!');
+      toast.info('History submitted successfully!');
       // await  window.location.reload()
     } catch (errors) {
       console.error('Error:', errors.message);
@@ -122,7 +122,7 @@ function PostHistory() {
             </div>
           <div class="col-xs-12 col-md-2"></div>
           <div class="col-xs-12 col-md-7 mb-5"> */}
-            <form method="POST" action="/admin/accepted-projects/add-accepted-project" onSubmit={handleSubmit} encType='multipart/form-data' >
+            <form method="POST" action="/admin/history/add-history" onSubmit={handleSubmit} encType='multipart/form-data' >
                 <br/> <br/>
                 <h1>Post History</h1>
                 <div class="form-group ">
