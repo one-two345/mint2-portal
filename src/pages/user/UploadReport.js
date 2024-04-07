@@ -156,7 +156,7 @@
 // }
 // export default UploadReport;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Logout from '../../components/Logout';
@@ -164,6 +164,7 @@ import { useAuthContext } from '../../AuthContext';
 
 const UploadReport = ({email}) => {
   
+  const formRef = useRef(null);
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const [file, setFile] = useState();
@@ -229,9 +230,10 @@ const UploadReport = ({email}) => {
     console.log(file);
     let message = "";
     axios.post('https://research-portal-server-9.onrender.com/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
-    .then((res)=>{console.log(res); message = "File Submitted Successfully!"; toast.success(message)})
+    .then((res)=>{console.log(res); message = "File Submitted Successfully!"; 
+    toast.success(message);
+    formRef.current.reset();})
     .catch(err=>console.log(err))
-
     }
   }
   function displayDashboard(){
