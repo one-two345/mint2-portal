@@ -115,13 +115,13 @@ function PostHistory() {
     document.cookie ?
     <div className="">
      
-      <div className='container mt-5'>       
+      {/* <div className='container mt-5'>       
           <div class="row">
             <div className="col-xs-12 col-md-3 my-5 post-links-container" >
             <Sidebar/>
             </div>
           <div class="col-xs-12 col-md-2"></div>
-          <div class="col-xs-12 col-md-7 mb-5">
+          <div class="col-xs-12 col-md-7 mb-5"> */}
             <form method="POST" action="/admin/accepted-projects/add-accepted-project" onSubmit={handleSubmit} encType='multipart/form-data' >
                 <br/> <br/>
                 <h1>Post History</h1>
@@ -235,10 +235,10 @@ function PostHistory() {
             <DropzoneImage className='py-5 mt-10 border border-neutral-200'/>            
             <p>Upload Files</p>
             <DropzoneText className='py-5 mt-10 border border-neutral-200'/> */}
-          </div>
+          {/* </div>
       </div>
       
-    </div>
+    </div> */}
     
   </div> : <Logout/>
    
