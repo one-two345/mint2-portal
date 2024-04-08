@@ -317,7 +317,7 @@ if (cookies) {
 // ,[]);
   useEffect(
     function(){
-      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
+      axios.get(`https://research-portal-server-9.onrender.com/admin/userStatus/${email}`)
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
