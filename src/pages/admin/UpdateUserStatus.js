@@ -89,9 +89,9 @@ function generateRow(project){
         <td>{project.projectTitle}</td>
         <td><h6 style={{height:"100px",overflowY:"scroll"}}>{project.description}</h6></td>
         <td>{numToStatus(project.status)}</td>
-        <td><Link to={'/admin/viewFile'} state={{filePath: project.proposalPath}} >View Concept Note</Link>
+        <td><Link to={'/admin2/viewFile'} state={{filePath: project.proposalPath}} >View Concept Note</Link>
         <br /> {console.log(`proposla path: ${project.proposalPath}`)}
-        <Link to={'/admin/viewFile'} state = {{filePath: project.cvPath}} >View CV</Link></td>
+        <Link to={'/admin2/viewFile'} state = {{filePath: project.cvPath}} >View CV</Link></td>
         <td style={{overflowY:"scroll"}}>{organizeFeedback(project._id, project.status)}</td>
         <td>
               <button name={project._id + "-" + project.status} onClick={
@@ -116,7 +116,7 @@ function generateRow(project){
         <td>{project.projectTitle}</td>
         <td><h6 style={{height:"100px",overflowY:"scroll"}}>{project.description}</h6></td>
         <td>{numToStatus(project.status)}</td>
-        {project.proposalPath2 !== " " ? (<td><Link to={'/admin/viewFile'} state={{filePath: project.proposalPath2}}>View Proposal</Link></td>) : (<td>Not Submitted Yet</td>)}
+        {project.proposalPath2 !== " " ? (<td><Link to={'/admin2/viewFile'} state={{filePath: project.proposalPath2}}>View Proposal</Link></td>) : (<td>Not Submitted Yet</td>)}
         <td style={{overflowY:"scroll"}}>{organizeFeedback(project._id, project.status)}</td>
         <td>
           <div  style={{display: 'flex', flexDirection: 'column', alignItems: 'strech'}}>
@@ -141,7 +141,7 @@ function generateRow(project){
       fileLink = (<td>Not Submitted Yet</td>)
     }
     else{
-      fileLink = (<td><Link to={'/admin/viewFile'} state={{filePath: project.presentationPath}}>View Presentation File</Link></td>);
+      fileLink = (<td><Link to={'/admin2/viewFile'} state={{filePath: project.presentationPath}}>View Presentation File</Link></td>);
     }
     return (
         <tr>
@@ -172,7 +172,7 @@ function generateRow(project){
       fileLink = (<td>Not Submitted Yet</td>)
     }
     else{
-      fileLink = (<td><Link to={'/admin/viewFile'} state={{filePath: project.proposalPath3}}>View Final Proposal</Link></td>);
+      fileLink = (<td><Link to={'/admin2/viewFile'} state={{filePath: project.proposalPath3}}>View Final Proposal</Link></td>);
     }
     return (
         <tr>
