@@ -18,7 +18,7 @@ function ViewFile(){
               height={800}
         />
         </div>
-    );8
+    );
     }
     catch(err){
         return(
