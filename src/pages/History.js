@@ -166,7 +166,7 @@ const History = () => {
                     alt="Fifth slide"
                     style={{ width: "100%", height: "auto" }}
                   />
-                  <Carousel.Caption>
+                  <Carousel.Caption>  
                     <p style={{ color: "white" }}>Ethio Robo Robotics Education and Competition Center in collaboration with the Ministry of Innovation and Technology.</p>
                   </Carousel.Caption>
                 </Carousel.Item>
