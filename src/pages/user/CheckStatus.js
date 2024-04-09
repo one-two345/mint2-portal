@@ -343,6 +343,7 @@ if (cookies) {
                       </tr>
                     </thead>
                       {getStatus(projects[j].status, projects[j])}
+                      <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer}</h4>
                   </table>
           </div>
       );
