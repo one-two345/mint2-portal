@@ -408,7 +408,7 @@ function generateRow(project){
             className='btn btn-primary' style={{display:buttonsDisplay(project.status), marginBottom:"10px"}}>Accept</button>
           <button name={project._id + "-" + project.status} onClick={
             function(e){
-            updateStatus(e.target.name.split('-')[0], parseInt(e.target.name.split('-')[1])-1)}} 
+            updateStatus(e.target.name.split('-')[0], 0)}} 
             className='btn btn-danger' style={{display:buttonsDisplay(project.status)}}>Reject</button>
       </div>
       </td>
@@ -503,7 +503,7 @@ function generateRow(project){
             className='btn btn-primary' style={{display:buttonsDisplay(project.status), marginBottom:"10px"}}>Accep</button>
           <button name={project._id + "-" + project.status} onClick={
             function(e){
-            updateStatus(e.target.name.split('-')[0], parseInt(e.target.name.split('-')[1])-1)}} 
+            updateStatus(e.target.name.split('-')[0], 0)}} 
             className='btn btn-danger' style={{display:buttonsDisplay(project.status)}}>Reject</button>
       </div>
     </td>
