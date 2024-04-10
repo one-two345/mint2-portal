@@ -215,7 +215,7 @@ const UploadReport = ({email}) => {
     let message = "";
     axios.post('https://research-portal-server-9.onrender.com/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
     .then((res)=>{console.log(res); message = "Report Submitted Successfully!"; toast.success(message)})
-    .catch(err=>console.log(err))
+    .catch(err=>{console.log(err); message = "There was an error"; toast.error(message)})
 
     }
   }
@@ -336,8 +336,8 @@ const UploadReport = ({email}) => {
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             {loaded && displayDashboard()}
-            <ToastContainer/>
         </div>
+        <ToastContainer/>
     </div> : <Logout/>
   );
 }

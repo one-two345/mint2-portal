@@ -206,6 +206,7 @@ import '../../images/assets/css/admin.css';
 import { Modal } from 'react-bootstrap';
 import { useAuthContext } from '../../AuthContext.js';
 import Logout from '../../components/Logout.js';
+import {toast, ToastContainer} from 'react-toastify';
 
 function ProjectFeedback() {
   let i = 1;
@@ -390,7 +391,7 @@ async function updateStatus(id, newStatus, title){
   //console.log(title);
   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
  await axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
-  .then(result=>console.log(result))
+  .then(result=>{console.log(result); toast.success("Feedback Uploaded")})
   .catch(err=>console.log(err));
   window.location.reload(false);
 }
@@ -444,6 +445,7 @@ function buttonsDisplay(num){
                 </tbody>  
               </table>
               </TableContainer>
+              <ToastContainer/>
           </div>: <Logout/>
   
   )
