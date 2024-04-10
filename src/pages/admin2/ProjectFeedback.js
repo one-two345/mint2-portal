@@ -390,8 +390,9 @@ async function updateStatus(id, newStatus, title){
   const feedback2 = document.getElementById(id+'-quality').value;
   //console.log(title);
   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
+  let message = "";
  await axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
-  .then(result=>{console.log(result); toast.success("Feedback Uploaded")})
+  .then(result=>{console.log(result); message = "Feedback Uploaded"; console.log(message); toast.success(message);})
   .catch(err=>console.log(err));
   window.location.reload(false);
 }
