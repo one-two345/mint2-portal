@@ -343,7 +343,7 @@ if (cookies) {
                       </tr>
                     </thead>
                       {getStatus(projects[j].status, projects[j])}
-                      <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer}</h4>
+                      <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer===undefined ? "MinT Research Sector Members": projects[j].currentReviewer}</h4>
                   </table>
           </div>
       );
