@@ -353,6 +353,7 @@ if (cookies) {
   return tableData;
 }
 function getStatus(status, project){
+  console.log(project.currentReviewer);
   if(status === 0){
     if(project.proposalPath3 === " "){
       if(project.presentationPath === " "){
