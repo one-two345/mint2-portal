@@ -21,7 +21,7 @@ function Admin() {
     else{
       navigate('/login'); 
     }
-  },[]);
+  });
 
   // useEffect(() => {
   //   axios.defaults.withCredentials = true;
