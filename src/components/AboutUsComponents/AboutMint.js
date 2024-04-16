@@ -2,8 +2,8 @@ import React from 'react';
 
 const AboutMint = () => {
   return (
-    <div className="container card pe-0 card-body quickCard " style={{ width: "90%", height: "725px", fontSize: "25px", background: '#72aead', color: 'black', borderRadius: '40px bold', backgroundColor: 'lightgray', marginBottom: "135px", borderRadius: "50px" }}>
-      <div className="btn btn-warning d-flex align-items-center justify-content-center" style={{ width: '100%', maxWidth: '300px', height: '80px', position: 'absolute', top: '-12px', bottom: '20px', background: 'white', left: '50%', transform: 'translateX(-50%)', borderRadius: '20px', marginTop: "18px" }}><h1>About MInT</h1></div>
+    <div className="container card pe-0 card-body quickCard " style={{ width: "90%", height: "725px", fontSize: "25px", background: '#72aead', color: 'black', borderRadius: '40px bold', backgroundColor: 'lightgray', marginBottom: "20px", borderRadius: "50px" }}>
+      <div className="btn btn-warning d-flex align-items-center justify-content-center" style={{ width: '100%', maxWidth: '300px', height: '80px', position: 'absolute', top: '-12px', bottom: '20px', background: 'gray', left: '50%', transform: 'translateX(-50%)', borderRadius: '20px', marginTop: "18px" }}><h1>About MInT</h1></div>
 
       <div style={{ padding: "20px" }}>
         <h4 className="pt-5 m-2">• MINT in Brief</h4>

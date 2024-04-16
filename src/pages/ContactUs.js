@@ -57,7 +57,7 @@ const ContactUs = () => {
           alignItems: 'center',
         }}
       >
-        <h1 style={{ color: 'orange' }}>Contact Information</h1>
+        <h1 style={{ color: 'gray' }}>Contact Information</h1>
         <div
           style={{
             display: 'flex',
@@ -147,7 +147,7 @@ const ContactUs = () => {
             </div>
             <button
               style={{
-                backgroundColor: '#ff8e2c',
+                backgroundColor: '#16676d',
                 color: '#ffffff',
                 padding: '12px 25px',
                 borderRadius: '30px',
@@ -157,10 +157,10 @@ const ContactUs = () => {
               }}
               type="submit"
               onMouseOver={(e) =>
-                (e.target.style.backgroundColor = '#16676d')
+                (e.target.style.backgroundColor = 'lightblue')
               }
               onMouseOut={(e) =>
-                (e.target.style.backgroundColor = '#ff8e2c')
+                (e.target.style.backgroundColor = '#16676d')
               }
             >
               Send Message

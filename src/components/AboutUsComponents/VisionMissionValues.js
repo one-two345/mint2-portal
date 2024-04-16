@@ -4,7 +4,7 @@ function VisionMissionValues() {
   return (
     <div style={{ width: '100%'}}>
         <h1 className='text-center'>Who We Are</h1>
-      <br/><br/><br/><br/> <section>
+      <br/><br/><br/> <section>
     <div className='d-flex flex-wrap align-items-strech justify-content-evenly mx-5'>
      
       <div className='mb-5'>
