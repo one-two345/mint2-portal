@@ -11,9 +11,10 @@ function Admin() {
   useEffect(function(){
     if(document.cookie){
       if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
-        
+        console.log("Admin");
       }
       else{
+        console.log("Not Admin")
         navigate('/login');
       }
     }
