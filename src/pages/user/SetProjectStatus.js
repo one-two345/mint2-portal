@@ -3,11 +3,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Logout from '../../components/Logout';
 import { useAuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const SetProjectStatus = ({email}) => {
   
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
+  const navigate = useNavigate();
+
   //const {isAuthenticated, login} = useAuthContext()
   let email1;
   const cookies = document.cookie;

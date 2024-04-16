@@ -8,6 +8,7 @@ import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
+import { useNavigate } from 'react-router-dom';
 
 
 axios.defaults.withCredentials=true;
@@ -16,6 +17,8 @@ function ViewReports() {
     const [reports, setReports] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(null)
+
+    const navigate = useNavigate();
     useEffect(function(){
         if(document.cookie){
             if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){

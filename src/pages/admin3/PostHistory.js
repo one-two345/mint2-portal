@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import '../../images/assets/css/admin.css'
@@ -7,7 +7,18 @@ import axios from 'axios';
 import Logout from '../../components/Logout.js';
 import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
+import { useNavigate } from 'react-router-dom';
 
+
+// Rest of your code...
+
+// Example usage of the useEffect hook
+// useEffect(() => {
+//   // Your effect logic here
+//   // This code will run when the component mounts and may perform side effects
+// }, []);
+
+// Rest of your code...
 
 axios.defaults.withCredentials=true;
 
@@ -26,6 +37,7 @@ function PostHistory() {
       
     });
 
+    const navigate = useNavigate();
     const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
     const [imagePreview, setImagePreview] = useState(defaultImageURL);
 

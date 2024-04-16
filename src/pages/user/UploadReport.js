@@ -161,9 +161,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Logout from '../../components/Logout';
 import { useAuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const UploadReport = ({email}) => {
-  
+  const navigate = useNavigate();
   const formRef = useRef(null);
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);

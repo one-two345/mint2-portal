@@ -9,6 +9,7 @@ import '../../images/assets/css/admin.css';
 import Dropzone from '../../components/AdminComponents/Dropzone';
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
+import { useNavigate } from 'react-router-dom';
 
 
 axios.defaults.withCredentials=true;
@@ -27,6 +28,8 @@ function Post_News() {
     imagePath: ''
 
   });
+
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   // useEffect (() => {const checkAuthentication = async () => {
   //   try {

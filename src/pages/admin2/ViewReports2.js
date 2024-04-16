@@ -11,6 +11,9 @@ import '../../images/assets/css/admin.css';
 import { useLocation } from 'react-router-dom';
 import Logout from '../../components/Logout.js';
 import { useAuthContext } from '../../AuthContext.js';
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 axios.defaults.withCredentials=true;
@@ -20,7 +23,8 @@ function ViewReports2() {
     const [reports, setReports] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [SidebarVisibility, setSiderVisibility] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(null)
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const navigate = useNavigate();
     
     useEffect(function(){
         if(document.cookie){

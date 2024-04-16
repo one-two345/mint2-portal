@@ -7,6 +7,7 @@ import Logout from '../../components/Logout.js';
 import axios from 'axios';
 import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
+import { useNavigate } from 'react-router-dom';
 
 
 axios.defaults.withCredentials=true;
@@ -26,6 +27,7 @@ function PostAcceptedProjects() {
       
     });
 
+    const navigate = useNavigate();
     const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
     const [imagePreview, setImagePreview] = useState(defaultImageURL);
     const [isAuthenticated, setIsAuthenticated] = useState(null)

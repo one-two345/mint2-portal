@@ -196,7 +196,7 @@
 
 // export default ProjectFeedback
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../images/assets/css/admin.css';
 import axios from 'axios';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
@@ -208,12 +208,15 @@ import { useAuthContext } from '../../AuthContext.js';
 import Logout from '../../components/Logout.js';
 import {toast, ToastContainer} from 'react-toastify';
 
+
+
 function ProjectFeedback() {
   let i = 1;
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const location = useLocation();
- 
+  const navigate = useNavigate();
+  
   let email;
   const cookies = document.cookie;
 if (cookies) {

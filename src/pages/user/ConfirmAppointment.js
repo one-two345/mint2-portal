@@ -6,11 +6,13 @@ import axios from 'axios';
 import Logout from '../../components/Logout';
 import AppointmnetImg from '../../images/user/appoint.png';
 import { useAuthContext } from '../../AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 
 const ConfirmAppointment = () => {
   let email;
   const cookies = document.cookie;
+  const navigate = useNavigate();
+
   if (cookies) {
     console.log(cookies)
       const emailCookie = cookies.split(';')[0];

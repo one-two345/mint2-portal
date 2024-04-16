@@ -53,11 +53,13 @@ import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
+import { useNavigate } from 'react-router-dom';
 
 const ViewFeedback = () => {
   const [feedbackData, setFeedbackData] = useState([]);
   const location = useLocation();
 
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   useEffect(() => {
     if(document.cookie){

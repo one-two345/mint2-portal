@@ -205,6 +205,7 @@ import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Logout from '../../components/Logout.js';
 import Sidebar from './Sidebar.js';
+import { useNavigate } from 'react-router-dom';
 
 function UpdateUserStatus() {
   let i = 1;
@@ -214,6 +215,7 @@ function UpdateUserStatus() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   const location = useLocation();
   
+  const navigate = useNavigate();
   useEffect(
     function(){
       if(document.cookie){

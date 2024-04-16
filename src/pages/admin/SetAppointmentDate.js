@@ -129,6 +129,7 @@ import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
 import TableContainer from '@mui/material/TableContainer';
+import { useNavigate } from 'react-router-dom';
 
 
 function SetAppointmentDate() {
@@ -136,6 +137,7 @@ function SetAppointmentDate() {
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   useEffect(

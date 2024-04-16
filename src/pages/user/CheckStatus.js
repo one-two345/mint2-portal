@@ -253,6 +253,7 @@ import React, { useState, useEffect } from 'react';
 import Logout from '../../components/Logout';
 import axios from 'axios';
 import { useAuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const CheckStatus = () => {
   // const [statusData, setStatusData] = useState([]);
@@ -268,6 +269,7 @@ const CheckStatus = () => {
     
   //   setStatusData(fetchedStatusData);
   // }, []);
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   let email;

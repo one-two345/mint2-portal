@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import TableContainer from '@mui/material/TableContainer';
 import Sidebar from './Sidebar.js';
@@ -15,6 +15,8 @@ const SubmitReport = () => {
   const[loaded, setLoaded] = useState(false);
   const[file, setFile] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   const [SidebarVisibility, setSiderVisibility] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(null)

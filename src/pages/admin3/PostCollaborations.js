@@ -20,6 +20,7 @@ function PostCollaborations() {
 
   });
 
+  const navigate = useNavigate();
   const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
   const [imagePreview, setImagePreview] = useState(defaultImageURL);
   const [isAuthenticated, setIsAuthenticated] = useState(null)

@@ -27,6 +27,7 @@ function AddAdmin() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(null);
 
+    const navigate = useNavigate();
     useEffect(function(){
       if(document.cookie){
         if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){

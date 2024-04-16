@@ -6,12 +6,15 @@ import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Sidebar from './Sidebar.js';
 import {ToastContainer, toast} from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function UpdateUserStatus() {
   let i = 1;
   const [projects, setProjects] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
   const[loaded, setLoaded] = useState(false);
+
+  const navigate = useNavigate();
   useEffect(
     function(){
       if(document.cookie){
