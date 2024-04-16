@@ -17,15 +17,14 @@
 
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
+.navbar-nav .nav-link:hover {
+  background-color: #72aead !important;
   color: white !important;
   border-radius: 10px;
 }
- 
+
 .navbar-nav .nav-link.active {
-  background-color: gray;
+  background-color: lightgray !important;
   color: white !important;
   border-radius: 10px;
 }
@@ -39,7 +38,7 @@
 
 /* Style the Resources dropdown link */
 .nav-item.dropdown:hover .nav-link {
-  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
+  background: #72aead !important;
   color: white !important;
 }
 
@@ -58,7 +57,7 @@
 
 /* Style the dropdown items on hover */
 .nav-item.dropdown .dropdown-item:hover {
-  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
+  background: #72aead !important;
   color: #ffffff;
 }
 
@@ -94,7 +93,7 @@ body {
 
 .aboutBtn{
   background-color: white;
-  color: orange;
+  color: gray;
   border-color: black;
   border-width: 3px;
 }
@@ -337,7 +336,7 @@ video {
 }
 
 .quickCard {
-  background: linear-gradient(to right, #ffffff, #e8d3a5); 
+  background: linear-gradient(to right, #ffffff, lightgray); 
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -349,7 +348,7 @@ video {
 /* Register home page  */
 
 .btn-link:hover{
-  background: linear-gradient(to right, #ded61f, #dbb21e);
+  background: lightgray;
   }
 
 
