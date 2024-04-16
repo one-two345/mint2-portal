@@ -7,7 +7,20 @@ import Logout from '../../components/Logout.js';
 function Admin() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  useEffect(function(){
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
+  },[]);
 
   // useEffect(() => {
   //   axios.defaults.withCredentials = true;

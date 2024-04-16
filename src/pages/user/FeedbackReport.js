@@ -104,6 +104,17 @@ const FeedbackReport = () => {
   
   useEffect(
     function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
       axios.post('https://research-portal-server-9.onrender.com/report/find', {email})
       .then((result)=>{console.log(result.data); setReports(result.data);})
       .catch(err=>console.log(err))

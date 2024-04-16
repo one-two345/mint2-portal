@@ -39,6 +39,17 @@ const ConfirmAppointment = () => {
   
   useEffect(
     function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
       axios.get('https://research-portal-server-9.onrender.com/admin/appointment/load-'+email)
       .then((result)=>{
         setAppoint(result.data);

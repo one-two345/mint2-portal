@@ -28,6 +28,21 @@ function PostHistory() {
 
     const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
     const [imagePreview, setImagePreview] = useState(defaultImageURL);
+
+    useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+    }
+      ,[]);
     
     const handleFileSelect = (event) => {
       const selectedFile = event.target.files[0];

@@ -49,7 +49,22 @@ function PostAcceptedProjects() {
     // // Example usage
     //  checkAuthentication();
     // }, [])
-    
+
+    useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+    }
+      ,[])
+
     const handleFileSelect = (event) => {
       const selectedFile = event.target.files[0];
   
