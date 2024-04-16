@@ -25,7 +25,21 @@ function AddAdmin() {
     const [address, SetAddress] = useState("");
     const [adminType, setAdminType] = useState("");
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(null)
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+    useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+    },[]);
     
     // useEffect(
     //   function(){

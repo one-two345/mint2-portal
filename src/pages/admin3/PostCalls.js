@@ -21,7 +21,7 @@ function PostCalls() {
   const [guideline, setGuideline] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   
-  const navigate=useNavigate()
+  const navigate=useNavigate();
   // useEffect (() => {const checkAuthentication = async () => {
   //   try {
   //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
@@ -42,6 +42,20 @@ function PostCalls() {
   //  checkAuthentication();
   // }, [])
  
+  useEffect(function(){
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
+  }
+    ,[]);
 
   const [formData, setFormData] = useState({
     title: '',

@@ -60,6 +60,17 @@ const ViewFeedback = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   useEffect(() => {
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
     const fetchData = async () => {
       try {
         const response = await axios.get('https://research-portal-server-9.onrender.com/footer');

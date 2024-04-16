@@ -317,6 +317,17 @@ if (cookies) {
 // ,[]);
   useEffect(
     function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
       .then((result)=>{
         setProjects(result.data);

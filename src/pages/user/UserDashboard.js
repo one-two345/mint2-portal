@@ -149,6 +149,21 @@ const UserDashboard = () => {
   //const {isAuthenticated, login} = useAuthContext()
   //console.log(email);
 
+  useEffect(
+    function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+    },[]);
+
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };

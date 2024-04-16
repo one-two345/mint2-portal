@@ -77,6 +77,21 @@ function Post_News() {
   //   }
   // };
 
+  useEffect(function(){
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
+  }
+    ,[]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({

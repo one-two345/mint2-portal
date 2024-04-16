@@ -11,7 +11,22 @@ function Admin2() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+  useEffect(function(){
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin2"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
+  }
+    ,[]);
   // const {email} = location.state;
   // console.log(email);
 

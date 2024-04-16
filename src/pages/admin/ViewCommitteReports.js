@@ -18,6 +18,17 @@ function ViewCommitteeReports() {
     const [isAuthenticated, setIsAuthenticated] = useState(null)
 
     useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
         axios.get('https://research-portal-server-9.onrender.com/admin2Reports/getAll')
         .then((result)=>{setReports(result.data); console.log(result)})
         .catch(err=>console.log(err))
