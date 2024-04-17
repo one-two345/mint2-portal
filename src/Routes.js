@@ -286,8 +286,7 @@ const RoutesComponent = () => {
 
 
 
-        <Route path='/forget' element={<ForgetPassowed/>}/>
-        <Route path="/reset/:id/:token"  element={<RestPassowrd/>}/>
+
         
         
         
@@ -299,6 +298,10 @@ const RoutesComponent = () => {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path='/forget' element={<ForgetPassowed/>}/>
+        <Route path="/reset/:id/:token"  element={<RestPassowrd/>}/>
+        
         <Route path="/auth/register" element={<Register />} />
         <Route path='/viewNews' element={<ViewNews/>}></Route>
         <Route path='/resources/publications/description' element={<ProjectDescription/>}/>
