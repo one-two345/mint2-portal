@@ -5,6 +5,8 @@ import Logo from '../images/Logo.jpg';
 import { AiTwotoneHome } from "react-icons/ai";
 import axios from 'axios';
 import "../App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullhorn} from '@fortawesome/free-solid-svg-icons';
 // import Announcements from '../pages/Announcements';
 
 const Navbar = () => {
@@ -90,7 +92,12 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
         <div className="navbar-nav mx-auto" style={{marginTop:"50px"}}>
              <a className={`nav-link d-flex align-items-center ${window.location.pathname === '/' ? 'active' : ''}`} href="/" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}> <AiTwotoneHome style={{marginRight:"7px"}}/>Home</a>
-             <a className={`nav-link ${window.location.pathname === '/announcements' ? 'active' : ''}`} href="/announcements" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}>Announcements</a>
+             <a className={`nav-link ${window.location.pathname === '/announcements' ? 'active' : ''}`} href="/announcements" onClick={closeMenu} style={{marginRight: '10px', color: 'gray'}}> 
+             <span className="blink-container" >
+             <FontAwesomeIcon icon={faBullhorn} style={{marginRight:"5px"}} className="blink-icon"/>
+             <span className="blink-text">Announcements</span>
+             </span>
+             </a>
         <div className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
       <a
       className={`nav-link dropdown-toggle`}
