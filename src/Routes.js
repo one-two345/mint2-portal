@@ -80,7 +80,8 @@ import SubmitReport from './pages/admin2/SubmitReport.js';
 
 
 import Admin3 from './pages/admin3/Admin3.js';
-
+import ForgetPassowed from './components/ForgetPassword.js';
+import RestPassowrd from './components/ResetPassword.js';
 ///////////////
 
 //user components
@@ -283,7 +284,14 @@ const RoutesComponent = () => {
         <Route path='/resources/history' element={<History/>}/>
         <Route path='/achivment/:id' element={<Achivments/>}/>
 
-        <Route path='/footer' element={<FooterForm/>}/>
+
+
+        <Route path='/forget' element={<ForgetPassowed/>}/>
+        <Route path="/reset/:id/:token"  element={<RestPassowrd/>}/>
+        
+        
+        
+        <Route p ath='/footer' element={<FooterForm/>}/>
         <Route path='/resources/publications' element={<Publications/>}/>
         <Route path='/institutes' element={<Institutes />}/>
         <Route path="/collaborations" element={<Collaborations />} />
