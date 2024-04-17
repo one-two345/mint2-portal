@@ -284,7 +284,7 @@ const Login = () => {
           />
     
   </div>
-  <h1 className="mb-3" style={{fontSize: '20px', marginLeft: '114px'}}>Login to your account</h1>
+  <h1 className="mb-3" style={{fontSize: '24px', marginLeft: '114px'}}>Login to your account</h1>
   <form onSubmit={handleLogin} style={{marginLeft: '34px', marginRight: '104px'}}>
     <div className="mb-3">
       <div className="input-group">
@@ -328,7 +328,7 @@ const Login = () => {
     <div className="d-flex justify-content-end">
       <button
         style={{
-          marginBottom: '90px',
+          marginBottom: '10px',
           marginLeft: '5px',
           backgroundColor: 'gray',
           border: 'none',
@@ -340,8 +340,20 @@ const Login = () => {
         Login
       </button>
     </div>
+    <div className="d-flex justify-content-end"  >
+    <button
+        style={{
+          backgroundColor: 'lightgray',
+          border: 'none' ,  
+          fontSize: '16px'     }}
+      
+        className="btn "
+      >
+    <Link to='/forget' style={{ textAlign: 'center', textDecoration: 'none', color: 'black'}}>Forgot Password ?</Link>
+    </button>
+    </div>
+    <br />  
   </form>
-  <Link to='/forget' className='btn btn-primary'>ForgetPassowed</Link>
   <ToastContainer />
 </div>
       </div>
