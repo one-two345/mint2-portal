@@ -38,22 +38,26 @@ const ForgetPassowed = () => {
     <div className="row justify-content-center">
       <div className="col-md-6">
         <form onSubmit={handleSubmit}>
+          <br /> <br />
           <div className="form-group">
             <label>Email to reset your password</label>
+            <br />
             <input
               type="email"
+              placeholder='Please enter the email that was used during your registration'
               className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required= 'true'
             />
           </div>
         <div style={{textAlign:"right"}}>
-        <button type="submit" className="btn btn-primary">
+        <button style={{background: "gray", color: 'white'}} type="submit" className="btn ">
             Send
           </button>
         </div>
         </form>
-        
+        <br /> <br />
       </div>
     </div>
     <ToastContainer/>
