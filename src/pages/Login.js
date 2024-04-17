@@ -341,6 +341,7 @@ const Login = () => {
       </button>
     </div>
   </form>
+  <Link to='/foget' className='btn btn-primary'>- ForgetPassowed</Link>
   <ToastContainer />
 </div>
       </div>
