@@ -327,6 +327,7 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <Link className='btn'  to='/forget'>Forget Password</Link>
           <ToastContainer/>
          
         </div>
