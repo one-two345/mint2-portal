@@ -132,11 +132,15 @@
 // export default Login;
 import React, { useState, useEffect } from 'react';
 import Logo from '../images/login.png';
+import MinT from '../images/Logo.jpg'
 import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import {useAuthContext} from '../AuthContext'
+import PersonIcon from '@mui/icons-material/Person';
+import LockIcon from '@mui/icons-material/Lock';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -237,11 +241,11 @@ const Login = () => {
   
 
   return (
-    <div className="container mt-5">
-      <div className="text-right mt-3">
+    <div className="container ">
+      <div className="text-right">
         <button
           style={{
-            marginBottom: '20px',
+            marginBottom: '0px',
             backgroundColor: '#11676d',
             border: 'none',
             fontSize: '20px',
@@ -266,70 +270,79 @@ const Login = () => {
             src={Logo}
             alt="Logo"
             className="img-fluid"
-            style={{ height: '400px', width:'800px', marginBottom:"80px" }}
+            style={{ height: '400px', width:'100%', marginBottom:"80px" }}
           />
           </Link>
         </div>
         <div className="col-xs-12 col-md-6">
-          <h1 className="mb-4">Log in</h1>
-          <form onSubmit={handleLogin}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="form-control"
-                id="email"
-                value={email}
-                onChange={(e) => {setEmail(e.target.value); 
-                  }}
-              />
-            </div>
-            <div className="mb-3 password-input-container">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <div className="input-group">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Password you entered when you registered"
-                  className="form-control"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <div className="password-toggle-container">
-                  <button
-                    className="btn btn-outline-secondary password-toggle-button"
-                    type="button"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? <VscEyeClosed /> : <VscEye />}
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="d-flex justify-content-end">
-              <button
-                style={{
-                  marginBottom: '90px',
-                  marginLeft: '5px',
-                  backgroundColor: 'orange',
-                  border: 'none',
-                  fontSize: '20px',
-                }}
-                type="submit"
-                className="btn btn-primary"
-              >
-                Login
-              </button>
-            </div>
-          </form>
-          <ToastContainer/>
-         
+  <div className="logo-container">
+  <img
+            src={MinT}
+            alt="Logo"
+            className="img-fluid"
+            style={{ height: '280px', width:'500PX', marginBottom:"0px" }}
+          />
+    
+  </div>
+  <h1 className="mb-3" style={{fontSize: '20px', marginLeft: '114px'}}>Login to your account</h1>
+  <form onSubmit={handleLogin} style={{marginLeft: '34px', marginRight: '104px'}}>
+    <div className="mb-3">
+      <div className="input-group">
+        <div className="icon-container">
+          <PersonIcon style={{marginRight: '10px'}}/>
         </div>
+        <input
+          type="email"
+          placeholder="Enter Your Email"
+          className="form-control"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+    </div>
+    <div className="mb-3 password-input-container">
+      <div className="input-group">
+        <div className="icon-container">
+          <LockIcon style={{marginRight: '10px'}}/>
+        </div>
+        <input
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Password you entered when you registered"
+          className="form-control"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="password-toggle-container">
+          <button
+            className="btn btn-outline-secondary password-toggle-button"
+            type="button"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? <VscEyeClosed /> : <VscEye />}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div className="d-flex justify-content-end">
+      <button
+        style={{
+          marginBottom: '90px',
+          marginLeft: '5px',
+          backgroundColor: 'gray',
+          border: 'none',
+          fontSize: '20px',
+        }}
+        type="submit"
+        className="btn btn-primary"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+  <ToastContainer />
+</div>
       </div>
       
     </div>
