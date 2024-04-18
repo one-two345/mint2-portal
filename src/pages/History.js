@@ -6,6 +6,12 @@ import { FaSearch } from "react-icons/fa"; // Importing the search icon
 import Logo from "../images/Logo.jpg";
 import { Carousel } from "react-bootstrap";
 import "../App.css"
+import china from "../images/China.jpg";
+import Bbb from "../images/BBB.jpg";
+import Startup from '../images/StartUp.jpg';
+import Abey from '../images/Abey.jpg';
+import Abey2 from '../images/Abey2.jpg';
+
 
 axios.defaults.withCredentials = true;
 
@@ -118,7 +124,7 @@ const History = () => {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/424860358_744840527836695_776117035628600907_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=fPU0XNPvd6UAb5dTbQ8&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfCv88_MT9O3eXgVu1ivI0XNLVIvjbgV7ynkAI_kaivuBw&oe=6616F12E"
+                    src= {Abey}
                     alt="First slide"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -140,7 +146,7 @@ const History = () => {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/417698878_723209679999780_3421765219837723358_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ft0zqShTbvwAb7Hy8Bg&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfCJyIWH6TEvpF4O87v2-N2uF8IUxiEIuTTzt3-LlNyQxA&oe=661722CF"
+                    src= {Bbb}
                     alt="Third slide"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -151,7 +157,7 @@ const History = () => {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/420496916_744908874496527_4673134507655620982_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=e6DLUM0uXzEAb4SE51K&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfAz89F1RGD0SolD_gDrZ73sFXNYTkxuBS6CEO0llt9IIA&oe=6616FAEE"
+                    src= {Abey2}
                     alt="Fourth slide"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -162,7 +168,7 @@ const History = () => {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/419327315_736973695290045_7878015930729396104_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2WbI2Um5ndsAb6D1Y-E&_nc_ht=scontent.fadd2-1.fna&cb_e2o_trans=t&oh=00_AfA7bCMt7U3aZ9CtAzEjrE4tRQP74a2OWJMRCh1G6Tr2ng&oe=6616FF25"
+                    src= {china}
                     alt="Fifth slide"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -183,7 +189,7 @@ const History = () => {
           <div className="d-flex justify-content-center align-items-center h-100">
             <img
               className="kenburns-top"
-              src="https://scontent-ams4-1.xx.fbcdn.net/v/t39.30808-6/434710449_740806234906791_6697716713902025575_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=xR9kkxBlzl4Ab7rSLfP&_nc_ht=scontent-ams4-1.xx&oh=00_AfDhfMSEC-TOwBLab9kyDOIzr8J6KDpVt5vNt-8rKYRJSA&oe=6618F06D"
+              src= {Startup}
               style={{ width: "100%", height: "100%" }}
               alt="Event"
             />
