@@ -15,6 +15,7 @@ axios.defaults.withCredentials=true;
 function PostHistory() {
   const[file,setFile]=useState('')
   const [ image,setImage]=useState('')
+  
     const [formData, setFormData] = useState({
       title: '',
       p_investigator: '',
@@ -223,6 +224,7 @@ function PostHistory() {
                 <FileBase
                   type="file"
                   name="image"
+                  multiple={false}
                   className="form-control form-input mb-2"             
                   //onChange={handleFileSelect}
                   onDone={({ base64 }) => setImage( base64 )}
@@ -238,6 +240,7 @@ function PostHistory() {
                   type="file"
                   name="file"
                   value={file}
+                  multiple={false}
                   className="form-control form-input mb-2"             
                   // onChange={handleTextFileSelect}
                   onDone={({ base64 }) => setFile( base64 )} 
