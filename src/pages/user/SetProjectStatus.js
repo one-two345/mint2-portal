@@ -61,7 +61,7 @@ const SetProjectStatus = ({email}) => {
   ,[email1]);
   function submitStatus(id){
     const selectedStatus = parseInt(document.getElementById(id).value);
-    if(loaded && projects[0]){
+    if( projects[0]){
         axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+selectedStatus)
         .then(result=>console.log(result))
         .catch(err=>console.log(err));
@@ -69,7 +69,7 @@ const SetProjectStatus = ({email}) => {
   }
   
   function displayDashboard(){
-    if(loaded && projects[0]){
+    if( projects[0]){
         for (let i = 0; i < projects.length; i++) {
             if(projects[i].status >= 5){
                 return(<div>
@@ -99,7 +99,7 @@ const SetProjectStatus = ({email}) => {
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             <h1>Update Project Status</h1>
-            {loaded && displayDashboard()}
+            { displayDashboard()}
         </div>
     </div> : <Logout/>
   );
