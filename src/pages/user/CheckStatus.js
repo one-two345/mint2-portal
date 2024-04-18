@@ -356,7 +356,7 @@ if (cookies) {
                       </tr>
                     </thead>
                       {getStatus(projects[j].status, projects[j])}
-                      <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer===undefined ? "MinT Research Sector Members": projects[j].currentReviewer}</h4>
+                      {/* <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer===undefined ? "MinT Research Sector Members": projects[j].currentReviewer}</h4> */}
                   </table>
           </div>
       );
@@ -366,7 +366,7 @@ if (cookies) {
   return tableData;
 }
 function getStatus(status, project){
-  console.log(project.currentReviewer);
+  //console.log(project.currentReviewer);
   if(status === 0){
     if(project.proposalPath3 === " "){
       if(project.presentationPath === " "){
