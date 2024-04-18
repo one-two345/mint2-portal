@@ -283,6 +283,7 @@ const RoutesComponent = () => {
         <Route path='/resources/accepted-projects' element={<AcceptedProjects/>}/>
         <Route path='/resources/history' element={<History/>}/>
         <Route path='/achivment/:id' element={<Achivments/>}/>
+        <Route path='/startApplication' element={<StartApplication/>}/>
 
 
 

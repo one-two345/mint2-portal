@@ -13,10 +13,9 @@ function VisionMissionValues() {
             className='btn slanted-text1 d-flex align-items-center justify-content-center'
             style={{
               width: '250px',
-              background: '#72aead',
+              background: 'orange',
               height: '80px',
               position: 'absolute',
-              background: '#72aead',
               top: '-10px',
               left: '15px',
               zIndex: '5',
@@ -52,7 +51,7 @@ function VisionMissionValues() {
             style={{
               width: '250px',
               height: '80px',
-              background: '#72aead',
+              background: 'orange',
               position: 'absolute',
               top: '-10px',
               left: '15px',
@@ -88,7 +87,7 @@ function VisionMissionValues() {
             className='btn btn-warning slanted-text1 d-flex align-items-center justify-content-center'
             style={{
               width: '250px',
-              background: '#72aead',
+              background: 'orange',
               height: '80px',
               position: 'absolute',
               top: '-10px',
@@ -132,7 +131,7 @@ function VisionMissionValues() {
                 style={{
                     width: '280px', 
                     height:'80px', 
-                    background: '#72aead', 
+                    background: 'orange', 
                     position: 'absolute',
                     top: '-7px', 
                     left: '15px', 
@@ -177,7 +176,7 @@ function VisionMissionValues() {
                 style={{
                     width: '370px', 
                     height:'80px', 
-                    background: '#72aead', 
+                    background: 'orange', 
                     position: 'absolute',
                     top: '-7px', 
                     left: '15px', 
@@ -223,7 +222,7 @@ function VisionMissionValues() {
                 style={{
                     width: '300px', 
                     height:'80px', 
-                    background: '#72aead', 
+                    background: 'orange', 
                     position: 'absolute',
                     top: '-7px', 
                     left: '20px', 
