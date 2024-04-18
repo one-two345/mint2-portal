@@ -333,7 +333,7 @@ if (cookies) {
       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
       .then((result)=>{
         setProjects(result.data);
-        //console.log(result);
+        console.log(result.data);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
@@ -618,7 +618,7 @@ else if(status===5){
               <div className="card shadow" style={{ backgroundColor: "#11676d", color: 'white' }}>
                 <div className="card-body">
                   <h5 className="card-title">Check Your Status</h5>
-                  {loaded && displayProjects()}
+                  { displayProjects()}
                   {/* <table className="table table-bordered">
                     <thead>
                       <tr>
