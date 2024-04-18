@@ -15,19 +15,14 @@ axios.defaults.withCredentials=true;
 function PostHistory() {
   const[file,setFile]=useState('')
   const [ image,setImage]=useState('')
-  
-    const [formData, setFormData] = useState({
-      title: '',
-      p_investigator: '',
-      author: '',
-      funding_source: '',
-      description: '',
-      field_of_study: '',
-      date: '',
-      // image: null,
-      // file: null,
-      
-    });
+  const [title,setTitle]=useState('')
+  const[p_investigator,setInvenstigator]=useState('')
+  const[author,setAuthor]=useState('')
+  const[funding_source,setFunding]=useState('')
+  const[description,setDescription]=useState('')
+  const[field_of_study,setStudy]=useState('')
+  const[date,setDate]=useState('')
+   
 
     const navigate = useNavigate();
     const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
@@ -48,71 +43,22 @@ function PostHistory() {
     }
       ,[]);
     
-    const handleFileSelect = (event) => {
-      const selectedFile = event.target.files[0];
-  
-      if (selectedFile) {        
-        
-        setFormData({
-          ...formData,
-          image: selectedFile,
-        });               
-        // Preview the selected image
-        const reader = new FileReader();
-        reader.onload = () => {
-          setImagePreview(reader.result); // Set the image preview URL in state
-        };
-        reader.readAsDataURL(selectedFile); // Read the selected file as a data URL
-      } else {
-        // If no file is selected, revert to default image
-        setImagePreview(defaultImageURL);
-        setFormData({
-          ...formData,
-          image: null,
-        });
-      }
-    };
+   
+      const handleChange = (e) => {
+        setStudy(e.target.value);
+      };
 
-    //text file
-    
-    const handleTextFileSelect = (event) => {
-      
-      const selectedFile = event.target.files[0];       
-      if (selectedFile) {
-        
-        setFormData({
-          ...formData,
-          file: selectedFile,
-        });                              
-      }
-      else {
-       
-        setFormData({
-          ...formData,
-          file: null,
-        });
-      }
-    };
-    //handle change event
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-  //handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData();
-    data.append('title', formData.title);
-    data.append('p_investigator', formData.author);
-    data.append('author', formData.author);
-    data.append('funding_source', formData.funding_source);
-    data.append('description', formData.description);
-    data.append('field_of_study', formData.field_of_study);
-    data.append('date', formData.date);   
+    data.append('title', title);
+    data.append('p_investigator', author);
+    data.append('author', author);
+    data.append('funding_source', funding_source);
+    data.append('description', description);
+    data.append('field_of_study', field_of_study);
+    data.append('date', date);   
     data.append('image', image);
     data.append('file', file);
        
@@ -134,27 +80,21 @@ function PostHistory() {
     document.cookie ?
     <div className="">
      
-      {/* <div className='container mt-5'>       
-          <div class="row">
-            <div className="col-xs-12 col-md-3 my-5 post-links-container" >
-            <Sidebar/>
-            </div>
-          <div class="col-xs-12 col-md-2"></div>
-          <div class="col-xs-12 col-md-7 mb-5"> */}
+     
             <form method="POST" action="/admin/history/add-history" onSubmit={handleSubmit} encType='multipart/form-data' >
                 <br/> <br/>
                 <h1>Post History</h1>
                 <div class="form-group ">
                     <label className='form-label'>Project Title:</label>
-                    <input type="text" name="title" class="form-control " placeholder="Title" onChange={handleChange} required/>                  
+                    <input type="text" name="title" class="form-control "  value={title} placeholder="Title" onChange={e=>{setTitle(e.target.value)}} required/>                  
                 </div>
                 <div class="form-group ">
                     <label className='form-label'>Principal Investigator's Name:</label>
-                    <input type="text" name="p_investigator" class="form-control " placeholder="Name" onChange={handleChange} required/>                  
+                    <input type="text" name="p_investigator" class="form-control " value={p_investigator} placeholder="Name" onChange={e=>{setInvenstigator(e.target.value)}} required/>                  
                 </div>
                 <div class="form-group ">
                     <label className='form-label'>Author:</label>
-                    <input type="text" name="author" class="form-control " placeholder="Author" onChange={handleChange} required/>                  
+                    <input type="text" name="author" class="form-control " value={author} placeholder="Author" onChange={e=>{setAuthor(e.target.value)}} required/>                  
                 </div>
                 <div class="form-group ">
                 <label for="">Funding Sources:</label>
@@ -164,60 +104,61 @@ function PostHistory() {
                     id="ta"
                     cols="63"
                     rows="3"
+                    value={funding_source}
                     placeholder="Funding Sources"
-                    onChange={handleChange}
+                    onChange={e=>{setFunding(e.target.value)}}
                     defaultValue= 'None'                  >
 
                   </textarea>
                 </div>
                 <div class="form-group">
                   <label for="ta">Project Description:</label>
-                  <textarea name="description" class="form-control" id="ta" cols="63" rows="10" placeholder="Description" onChange={handleChange } required></textarea>
+                  <textarea name="description" class="form-control" id="ta" cols="63" value={description} rows="10" placeholder="Description" onChange={e=>{setDescription(e.target.value)}} required></textarea>
                 </div>
                 <div class="form-group">
                   <label className='form-label'>Field of Study:</label>
                   <form >
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="agri" value="Agriculture" onChange={handleChange}   />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"    id="agri" value="Agriculture" onChange={handleChange}   checked={field_of_study === 'Agriculture'}   />                     
                       <label className="form-check-label" htmlFor="agri">Agriculture</label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="envnenergy" value="Industry" onChange={handleChange}   />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="envnenergy" value="Industry" onChange={handleChange}    checked={field_of_study === 'Industry'}  />                     
                       <label className="form-check-label" htmlFor="envnenergy">Industry</label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="health" value="Health"  onChange={handleChange}  />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="health" value="Health"  onChange={handleChange}   checked={field_of_study === 'Health'}/>                     
                       <label className="form-check-label" htmlFor="health">Health</label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="industrial" value="Mines and Water" onChange={handleChange}   />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="industrial" value="Mines and Water" onChange={handleChange}  checked={field_of_study === 'Mines and Water'}   />                     
                       <label className="form-check-label" htmlFor="industrial">Mines and Water</label>
                     </div>                  
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="technology" value="Construction" onChange={handleChange}   />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="technology" value="Construction" onChange={handleChange}     checked={field_of_study === 'Construction'}/>                     
                       <label className="form-check-label" htmlFor="technology">Construction</label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Information Communication"  onChange={handleChange}  />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Information Communication"  onChange={handleChange}  checked={field_of_study === 'Information Communication'} />                     
                       <label className="form-check-label" htmlFor="other">Information Communication</label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Energy"  onChange={handleChange}  />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Energy"  onChange={handleChange}   checked={field_of_study === 'Energy'}/>                     
                       <label className="form-check-label" htmlFor="other">Energy </label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Environment Protection"  onChange={handleChange}  />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Environment Protection"  onChange={handleChange}   checked={field_of_study === 'Environment Protection'}/>                     
                       <label className="form-check-label" htmlFor="other">Environment Protection </label>
                     </div>
                     <div className="d-flex align-items-center">
-                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Other related Sectors"  onChange={handleChange}  />                     
+                      <input className="form-check-input me-2" type="radio"  name="field_of_study"   id="other" value="Other related Sectors"  onChange={handleChange}  checked={field_of_study === 'Other related Sectors'} />                     
                       <label className="form-check-label" htmlFor="other">Other related Sectors</label>
                     </div>
                   </form>
                 </div>
                 <div class="form-group">
                     <label className='form-label'>Publication Date:</label>
-                    <input  type="date" name="date" className="form-control form-input" onChange={handleChange} required/>
+                    <input  type="date" name="date" className="form-control form-input" value={date} onChange={e=>{setDate(e.target.value)}} required/>
                 </div>
                 <div className="form-group">
                 <label className='form-label'>Upload Image:</label>
@@ -254,14 +195,7 @@ function PostHistory() {
                 </div>
             </form>
             <ToastContainer />
-            {/* <p>Upload Images:</p>
-            <DropzoneImage className='py-5 mt-10 border border-neutral-200'/>            
-            <p>Upload Files</p>
-            <DropzoneText className='py-5 mt-10 border border-neutral-200'/> */}
-          {/* </div>
-      </div>
-      
-    </div> */}
+           
     
   </div> : <Logout/>
    
