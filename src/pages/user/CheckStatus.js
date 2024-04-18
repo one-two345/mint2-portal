@@ -618,7 +618,7 @@ else if(status===5){
               <div className="card shadow" style={{ backgroundColor: "#11676d", color: 'white' }}>
                 <div className="card-body">
                   <h5 className="card-title">Check Your Status</h5>
-                  { displayProjects()}
+                  { loaded && displayProjects()}
                   {/* <table className="table table-bordered">
                     <thead>
                       <tr>
