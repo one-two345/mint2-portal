@@ -82,7 +82,7 @@ const ForeignCalls = (props) => {
                 Guidelines on how to fill the application: <span style={{ color: "black", fontWeight: "normal" }}>{calls[i].guideline}</span>
               </p>
           </div>
-          <a href='/auth/register' style={{ backgroundColor: "gray", color:"white", marginLeft:"900px"}}
+          <a href='/startApplication' style={{ backgroundColor: "gray", color:"white", marginLeft:"900px"}}
            className="btn ">
              APPLY NOW
             </a>
