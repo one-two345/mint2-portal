@@ -8,22 +8,13 @@ import Logout from '../../components/Logout.js';
 import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
 import { useNavigate } from 'react-router-dom';
-
-
-// Rest of your code...
-
-// Example usage of the useEffect hook
-// useEffect(() => {
-//   // Your effect logic here
-//   // This code will run when the component mounts and may perform side effects
-// }, []);
-
-// Rest of your code...
+import FileBase from 'react-file-base64';
 
 axios.defaults.withCredentials=true;
 
 function PostHistory() {
-
+  const[file,setFile]=useState('')
+  const [ image,setImage]=useState('')
     const [formData, setFormData] = useState({
       title: '',
       p_investigator: '',
@@ -32,8 +23,8 @@ function PostHistory() {
       description: '',
       field_of_study: '',
       date: '',
-      image: null,
-      file: null,
+      // image: null,
+      // file: null,
       
     });
 
@@ -121,8 +112,8 @@ function PostHistory() {
     data.append('description', formData.description);
     data.append('field_of_study', formData.field_of_study);
     data.append('date', formData.date);   
-    data.append('image', formData.image);
-    data.append('file', formData.file);
+    data.append('image', image);
+    data.append('file', file);
        
     try {
         //      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/accepted-projects/add-accepted-project', data);
@@ -229,25 +220,27 @@ function PostHistory() {
                 </div>
                 <div className="form-group">
                 <label className='form-label'>Upload Image:</label>
-                <input
+                <FileBase
                   type="file"
                   name="image"
                   className="form-control form-input mb-2"             
-                  onChange={handleFileSelect}
-                  
+                  //onChange={handleFileSelect}
+                  onDone={({ base64 }) => setImage( base64 )}
                 />                                
                 {/* Display the image preview */}
-                {imagePreview && (
+                {/* {imagePreview && (
                   <img src={imagePreview} alt="Preview" style={{ maxWidth: '100px', maxHeight: '100px' }} />
-                )}
+                )} */}
               </div>
               <div className="form-group">
                 <label className='form-label'>Upload File:</label>
-                <input
+                <FileBase
                   type="file"
                   name="file"
+                  value={file}
                   className="form-control form-input mb-2"             
-                  onChange={handleTextFileSelect}
+                  // onChange={handleTextFileSelect}
+                  onDone={({ base64 }) => setFile( base64 )} 
                   
                 />                                               
               </div>
