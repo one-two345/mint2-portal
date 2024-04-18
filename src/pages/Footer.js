@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="text-center">
           <span> 
             <a href="OurWebsiteURL" target="_blank" > 
-              <img src={GroupLogo} alt="Group Logo" style={{ width: '250px', height: '250px',marginBottom: "-30px", marginTop:"-150px" }} />
+              <img src={GroupLogo} alt="Group Logo" style={{ width: '250px', height: '250px',marginBottom: "-30px", marginTop:"-110px" }} />
             </a>
             <br />
             <FaRegCopyright /> {currentYear} MinT in Collaboration with HexAmigos. All rights Reserved. 
