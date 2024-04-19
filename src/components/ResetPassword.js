@@ -17,7 +17,7 @@ const RestPassowrd = () => {
           .then((result) => {
             console.log(result.data);
             if (result.data.message === 'sent') {
-              toast.success("your upassword updated succesfull", {
+              toast.success("password update   succesfull", {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 2000,
                 draggable: false
