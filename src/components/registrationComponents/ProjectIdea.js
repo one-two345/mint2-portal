@@ -231,10 +231,10 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 required
               ></textarea>
             </div>
-{/* 
+
             <div className="mb-3">
               <label htmlFor="email" className="form-label" style={{fontSize: "25px"}}>
-                Email Address*
+                Email Address(must be same as the registration email)*
               </label>
               <input
               style={{fontSize: "22px"}}
@@ -246,7 +246,7 @@ const ProjectIdea = ({ nextStep, prevStep }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </div> */}
+            </div> 
 
             <div className="mb-3">
               <label htmlFor="institute" className="form-label" style={{fontSize: "25px"}}>
