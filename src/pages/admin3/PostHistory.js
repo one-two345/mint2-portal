@@ -61,7 +61,8 @@ function PostHistory() {
     // data.append("image", image);
     // data.append("file", file);
     // console.log('from post history', data.title)
-  console.log('from hisotru ',title)
+    const data=[title,p_investigator,author,funding_source,description,field_of_study,date,image,file]
+  console.log('from hisotru ',data)
     try {
       const response = await axios.post(
         "https://research-portal-server-9.onrender.com/admin/history/add-history",{title,p_investigator,author,funding_source,description,field_of_study,date,image,file}
