@@ -28,20 +28,20 @@ function PostHistory() {
     "https://research-portal-server-9.onrender.com/images/noimage.png";
   const [imagePreview, setImagePreview] = useState(defaultImageURL);
 
-  // useEffect(function(){
-  //   if(document.cookie){
-  //     if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+  useEffect(function(){
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
 
-  //     }
-  //     else{
-  //       navigate('/login');
-  //     }
-  //   }
-  //   else{
-  //     navigate('/login');
-  //   }
-  // }
-  //   ,[]);
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login');
+    }
+  }
+    ,[]);
 
   const handleChange = (e) => {
     setStudy(e.target.value);
@@ -80,7 +80,7 @@ function PostHistory() {
 
 
   return (
-    //document.cookie ?
+    document.cookie ?
     <div className="">
       <form
         method="POST"
@@ -347,7 +347,7 @@ function PostHistory() {
       </form>
       <ToastContainer />
     </div>
-    //: <Logout/>
+    : <Logout/>
   );
 }
 
