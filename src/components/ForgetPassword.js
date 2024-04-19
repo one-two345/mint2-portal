@@ -13,7 +13,7 @@ const ForgetPassowed = () => {
         axios.post('https://research-portal-server-9.onrender.com/password/forgot', {email:email} ) 
           .then((result) => {
             console.log(result.data);
-            if (result.data.message === 'sent') {
+            if (result.data.message === 'success') {
                 toast.success("Check your email,it will expire after one day!", {
                     position: toast.POSITION.TOP_CENTER,
                     autoClose: 2000,
