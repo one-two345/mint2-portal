@@ -50,21 +50,22 @@ function PostHistory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const data = new FormData();
-    data.append("title", title);
-    data.append("p_investigator", p_investigator);
-    data.append("author", author);
-    data.append("funding_source", funding_source);
-    data.append("description", description);
-    data.append("field_of_study", field_of_study);
-    data.append("date", date);
-    data.append("image", image);
-    data.append("file", file);
-    console.log('from post history', data.title)
+    // const data = new FormData();
+    // data.append("title", title);
+    // data.append("p_investigator", p_investigator);
+    // data.append("author", author);
+    // data.append("funding_source", funding_source);
+    // data.append("description", description);
+    // data.append("field_of_study", field_of_study);
+    // data.append("date", date);
+    // data.append("image", image);
+    // data.append("file", file);
+    // console.log('from post history', data.title)
+  console.log('from hisotru ',title)
     try {
       const response = await axios.post(
-        "https://research-portal-server-9.onrender.com/admin/history/add-history",
-        data
+        "https://research-portal-server-9.onrender.com/admin/history/add-history",{title,p_investigator,author,funding_source,description,field_of_study,date,image,file}
+       
       );
   
       console.log(response.data);
