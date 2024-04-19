@@ -69,6 +69,9 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center">
+          <h5 className="text-center">Developed By</h5>
+          <br></br>
+          <br></br>
           <span> 
             <a href="OurWebsiteURL" target="_blank" > 
               <img src={GroupLogo} alt="Group Logo" style={{ width: '250px', height: '250px',marginBottom: "-30px", marginTop:"-110px" }} />
