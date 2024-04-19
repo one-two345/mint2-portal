@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const RestPassowrd = () => {
     const navigate = useNavigate();
   const [password, setPassword] = useState('');
@@ -14,9 +17,21 @@ const RestPassowrd = () => {
           .then((result) => {
             console.log(result.data);
             if (result.data.message === 'sent') {
+              toast.success("your upassword updated succesfull", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 2000,
+                draggable: false
+            });
             
             } else {
-             
+              toast.error("please try again", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 2000,
+                draggable: false
+            });
+            
+
+
             }
           })
           .catch((error) => {
