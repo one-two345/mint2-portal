@@ -61,7 +61,7 @@ function PostHistory() {
     data.append('date', date);   
     data.append('image', image);
     data.append('file', file);
-       
+        console.log(data);
     try {
         //      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/accepted-projects/add-accepted-project', data);
       const response =  axios.post('https://research-portal-server-9.onrender.com/admin/history/add-history', data);
