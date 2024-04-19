@@ -49,7 +49,7 @@ function PostHistory() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const data = new FormData();
     data.append("title", title);
     data.append("p_investigator", p_investigator);
@@ -60,22 +60,22 @@ function PostHistory() {
     data.append("date", date);
     data.append("image", image);
     data.append("file", file);
-    console.log("frim post histor", data);
+    console.log('from post history', data)
     try {
-      //      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/accepted-projects/add-accepted-project', data);
-      const response = axios.post(
+      const response = await axios.post(
         "https://research-portal-server-9.onrender.com/admin/history/add-history",
         data
       );
+  
       console.log(response.data);
       alert("Do you want to submit");
       toast.info("History submitted successfully!");
-      // await  window.location.reload()
-    } catch (errors) {
-      console.error("Error:", errors.message);
+    } catch (error) {
+      console.error("Error:", error.message);
       toast.error("An error occurred while submitting news.");
     }
   };
+
 
   return (
     //document.cookie ?
