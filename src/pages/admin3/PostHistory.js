@@ -10,9 +10,10 @@ import DropzoneText from "../../components/AdminComponents/DropzoneText";
 import { useNavigate } from "react-router-dom";
 import FileBase from "react-file-base64";
 
-axios.defaults.withCredentials = true;
+
 
 function PostHistory() {
+  axios.defaults.withCredentials = true;
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
