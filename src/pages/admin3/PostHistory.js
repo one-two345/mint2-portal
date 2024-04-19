@@ -60,7 +60,7 @@ function PostHistory() {
     data.append("date", date);
     data.append("image", image);
     data.append("file", file);
-    console.log('from post history', data)
+    console.log('from post history', data.title)
     try {
       const response = await axios.post(
         "https://research-portal-server-9.onrender.com/admin/history/add-history",
