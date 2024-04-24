@@ -292,7 +292,7 @@ function organizeFeedback(id, status){
         sum += parseInt(feedbacks[j].feedback[i].split('-')[1]);
         num1 += 1
         fdbcks.push(
-          <h6>{"->"+feedbacks[j].feedback[i].split('-')[2]}</h6>
+          <h6>{"->("+feedbacks[j].userName+")"+feedbacks[j].feedback[i].split('-')[2]}</h6>
         );
         }
       }

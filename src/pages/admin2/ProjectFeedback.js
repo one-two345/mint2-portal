@@ -214,6 +214,7 @@ function ProjectFeedback() {
   let i = 1;
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
+  const [field, setField] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -258,6 +259,12 @@ if (cookies) {
         //console.log(result);
       })
       .catch(err=>console.log(err))
+      axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getField/'+email)
+      .then((result)=>{
+        setField(result.data.field);
+        //console.log(result);
+      })
+      .catch(err=>console.log(err))
       setLoaded(true);
     }
   ,[]);
@@ -265,7 +272,7 @@ if (cookies) {
     const tableData = [];
     
     for (let j = (projects.length-1); j > -1; j--) {
-      if(projects[j].status > 0){
+      if(projects[j].status > 0 && projects[j].projectCategory === field){
       tableData.push(
           generateRow(projects[j])
       );
