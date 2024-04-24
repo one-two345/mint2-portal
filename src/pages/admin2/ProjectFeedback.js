@@ -259,7 +259,7 @@ if (cookies) {
         //console.log(result);
       })
       .catch(err=>console.log(err))
-      axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getField/'+email)
+      axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/getField', {email:email})
       .then((result)=>{
         setField(result.data.field);
         //console.log(result);
