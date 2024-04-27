@@ -289,10 +289,11 @@ function organizeFeedback(id, status){
         // if(feedbacks[j].feedback[i].split('-')[1] === "Unsatisfactory"){
         //   unsatNo += 1;
         // }
+        //<h6>{"->("+feedbacks[j].userName+")"+feedbacks[j].feedback[i].split('-')[2]}</h6>
         sum += parseInt(feedbacks[j].feedback[i].split('-')[1]);
         num1 += 1
         fdbcks.push(
-          <h6>{"->("+feedbacks[j].userName+")"+feedbacks[j].feedback[i].split('-')[2]}</h6>
+          <h6>{"->"+feedbacks[j].feedback[i].split('-')[2]}</h6>
         );
         }
       }
