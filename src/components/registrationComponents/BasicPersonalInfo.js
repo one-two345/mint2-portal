@@ -43,7 +43,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
   
     if (password === confirmPassword && password.length >= 8 && /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!.])[A-Za-z\d@#$%^&*!.]{8,}/.test(password)) {
       axios
-        .post("http://localhost:5001/auth/register", {
+        .post("https://research-portal-server-9.onrender.com/auth/register", {
           fName,
           LName,
           password,
@@ -97,17 +97,18 @@ const BasicPersonalInfo = ({ nextStep}) => {
 
 
   return (
-    <div className="container">
+    <div className="container" style={{width:"60%", marginBottom: "30px"}}>
       <div className="text-right mt-3">
         <Link
           style={{
             marginBottom: "20px",
-            backgroundColor: "#11676d",
+            background: "linear-gradient(to right, black, #ccc)", 
             border: "none",
             fontSize: "20px",
+            color: "#fff"
           }}
           to="/"
-          className="btn btn-primary"
+          className="btn "
         >
           Back to Home
         </Link>
@@ -121,19 +122,20 @@ const BasicPersonalInfo = ({ nextStep}) => {
       </div>
       <div className="card">
         <div className="card-body">
-          <h1
-            style={{ backgroundColor: "orange" }}
+        <h2
+            style={{ backgroundColor: "#2b2b2b", textAlign: "center" }}
             className="card-title  text-white p-2 rounded"
           >
             Basic Personal Information
-          </h1>
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="owner" className="form-label">
+            <label htmlFor="owner" className="form-label" style={{fontSize: "25px"}}>
                 Project’s Owner*
               </label>
               <div className="d-flex">
                 <input
+                  style={{fontSize: "22px"}}
                   type="text"
                   className="form-control me-2"
                   id="firstName"
@@ -147,6 +149,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
                 />
 
                 <input
+                  style={{fontSize: "22px"}}
                   type="text"
                   className="form-control"
                   id="lastName"
@@ -161,7 +164,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
               </div>
             </div>
             <div className="mb-3">
-            <label htmlFor="sex" className="form-label">
+            <label htmlFor="sex" className="form-label" style={{fontSize: "25px"}}>
                 Sex*
               </label>
             <select
@@ -181,10 +184,11 @@ const BasicPersonalInfo = ({ nextStep}) => {
               <input type="password" className="form-control" id="password" name="password" placeholder="******" required  />
             </div> */}
           <div className="mb-3">
-              <label htmlFor="email" className="form-label">
+              <label htmlFor="email" className="form-label" style={{fontSize: "25px"}}>
                 Email*
               </label>
               <input
+                style={{fontSize: "22px"}}
                 type="email"
                 className="form-control"
                 id="email"
@@ -198,11 +202,12 @@ const BasicPersonalInfo = ({ nextStep}) => {
               />
             </div>
            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
+              <label htmlFor="password" className="form-label" style={{fontSize: "25px"}}>
                 Password*
               </label>
               <div className="input-group">
                 <input
+                  style={{fontSize: "22px"}}
                   type={showPassword ? "text" : "password"}
                   className="form-control"
                   id="password"
@@ -228,11 +233,12 @@ const BasicPersonalInfo = ({ nextStep}) => {
 
 
             <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">
+              <label htmlFor="confirmPassword" className="form-label" style={{fontSize: "25px"}}>
                 Confirm Password*
               </label>
               <div className="input-group">
                 <input
+                style={{fontSize: "22px"}}
                   type={showConfirmPassword ? "text" : "password"}
                   className="form-control"
                   id="confirmPassword"
@@ -258,10 +264,11 @@ const BasicPersonalInfo = ({ nextStep}) => {
 
 
             <div className="mb-3">
-              <label htmlFor="contactNumber" className="form-label">
+              <label htmlFor="contactNumber" className="form-label" style={{fontSize: "25px"}}>
                 Contact Number
               </label>
               <input
+              style={{fontSize: "22px"}}
                 type="tel"
                 className="form-control"
                 id="contactNumber"
@@ -275,10 +282,11 @@ const BasicPersonalInfo = ({ nextStep}) => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="country" className="form-label">
+              <label htmlFor="country" className="form-label" style={{fontSize: "25px"}}>
                 Country
               </label>
               <select
+              style={{fontSize: "22px"}}
                 className="form-select"
                 id="country"
                 name="country"
@@ -299,7 +307,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
               </select>
             </div>
             <div className="mb-3">
-              <label htmlFor="address" className="form-label">
+              <label htmlFor="address" className="form-label"style={{fontSize: "25px"}}>
                 Address
               </label>
               <textarea
@@ -314,7 +322,7 @@ const BasicPersonalInfo = ({ nextStep}) => {
               ></textarea>
             </div>
             <button
-              style={{ backgroundColor: "orange", color: "white", float: "right" }}
+              style={{ backgroundColor: "#2b2b2b", color: "white", float: "right" }}
               type="submit"
               className="btn "
             >

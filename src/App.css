@@ -4,35 +4,44 @@
   position: fixed;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #11676d;
+  background-color: #ffffff;
 }
 
 
 
 .navbar-nav .nav-link {
-  color: white; /* Set the default color */
+  color: rgb(37, 36, 35) !important; /* Set the default color */
   font-size: 16.5px;
   font-weight: bold;
   margin-right: "15px"  !important;
 
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background-color: #FF8F00;
+.navbar-nav .nav-link:hover {
+  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
   color: white !important;
   border-radius: 10px;
 }
- 
+
+.navbar-nav .nav-link.active {
+  /* background-color: lightgray !important; */
+  /* background-color: gray; */
+  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
+  color: white !important;
+  border-radius: 10px;
+}
+
+
 .btn:hover, .btn.active{
-  background-color: #FF8F00 !important;
+  background: linear-gradient(to right, #eed61f, #dbb21e) !important;
   color: white !important;
 }
 
 
 /* Style the Resources dropdown link */
 .nav-item.dropdown:hover .nav-link {
-  background-color: #FF8F00 !important;
+  /* background: #72aead !important; */
+  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
   color: white !important;
 }
 
@@ -45,13 +54,14 @@
 
 /* Style the dropdown items */
 .nav-item.dropdown .dropdown-item {
-  background-color: #11676d;
+  background: gray !important;
   color: white;
 }
 
 /* Style the dropdown items on hover */
 .nav-item.dropdown .dropdown-item:hover {
-  background-color: #FF8F00;
+  /* background: #72aead !important; */
+  background: linear-gradient(to right, #e5ddc3, #72aead) !important;
   color: #ffffff;
 }
 
@@ -87,9 +97,15 @@ body {
 
 .aboutBtn{
   background-color: white;
+  /* color: gray; */
   color: orange;
   border-color: black;
   border-width: 3px;
+}
+
+/* register */
+.reg{
+  color: white !important;
 }
 
 
@@ -168,8 +184,9 @@ body {
 
 
 /* institutes */
-.card1:hover{
-  background-color: orange;
+.card1:hover {
+  background-color: lightgray;
+  transform: scale(1.1);
 }
 
 
@@ -177,7 +194,7 @@ body {
 
 .left-sidebar {
   background-color: orange;
-  min-height: 200px;
+  height: 240px;
   padding: 20px;
   border-right: 1px solid #ccc; /* Optional: Adds a border on the right */
   border-radius: 20px;
@@ -212,4 +229,354 @@ body {
 
 .custom-card {
   height: 500px;
+}
+
+
+ .card_history{
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+
+}
+.card-history_innovation {
+  /* Add other styles */
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease; /* Adding transition for transform, box-shadow, and background-color */
+}
+
+.card-history_innovation:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateZ(-20px) scale(1.1); /* Scale up the card by 10% */
+  background-color: #f0f0f0;
+}
+
+
+/* HeroSection.css */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 70vh; /* Set height to viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally and vertically */
+  color: #fff;
+  text-align: center;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  z-index: 1;
+  animation: slideUp 3s ease-out;
+}
+
+.hero-title {
+  font-size: 5.5vw; /* Responsive font size */
+  font-weight: bolder;
+  margin-left: 10vw; /* Responsive margin */
+  margin-bottom: 2vh; /* Responsive margin */
+  margin-top: 3vw;
+}
+
+.hero-subtitle {
+  font-size: 2.8vw; /* Responsive font size */
+  color: white; /* Original color */
+  margin-left: 25vw; /* Responsive margin */
+  max-width: 40vw; /* Responsive width */
+  text-align: center;
+  margin-top: 3vw;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 10vw;
+    margin-left: 5vw;
+  }
+
+  .hero-subtitle {
+    font-size: 5vw;
+    max-width: 90vw;
+    color: white;
+  }
+}
+
+
+/* quick link */
+
+.quick-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: large;
+  transition: color 0.3s, text-shadow 0.3s; 
+}
+
+.quick-links a:hover {
+  color: #4e4d38; 
+  font-size: large;
+  padding: 10px;
+  background-color: #f4f7a0;
+  border-radius: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); 
+}
+
+.quickCard {
+  /* background: linear-gradient(to right, #ffffff, lightgray);  */
+  background: linear-gradient(to right, #ffffff, #e8d3a5); 
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+/* Register home page  */
+
+.btn-link:hover{
+  /* background: lightgray; */
+  background: linear-gradient(to right, #ded61f, #dbb21e);
+  }
+
+
+  .list-unstyled a{
+    text-decoration: none;
+    margin-top: 30px;
+  }
+  .list-unstyled a:hover{
+    color: blue;
+  }
+
+  /* history bounce in */
+
+
+
+.roll-in-left {
+	-webkit-animation: roll-in-left 0.9s both;
+	        animation: roll-in-left 0.9s both;
+}
+/* ----------------------------------------------
+ * Generated by Animista on 2024-4-3 14:9:16
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation bounce-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes roll-in-left {
+  0% {
+    -webkit-transform: translateY(-45px);
+            transform: translateY(-45px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  65% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  82% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  93% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
+@keyframes roll-in-left {
+  0% {
+    -webkit-transform: translateY(-45px);
+            transform: translateY(-45px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  65% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  82% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  93% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
+
+
+/* background image of history*/
+
+.kenburns-top:hover {
+	-webkit-animation: kenburns-top 5s ease-out both;
+	        animation: kenburns-top 5s ease-out both;
+}
+/* ----------------------------------------------
+ * Generated by Animista on 2024-4-3 14:13:14
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation kenburns-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+@keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+
+
+/*achievement and awards card*/
+
+
+
+
+/* Announcemnet pages  */
+.apply-now-btn {
+  margin-top: 10px; 
+  display: flex;
+  align-self: flex-end; 
+}
+
+@media only screen and (max-width: 768px) {
+  .apply-now-btn {
+    margin-top: 10px;
+  }
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink-container {
+  animation: blink 1.2s infinite;
+}
+
+.blink-icon,
+.blink-text {
+  display: inline-block;
 }

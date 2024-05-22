@@ -10,36 +10,39 @@ import ShoppingCartIcon from  "@mui/icons-material/ShoppingCart"
 
 
 // admin pages
-import Admin from './admin/Admin';
-import AdminHeader from '../components/AdminComponents/AdminHeader';
-import SetAppointmentDate from './admin/SetAppointmentDate'
-import AddAdmin from './admin/AddAdmin.js'
-import UpdateUserStatus from './admin/UpdateUserStatus2'
-import PostCalls from './admin3/PostCalls'
-import PostPublications from './admin3/PostPublications'
-import PostAcceptedProjects from './admin3/PostAcceptedProjects';
-import PostInstitutes from './admin3/PostInstitutes';
-import PostCollaborations from './admin3/PostCollaborations.js'
-import PostNews from './admin3/PostNews'
-import ViewFile from './admin/ViewFile';
-import ViewFeedback from "./admin/ViewFeedback.js"
-import ViewNews from './ViewNews.js';
-import ProtectAdmin from '../ProtectAdmin.js';
-import ViewReports from './admin/ViewReports.js';
+import Admin from './pages/admin/Admin.js';
+import AdminHeader from './components/AdminComponents/AdminHeader.js';
+import SetAppointmentDate from './pages/admin/SetAppointmentDate.js'
+import AddAdmin from './pages/admin/AddAdmin.js'
+import UpdateUserStatus from './pages/admin/UpdateUserStatus2.js'
+import PostCalls from './pages/admin3/PostCalls.js'
+import PostPublications from './pages/admin3/PostPublications.js'
+import PostAcceptedProjects from './pages/admin3/PostAcceptedProjects.js';
+import PostInstitutes from './pages/admin3/PostInstitutes.js';
+import PostCollaborations from './pages/admin3/PostCollaborations.js'
+import PostHistory from './pages/admin3/PostHistory';
+import PostNews from './pages/admin3/PostNews.js'
 
-import Header1 from '../components/Layout/Navbar/Navbar1.js'
-import Header2 from '../components/Layout/Navbar/Navbar2'
-import Header3 from '../components/Layout/Navbar/Navbar3'
-import Footer from './Footer.js';
-import Sider from  '../components/Layout/Sidebar'
-import {ThemedLayout} from '../components/Layout/ThemdLayout.js'
-import Admin2 from './admin2/Admin2.js';
-import ViewReports2 from './admin2/ViewReports2.js';
-import ProjectFeedback from './admin2/ProjectFeedback.js';
-import SubmitReport from './admin2/SubmitReport.js';
+import ViewFile from './pages/admin/ViewFile.js';
+import ViewFeedback from "./pages/admin/ViewFeedback.js"
+import ViewNews from './pages/ViewNews.js';
+import ProtectAdmin from './ProtectAdmin.js';
+import ViewReports from './pages/admin/ViewReports.js';
+
+// import Header1 from './components/Layout/Navbar/Navbar1.js'
+// import Header2 from './components/Layout/Navbar/Navbar2.js'
+// import Header3 from './components/Layout/Navbar/Navbar3.js'
+import UserHeader from './components/Layout/Navbar/UserHeader.js';
+import Footer from './pages/Footer.js';
+import Sider from  './components/Layout/Sidebar.js'
+import {ThemedLayout} from './components/Layout/ThemdLayout.js'
+import Admin2 from './pages/admin2/Admin2.js';
+import ViewReports2 from './pages/admin2/ViewReports2.js';
+import ProjectFeedback from './pages/admin2/ProjectFeedback.js';
+import SubmitReport from './pages/admin2/SubmitReport.js';
 
 
-import Admin3 from './admin3/Admin3.js';
+import Admin3 from './pages/admin3/Admin3.js';
 
 
 
@@ -121,17 +124,24 @@ const admin3SidebarItems = [   {
   label: 'Post To Collaborations',
   path: '/admin3/collaboration/post-to-collaboration',
   icon: <Group />,
+  
+},
+{
+  label: 'Post History',
+  path: '/admin3/history/add-history',
+  icon: <Group />,
+  
 },
 ]
 
 return(
-         <Routes>
-                  
+         <Routes>                      
+
           <Route path = '/admin'
                 element={
                     
                             <ThemedLayout
-                                Header={() =><Header1 />}
+                                Header={() =><UserHeader />}
                                 Footer = {()=> <Footer/>}
                                 Sider={() =><Sider   sidebarItems= {adminSidebarItems} />}
                               
@@ -155,7 +165,7 @@ return(
             
           <Route path='/admin2' element= {
                 <ThemedLayout
-                Header={() =><Header2 />}
+                Header={() =><UserHeader />}
                 Footer = {()=> <Footer/>}
                 
                 Sider={() => <Sider    sidebarItems = { admin2SidebarItems} />}
@@ -176,7 +186,7 @@ return(
 
           <Route path='/admin3' element= {
                 <ThemedLayout
-                Header={() =><Header3 />}
+                Header={() =><UserHeader />}
                 Footer = {()=> <Footer/>}
                 
                 Sider={() => <Sider    sidebarItems = { admin3SidebarItems} />}
@@ -193,6 +203,7 @@ return(
             <Route path='calls/add-call' element={<PostCalls/>}/>
             <Route path='publications/add-publication' element={<PostPublications/>}/>
             <Route path='accepted-projects/add-accepted-project' element={<PostAcceptedProjects/>}/>
+            <Route path='history/add-history' element={<PostHistory/>}/>
             <Route path='institutes/post-to-institutes' element={<PostInstitutes/>}/>
             <Route path='collaboration/post-to-collaboration' element={<PostCollaborations/>}/>
 

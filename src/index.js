@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { render } from "react-dom";
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,14 +12,20 @@ import reducers from './reducers/index'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const root = document.getElementById('root');
+render(
   <React.StrictMode>
   <Provider store={store}>
    <AuthProvider children = { <App />}/>
    
    
   </Provider>
-  </React.StrictMode>
+  </React.StrictMode>, root);
  
-);
+
+// import React from "react";
+// import { render } from "react-dom";
+// import "./index.css";
+// import App from "./App";
+// const root = document.getElementById("root");
+//     render(<App />, root);

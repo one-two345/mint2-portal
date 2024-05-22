@@ -31,6 +31,7 @@ const Sider = ( {sidebarItems} ) => {
     const [selectedItem, setSelectedItem] = useState(false)
     const [collapsed, setCollapsed] = useState(false);
     const [opened, setOpened] = useState(false);
+    const [role1, setRole] = useState("");
     // const {user} = useAuthContext()
     // const email = user.email
     // console.log(email)
@@ -43,7 +44,28 @@ const Sider = ( {sidebarItems} ) => {
   console.log(sidebarItems)
 
     const [open, setOpen] = useState({});
-
+    useEffect(
+        function(){
+            try{
+                const role = document.cookie.split(';')[1].split('=')[1].replaceAll('"','');
+                if(role === "admin"){
+                    setRole("MinT Grant Admin")
+                }
+                else if(role === "admin2"){
+                    setRole("Technical Committee Admin")
+                }
+                else if(role === "admin3"){
+                    setRole("MinT General Admin")
+                }
+                else if(role === "user"){
+                    setRole("Researcher User Account")
+                }
+            }
+            catch(err){
+                setRole("Ministry of Innovation and Technology");
+            }
+        }
+        ,[])
     // useEffect(() => {
     //     setOpen((previousOpen) => {
     //         const previousOpenKeys = Object.keys(previousOpen);
@@ -451,7 +473,7 @@ const Sider = ( {sidebarItems} ) => {
                             
                         }}
                     >
-                        <RenderToTitle collapsed={false} />
+                        <RenderToTitle collapsed={false} role={role1} />
                         
                     </Box>
                     {drawer}
@@ -479,7 +501,7 @@ const Sider = ( {sidebarItems} ) => {
                             justifyContent: "center",
                         }}
                     >
-                        <RenderToTitle collapsed={collapsed} />
+                        <RenderToTitle collapsed={collapsed} role={role1} />
                     </Box>
                     <Box
                         sx={{

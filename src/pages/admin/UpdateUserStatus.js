@@ -5,21 +5,36 @@ import axios from 'axios';
 import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Sidebar from './Sidebar.js';
+import {ToastContainer, toast} from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function UpdateUserStatus() {
   let i = 1;
   const [projects, setProjects] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
   const[loaded, setLoaded] = useState(false);
+
+  const navigate = useNavigate();
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
       })
       .catch(err=>console.log(err))
-      axios.get('http://localhost:5001/admin2Feedback/getFeedback')
+      axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getFeedback')
       .then((result)=>{setFeedbacks(result.data); console.log(feedbacks)})
       .catch(err=>console.log(err))
       setLoaded(true);
@@ -71,10 +86,11 @@ function organizeFeedback(id, status){
 }
 function updateStatus(id, newStatus){
   console.log("Clicked!")
-  axios.get('http://localhost:5001/admin/userStatus/'+id+"-"+newStatus)
+  axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
   .then(result=>console.log(result))
   .catch(err=>console.log(err));
-  window.location.reload(false);
+  // window.location.reload(false);
+  toast.success("Updated Status of User Project");
 }
 function generateRow(project){
   if(project.status === 1){
@@ -203,7 +219,7 @@ function generateRow(project){
         <td>{project.projectTitle}</td>
         <td><h6 style={{height:"100px",overflowY:"scroll"}}>{project.description}</h6></td>
         <td>{numToStatus(project.status)}</td>
-        <td><Link to={'/admin2/viewFile'} state={{filePath: project.proposalPath3}} >View Final Proposal</Link></td>
+        <td><Link to={'/admin/viewFile'} state={{filePath: project.proposalPath3}} >View Final Proposal</Link></td>
         <td style={{overflowY:"scroll"}}>{organizeFeedback(project._id, project.status)}</td>
         <td>
            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'end'}}>
@@ -268,6 +284,7 @@ function buttonsDisplay(num){
                 </tbody>  
               </table>
             </TableContainer>
+            <ToastContainer/>
           </div>
     
    

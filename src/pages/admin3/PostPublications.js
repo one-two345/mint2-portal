@@ -7,6 +7,7 @@ import DropzoneImage from '../../components/AdminComponents/Dropzone'
 import DropzoneText from '../../components/AdminComponents/DropzoneText'
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
+import { useNavigate } from 'react-router-dom';
 
 axios.defaults.withCredentials=true;
 
@@ -23,29 +24,45 @@ function PostPublications() {
       
     });
 
-    const defaultImageURL = 'http://localhost:5001/images/noimage.png'
+    const navigate = useNavigate();
+    const defaultImageURL = 'https://research-portal-server-9.onrender.com/images/noimage.png'
     const [imagePreview, setImagePreview] = useState(defaultImageURL);
     const [isAuthenticated, setIsAuthenticated] = useState(null)
     
-    useEffect (() => {const checkAuthentication = async () => {
-      try {
-        const response = await axios.get('http://localhost:5001/check-auth-status');
+    // useEffect (() => {const checkAuthentication = async () => {
+    //   try {
+    //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
         
-        const isAuthenticated = response.data.isAuthenticated;
-        console.log(isAuthenticated)    
-        setIsAuthenticated(isAuthenticated)
+    //     const isAuthenticated = response.data.isAuthenticated;
+    //     console.log(isAuthenticated)    
+    //     setIsAuthenticated(isAuthenticated)
       
 
       
-      } catch (error) {
-        console.error('Error checking authentication status:', error);
-        return false;
-      }
-    };
+    //   } catch (error) {
+    //     console.error('Error checking authentication status:', error);
+    //     return false;
+    //   }
+    // };
     
-    // Example usage
-     checkAuthentication();
-    }, [])
+    // // Example usage
+    //  checkAuthentication();
+    // }, [])
+
+    useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin3"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+    }
+      ,[]);
 
     const handleFileSelect = (event) => {
       const selectedFile = event.target.files[0];
@@ -116,7 +133,7 @@ function PostPublications() {
       
     
     try {
-      const response =  axios.post('http://localhost:5001/admin/publications/add-publication', data);
+      const response =  axios.post('https://research-portal-server-9.onrender.com/admin/publications/add-publication', data);
       console.log(response.data);
       alert('Do you want to submit')
       toast.info('Publication submitted successfully!');
@@ -130,7 +147,7 @@ function PostPublications() {
 
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div className="">
      
             <form method="POST" action="/admin/publications/add-publication" onSubmit={handleSubmit} encType='multipart/form-data' >

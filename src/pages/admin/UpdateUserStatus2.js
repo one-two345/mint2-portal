@@ -13,13 +13,13 @@
 //   const[loaded, setLoaded] = useState(false);
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/getAll')
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
 //       })
 //       .catch(err=>console.log(err))
-//       axios.get('http://localhost:5001/admin2Feedback/getFeedback')
+//       axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getFeedback')
 //       .then((result)=>{setFeedbacks(result.data); console.log(feedbacks)})
 //       .catch(err=>console.log(err))
 //       setLoaded(true);
@@ -71,7 +71,7 @@
 // }
 // function updateStatus(id, newStatus){
 //   console.log("Clicked!")
-//   axios.get('http://localhost:5001/admin/userStatus/'+id+"-"+newStatus)
+//   axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
 //   .then(result=>console.log(result))
 //   .catch(err=>console.log(err));
 //   window.location.reload(false);
@@ -205,6 +205,7 @@ import TableContainer from '@mui/material/TableContainer';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
 import Logout from '../../components/Logout.js';
 import Sidebar from './Sidebar.js';
+import { useNavigate } from 'react-router-dom';
 
 function UpdateUserStatus() {
   let i = 1;
@@ -214,36 +215,48 @@ function UpdateUserStatus() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   const location = useLocation();
   
+  const navigate = useNavigate();
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
       })
       .catch(err=>console.log(err))
-      axios.get('http://localhost:5001/admin2Feedback/getFeedback')
+      axios.get('https://research-portal-server-9.onrender.com/admin2Feedback/getFeedback')
       .then((result)=>{setFeedbacks(result.data); console.log(feedbacks)})
       .catch(err=>console.log(err))
       setLoaded(true);
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+      // const checkAuthentication = async () => {
+      //   try {
+      //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+      //     const isAuthenticated = response.data.isAuthenticated;
+      //     console.log(isAuthenticated)    
+      //     setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+      //   } catch (error) {
+      //     console.error('Error checking authentication status:', error);
+      //     return false;
+      //   }
+      // };
       
-      // Example usage
-       checkAuthentication();
+      // // Example usage
+      //  checkAuthentication();
     }
   ,[]);
   function displayProjects(){
@@ -276,6 +289,7 @@ function organizeFeedback(id, status){
         // if(feedbacks[j].feedback[i].split('-')[1] === "Unsatisfactory"){
         //   unsatNo += 1;
         // }
+        //<h6>{"->("+feedbacks[j].userName+")"+feedbacks[j].feedback[i].split('-')[2]}</h6>
         sum += parseInt(feedbacks[j].feedback[i].split('-')[1]);
         num1 += 1
         fdbcks.push(
@@ -307,7 +321,7 @@ function organizeFeedback(id, status){
 }
 function updateStatus(id, newStatus){
   console.log("Clicked!")
-  axios.get('http://localhost:5001/admin/userStatus/'+id+"-"+newStatus)
+  axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/'+id+"-"+newStatus)
   .then(result=>console.log(result))
   .catch(err=>console.log(err));
   window.location.reload(false);
@@ -408,7 +422,7 @@ function generateRow(project){
             className='btn btn-primary' style={{display:buttonsDisplay(project.status), marginBottom:"10px"}}>Accept</button>
           <button name={project._id + "-" + project.status} onClick={
             function(e){
-            updateStatus(e.target.name.split('-')[0], parseInt(e.target.name.split('-')[1])-1)}} 
+            updateStatus(e.target.name.split('-')[0], 0)}} 
             className='btn btn-danger' style={{display:buttonsDisplay(project.status)}}>Reject</button>
       </div>
       </td>
@@ -503,7 +517,7 @@ function generateRow(project){
             className='btn btn-primary' style={{display:buttonsDisplay(project.status), marginBottom:"10px"}}>Accep</button>
           <button name={project._id + "-" + project.status} onClick={
             function(e){
-            updateStatus(e.target.name.split('-')[0], parseInt(e.target.name.split('-')[1])-1)}} 
+            updateStatus(e.target.name.split('-')[0], 0)}} 
             className='btn btn-danger' style={{display:buttonsDisplay(project.status)}}>Reject</button>
       </div>
     </td>
@@ -543,7 +557,7 @@ function buttonsDisplay(num){
   }
 }
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div className=" ">
     
             <h1 className='mb-3'>Update User Status</h1>  

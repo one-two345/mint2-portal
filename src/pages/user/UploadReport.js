@@ -10,7 +10,7 @@
 //   const email1 = email;
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/fetch-'+email1)
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email1)
 //       .then((result)=>{
 //         console.log(result);
 //         setProjects(result.data);
@@ -29,7 +29,7 @@
 //     formData.append('file', file);
 //     console.log(file);
 
-//     axios.post('http://localhost:5001/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
+//     axios.post('https://research-portal-server-9.onrender.com/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
 //     .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
 //     .catch(err=>console.log(err))
 
@@ -45,7 +45,7 @@
 //     formData.append('file', file);
 //     console.log(file);
 
-//     axios.post('http://localhost:5001/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
+//     axios.post('https://research-portal-server-9.onrender.com/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
 //     .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
 //     .catch(err=>console.log(err))
 
@@ -156,28 +156,63 @@
 // }
 // export default UploadReport;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import {useAuthContext} from '../../AuthContext'
+import Logout from '../../components/Logout';
+import { useAuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const UploadReport = ({email}) => {
-  
+  const navigate = useNavigate();
+  const formRef = useRef(null);
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
   const [file, setFile] = useState();
-  const { user } = useAuthContext();
-  console.log(user)
-  const email1 = user.email
+  let email1;
+  const cookies = document.cookie;
+  if (cookies) {
+      const emailCookie = cookies.split(';')[0];
+      if (emailCookie) {
+          const emailValue = emailCookie.split('=')[1];
+          if (emailValue) {
+              email1 = emailValue.replaceAll('"', '');
+              // Now you can use the email variable safely
+              console.log(email1);
+          } else {
+              console.error("Email value is undefined");
+          }
+      } else {
+          console.error("Email cookie is undefined");
+      }
+  } else {
+      console.error("No cookies found");
+  }
+  //const [isAuthenticated, setIsAuthenticated] = useState(null)
+  //const {isAuthenticated, login} = useAuthContext()
+    
+   
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/fetch-'+email1)
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email1)
       .then((result)=>{
         console.log(result);
         setProjects(result.data);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
+      
     }
   ,[email1]);
   function submitReport(){
@@ -189,10 +224,10 @@ const UploadReport = ({email}) => {
     let formData = new FormData();
     formData.append('file', file);
     console.log(file);
-
-    axios.post('http://localhost:5001/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
-    .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
-    .catch(err=>console.log(err))
+    let message = "";
+    axios.post('https://research-portal-server-9.onrender.com/report/upload/'+ projects[0].projectTitle +"-" + projects[0]._id, formData, config)
+    .then((res)=>{console.log(res); message = "Report Submitted Successfully!"; toast.success(message)})
+    .catch(err=>{console.log(err); message = "There was an error"; toast.error(message)})
 
     }
   }
@@ -205,11 +240,12 @@ const UploadReport = ({email}) => {
     let formData = new FormData();
     formData.append('file', file);
     console.log(file);
-
-    axios.post('http://localhost:5001/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
-    .then((res)=>{console.log(res); window.alert("Report Submitted Successfully!")})
+    let message = "";
+    axios.post('https://research-portal-server-9.onrender.com/projectFiles/upload/'+ projects[0].status +"-" + projects[0]._id, formData, config)
+    .then((res)=>{console.log(res); message = "File Submitted Successfully!"; 
+    toast.success(message);
+    formRef.current.reset();})
     .catch(err=>console.log(err))
-
     }
   }
   function displayDashboard(){
@@ -308,11 +344,13 @@ const UploadReport = ({email}) => {
     }
   }
   return(
+    cookies ?
     <div>
         <div className='card shadow p-3 mb-5 bg-white rounded'>
             {loaded && displayDashboard()}
         </div>
-    </div>
+        <ToastContainer/>
+    </div> : <Logout/>
   );
 }
 export default UploadReport;

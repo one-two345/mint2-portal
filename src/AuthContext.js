@@ -4,23 +4,20 @@ import React, { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState('');
 
-  const login = (email) => {
+  const login = (bool) => {
     // For simplicity, consider any non-empty username/password as a successful login
-    if (email) {
+    
       // Set the user object with username and a dynamically generated email
-      setUser({email: email });
-    } else {
-      // If login fails, you may want to handle it accordingly
-      console.error('Login failed');
-    }
+      setUserName(bool);
+   
   };
 
  
 
   return (
-    <AuthContext.Provider value={{ user, login,}}>
+    <AuthContext.Provider value={{ userName, login}}>
       {children}
     </AuthContext.Provider>
   );

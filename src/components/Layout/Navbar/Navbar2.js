@@ -61,7 +61,7 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios'
 import '../../../images/assets/css/admin.css';
 import { BsFillPersonFill } from "react-icons/bs";
-import { AppBar, Typography, Toolbar, Avatar, Button} from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Avatar, Button} from '@mui/material';
 import Stack from '@mui/material/Stack';
 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -147,8 +147,8 @@ import useStyles from './styles';
     return (
     
         <AppBar
-            color="default"
-           
+            style= {{backgroundColor: "#11676d",  color: "#FF8F00"}}
+                      
             elevation={0}
             className= {classes.appBar}
            
@@ -156,10 +156,7 @@ import useStyles from './styles';
         >
             <Toolbar>
                 <Stack
-                    direction="row"
-                    width="100%"
-                    justifyContent="flex-end"
-                    alignItems="center"
+                     style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
                     {isAuthenticated ? (
                         <Stack direction="row" gap="16px" alignItems="center">

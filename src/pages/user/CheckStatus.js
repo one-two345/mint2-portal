@@ -20,7 +20,7 @@
 //   const email = email;
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/fetch-'+email)
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
@@ -250,8 +250,10 @@
 
 // export default CheckStatus;
 import React, { useState, useEffect } from 'react';
-import { useAuthContext } from '../../AuthContext';
+import Logout from '../../components/Logout';
 import axios from 'axios';
+import { useAuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const CheckStatus = () => {
   // const [statusData, setStatusData] = useState([]);
@@ -267,20 +269,75 @@ const CheckStatus = () => {
     
   //   setStatusData(fetchedStatusData);
   // }, []);
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
-  const { user } = useAuthContext();
-  console.log(user)
-  const email = user.email
+  let email;
+  const cookies = document.cookie;
+if (cookies) {
+    const emailCookie = cookies.split(';')[0];
+    if (emailCookie) {
+        const emailValue = emailCookie.split('=')[1];
+        if (emailValue) {
+             email = emailValue.replaceAll('"', '');
+            // Now you can use the email variable safely
+            console.log(email);
+        } else {
+            console.error("Email value is undefined");
+        }
+    } else {
+        console.error("Email cookie is undefined");
+    }
+} else {
+    console.error("No cookies found");
+}
+//const [isAuthenticated, setIsAuthenticated] = useState(null)
+//const {isAuthenticated, login} = useAuthContext()
+    
+// useEffect(
+//   function(){
+   
+//     const checkAuthentication = async () => {
+//       try {
+//         const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
+        
+//         const isAuthenticated = response.data.isAuthenticated;
+//         console.log(isAuthenticated)    
+//         setIsAuthenticated(isAuthenticated)
+      
+
+      
+//       } catch (error) {
+//         console.error('Error checking authentication status:', error);
+//         return false;
+//       }
+//     };
+    
+//     // Example usage
+//      checkAuthentication();
+//   }
+// ,[]);
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/fetch-'+email)
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"user"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/fetch-'+email)
       .then((result)=>{
         setProjects(result.data);
-        //console.log(result);
+        console.log(result.data);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
+  
     }
   ,[email]);
   function displayProjects(){
@@ -299,6 +356,7 @@ const CheckStatus = () => {
                       </tr>
                     </thead>
                       {getStatus(projects[j].status, projects[j])}
+                      {/* <h4 style={{color:"white"}}>Currently being reviewed by: {projects[j].currentReviewer===undefined ? "MinT Research Sector Members": projects[j].currentReviewer}</h4> */}
                   </table>
           </div>
       );
@@ -308,6 +366,7 @@ const CheckStatus = () => {
   return tableData;
 }
 function getStatus(status, project){
+  //console.log(project.currentReviewer);
   if(status === 0){
     if(project.proposalPath3 === " "){
       if(project.presentationPath === " "){
@@ -550,6 +609,7 @@ else if(status===5){
 }
 }
   return (
+    document.cookie ?
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-10">
@@ -558,7 +618,7 @@ else if(status===5){
               <div className="card shadow" style={{ backgroundColor: "#11676d", color: 'white' }}>
                 <div className="card-body">
                   <h5 className="card-title">Check Your Status</h5>
-                  {loaded && displayProjects()}
+                  { loaded && displayProjects()}
                   {/* <table className="table table-bordered">
                     <thead>
                       <tr>
@@ -582,7 +642,7 @@ else if(status===5){
           </div>
         </div>
       </div>
-    </div>
+    </div> : <Logout/>
   );
 };
 

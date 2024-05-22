@@ -24,32 +24,49 @@ function AddAdmin() {
     const [country, SetCountry] = useState("");
     const [address, SetAddress] = useState("");
     const [adminType, setAdminType] = useState("");
+    const [fieldType, setField] = useState("");
+    const [isAdmin2, setIsAdmin2] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(null)
-    
-    useEffect(
-      function(){
-       
-        const checkAuthentication = async () => {
-          try {
-            const response = await axios.get('http://localhost:5001/check-auth-status');
-            
-            const isAuthenticated = response.data.isAuthenticated;
-            console.log(isAuthenticated)    
-            setIsAuthenticated(isAuthenticated)
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+    const navigate = useNavigate();
+    useEffect(function(){
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
           
-    
-          
-          } catch (error) {
-            console.error('Error checking authentication status:', error);
-            return false;
-          }
-        };
-        
-        // Example usage
-         checkAuthentication();
+        }
+        else{
+          navigate('/login');
+        }
       }
-    ,[]);
+      else{
+        navigate('/login'); 
+      }
+    },[]);
+    
+    // useEffect(
+    //   function(){
+       
+    //     const checkAuthentication = async () => {
+    //       try {
+    //         const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
+            
+    //         const isAuthenticated = response.data.isAuthenticated;
+    //         console.log(isAuthenticated)    
+    //         setIsAuthenticated(isAuthenticated)
+          
+    
+          
+    //       } catch (error) {
+    //         console.error('Error checking authentication status:', error);
+    //         return false;
+    //       }
+    //     };
+        
+    //     // Example usage
+    //      checkAuthentication();
+    //   }
+    // ,[]);
     const handleSubmit = (e) => {
       e.preventDefault();
       axios.defaults.withCredentials=true
@@ -75,7 +92,7 @@ function AddAdmin() {
     
       if (password === confirmPassword && password.length >= 8 && /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!.])[A-Za-z\d@#$%^&*!.]{8,}/.test(password)) {
         axios
-          .post("http://localhost:5001/auth/register2", {
+          .post("https://research-portal-server-9.onrender.com/auth/register2", {
             fName,
             LName,
             password,
@@ -84,7 +101,8 @@ function AddAdmin() {
             country,
             address,
             sex,
-            adminType
+            adminType,
+            fieldType
           })
           .then((response) => {
             console.log(response.data);
@@ -128,7 +146,7 @@ function AddAdmin() {
     };
   
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div style = {{marginLeft: '0'}}>
    
          <div style = {{marginLeft: '0'}}>
@@ -268,7 +286,12 @@ function AddAdmin() {
                   name="type"
                   className="form-control"
                   value={adminType}
-                  onChange={(e) => setAdminType(e.target.value)}
+                  onChange={(e) => {
+                    setAdminType(e.target.value);
+                    if(e.target.value === "admin2"){
+                      setIsAdmin2(true);
+                    } 
+                  }}
                 >
                   <option >Select Admin Type</option>
                   <option value="admin">MinT Grant Admin (Part of Techincal Committee)</option>
@@ -276,6 +299,31 @@ function AddAdmin() {
                   <option value="admin3">MinT General Admin (Manages website)</option>
                   </select>
               </div>
+              {isAdmin2 && <div className="mb-3">
+              <label htmlFor="fieldType" className="form-label" style={{fontSize: "25px"}}>
+                Field*
+              </label>
+              <select
+              style={{fontSize: "22px"}}
+                className="form-select"
+                id="fieldType"
+                name="fieldType"
+                value={fieldType}
+                onChange={(e) => setField(e.target.value)}
+                required
+              >
+                <option value="" style={{fontSize: "22px"}}>Select a category</option>
+           <option value="Agriculture">Agriculture</option>
+          <option value="Industry">Industry</option>
+          <option value="Health">Health</option>
+          <option value="Construction">Construction</option>
+          <option value="Mines and Water">Mines and Water</option>
+          <option value="Information Communication">Information Communication</option>
+          <option value="Energy">Energy </option>
+          <option value="Enviroment and Protection">Environment and Protection </option>
+          <option value="Other related Sectors">Other related Sectors</option>
+              </select>
+            </div> }
             <div className="mb-3">
               <label htmlFor="contactNumber" className="form-label">
                 Contact Number

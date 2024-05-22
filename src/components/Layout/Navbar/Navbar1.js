@@ -61,7 +61,7 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios'
 import '../../../images/assets/css/admin.css';
 import { BsFillPersonFill } from "react-icons/bs";
-import { AppBar, Typography, Toolbar, Avatar, Button} from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Avatar, Button} from '@mui/material';
 import Stack from '@mui/material/Stack';
 
 import { Link,useNavigate, useLocation, useNavigateocation, Navigate } from 'react-router-dom';
@@ -157,10 +157,7 @@ import useStyles from './styles';
         >
             <Toolbar >
                 <Stack
-                    direction="row"
-                    width="100%"
-                    justifyContent="flex-end"
-                    alignItems="center"
+                    style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                 >
                     {isAuthenticated ? (
                         <Stack direction="row" gap="16px" alignItems="center">
@@ -170,7 +167,7 @@ import useStyles from './styles';
                             {/* {user.result.name && */}
                              
                               <>
-                              <Typography  variant="h6"> <div className=" me-2" ><BsFillPersonFill  className='login-user-icon'/>{` Hi, ${userName}`}</div></Typography>
+                              <Typography  variant="h6" sx= {{color: 'white'}}> <div className=" me-2" ><BsFillPersonFill  className='login-user-icon'/>{` Hi, ${userName}`}</div></Typography>
                               <Button variant="contained"  color="secondary" onClick={logout}>Logout</Button>
                               </>                                 
                             

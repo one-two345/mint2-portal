@@ -20,7 +20,7 @@
 //   console.log(email);
 //   useEffect(
 //     function(){
-//       axios.get('http://localhost:5001/admin/userStatus/getAll')
+//       axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
 //       .then((result)=>{
 //         setProjects(result.data);
 //         //console.log(result);
@@ -29,7 +29,7 @@
 //       setLoaded(true);
 //       const checkAuthentication = async () => {
 //         try {
-//           const response = await axios.get('http://localhost:5001/check-auth-status');
+//           const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
 //           const isAuthenticated = response.data.isAuthenticated;
 //           console.log(isAuthenticated)    
@@ -129,7 +129,7 @@
 //   const feedback2 = document.getElementById(id+'-quality').value;
 //   //console.log(title);
 //   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
-//   axios.post('http://localhost:5001/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
+//   axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
 //   .then(result=>console.log(result))
 //   .catch(err=>console.log(err));
 //   window.location.reload(false);
@@ -196,7 +196,7 @@
 
 // export default ProjectFeedback
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../images/assets/css/admin.css';
 import axios from 'axios';
 import AdminHeader from '../../components/AdminComponents/AdminHeader';
@@ -205,13 +205,19 @@ import Sidebar from './Sidebar.js';
 import '../../images/assets/css/admin.css';
 import { Modal } from 'react-bootstrap';
 import { useAuthContext } from '../../AuthContext.js';
+import Logout from '../../components/Logout.js';
+import {toast, ToastContainer} from 'react-toastify';
+
+
 
 function ProjectFeedback() {
   let i = 1;
   const [projects, setProjects] = useState([]);
   const[loaded, setLoaded] = useState(false);
+  const [field, setField] = useState("");
   const location = useLocation();
-  const {user} = useAuthContext()
+  const navigate = useNavigate();
+  
   let email;
   const cookies = document.cookie;
 if (cookies) {
@@ -236,10 +242,27 @@ if (cookies) {
 
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin2"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
+      })
+      .catch(err=>console.log(err))
+      axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/getField', {email:email})
+      .then((result)=>{
+        setField(result.data.field);
+        console.log(result);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
@@ -249,7 +272,7 @@ if (cookies) {
     const tableData = [];
     
     for (let j = (projects.length-1); j > -1; j--) {
-      if(projects[j].status > 0){
+      if(projects[j].status > 0) /*&& projects[j].projectCategory === field)*/{
       tableData.push(
           generateRow(projects[j])
       );
@@ -388,8 +411,9 @@ async function updateStatus(id, newStatus, title){
   const feedback2 = document.getElementById(id+'-quality').value;
   //console.log(title);
   const feedback = newStatus + "-" + feedback2 + "-" + feedback1;
- await axios.post('http://localhost:5001/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
-  .then(result=>console.log(result))
+  let message = "";
+ await axios.post('https://research-portal-server-9.onrender.com/admin2Feedback/setFeedback', {id: id, email: email, title: title, feedback: feedback})
+  .then(result=>{console.log(result); message = "Feedback Uploaded"; console.log(message); toast.success(message);})
   .catch(err=>console.log(err));
   window.location.reload(false);
 }
@@ -416,6 +440,9 @@ function buttonsDisplay(num){
   }
 }
   return (
+
+
+    document.cookie ?
     <div className=" ">
      
       
@@ -440,7 +467,8 @@ function buttonsDisplay(num){
                 </tbody>  
               </table>
               </TableContainer>
-          </div>
+              <ToastContainer/>
+          </div>: <Logout/>
   
   )
 }

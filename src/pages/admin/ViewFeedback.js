@@ -10,7 +10,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5001/footer');
+//         const response = await axios.get('https://research-portal-server-9.onrender.com/footer');
 //         console.log('Feedback Data:', response.data); // Check if data is logged correctly
 //         setFeedbackData(response.data);
 //       } catch (error) {
@@ -53,16 +53,29 @@ import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar.js';
 import Logout from '../../components/Logout.js';
+import { useNavigate } from 'react-router-dom';
 
 const ViewFeedback = () => {
   const [feedbackData, setFeedbackData] = useState([]);
   const location = useLocation();
 
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   useEffect(() => {
+    if(document.cookie){
+      if(document.cookie.split(';')[1].split('=')[1] === '"admin"'){
+        
+      }
+      else{
+        navigate('/login');
+      }
+    }
+    else{
+      navigate('/login'); 
+    }
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/footer');
+        const response = await axios.get('https://research-portal-server-9.onrender.com/footer');
         console.log('Feedback Data:', response.data); // Check if data is logged correctly
         setFeedbackData(response.data);
       } catch (error) {
@@ -71,29 +84,29 @@ const ViewFeedback = () => {
     };
   
     fetchData();
-    const checkAuthentication = async () => {
-      try {
-        const response = await axios.get('http://localhost:5001/check-auth-status');
+    // const checkAuthentication = async () => {
+    //   try {
+    //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
         
-        const isAuthenticated = response.data.isAuthenticated;
-        console.log(isAuthenticated)    
-        setIsAuthenticated(isAuthenticated)
+    //     const isAuthenticated = response.data.isAuthenticated;
+    //     console.log(isAuthenticated)    
+    //     setIsAuthenticated(isAuthenticated)
       
 
       
-      } catch (error) {
-        console.error('Error checking authentication status:', error);
-        return false;
-      }
-    };
+    //   } catch (error) {
+    //     console.error('Error checking authentication status:', error);
+    //     return false;
+    //   }
+    // };
     
-    // Example usage
-     checkAuthentication();
+    // // Example usage
+    //  checkAuthentication();
   }, []);
   
 
   return (
-    isAuthenticated ?
+    document.cookie ?
     <div>
 
 <div className="">

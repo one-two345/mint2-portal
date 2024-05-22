@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import TableContainer from '@mui/material/TableContainer';
 import Sidebar from './Sidebar.js';
@@ -15,6 +15,8 @@ const SubmitReport = () => {
   const[loaded, setLoaded] = useState(false);
   const[file, setFile] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   const [SidebarVisibility, setSiderVisibility] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(null)
@@ -42,37 +44,48 @@ if (cookies) {
   //console.log(email);
   useEffect(
     function(){
-      axios.get('http://localhost:5001/admin/userStatus/getAll')
+      if(document.cookie){
+        if(document.cookie.split(';')[1].split('=')[1] === '"admin2"'){
+          
+        }
+        else{
+          navigate('/login');
+        }
+      }
+      else{
+        navigate('/login'); 
+      }
+      axios.get('https://research-portal-server-9.onrender.com/admin/userStatus/getAll')
       .then((result)=>{
         setProjects(result.data);
         //console.log(result);
       })
       .catch(err=>console.log(err))
-      axios.get('http://localhost:5001/admin2Reports/find/'+email)
+      axios.get('https://research-portal-server-9.onrender.com/admin2Reports/find/'+email)
       .then((result)=>{
         setUserID(result.data[0]._id);
         console.log(userID);
       })
       .catch(err=>console.log(err))
       setLoaded(true);
-      const checkAuthentication = async () => {
-        try {
-          const response = await axios.get('http://localhost:5001/check-auth-status');
+      // const checkAuthentication = async () => {
+      //   try {
+      //     const response = await axios.get('https://research-portal-server-9.onrender.com/check-auth-status');
           
-          const isAuthenticated = response.data.isAuthenticated;
-          console.log(isAuthenticated)    
-          setIsAuthenticated(isAuthenticated)
+      //     const isAuthenticated = response.data.isAuthenticated;
+      //     console.log(isAuthenticated)    
+      //     setIsAuthenticated(isAuthenticated)
         
   
         
-        } catch (error) {
-          console.error('Error checking authentication status:', error);
-          return false;
-        }
-      };
+      //   } catch (error) {
+      //     console.error('Error checking authentication status:', error);
+      //     return false;
+      //   }
+      // };
       
-      // Example usage
-       checkAuthentication();
+      // // Example usage
+      //  checkAuthentication();
     }
   ,[]);
   function displayProjects(){
@@ -125,7 +138,7 @@ function SubmitReport(id){
     formData.append('file', file);
     console.log(file);
 
-    axios.post('http://localhost:5001/admin2Reports/upload/'+ userID + "-" +  id , formData, config)
+    axios.post('https://research-portal-server-9.onrender.com/admin2Reports/upload/'+ userID + "-" +  id , formData, config)
     .then((res)=>{console.log(res);})
     .catch(err=>console.log(err))
     toast.info("Report Submitted Successfully!")
@@ -159,7 +172,7 @@ function buttonsDisplay(num){
   }
 }
   return (  
-    isAuthenticated ?    
+    document.cookie ?    
         
           <div >
             

@@ -43,8 +43,8 @@ const OrganizationStructureSection = () => {
       <h1 className="text-center font-weight-bold mb-4">Our Research and Innovation Organization Structure</h1>
       <div className="text-center mb-3">
         <button
-          className="btn"
-          style={{ backgroundColor: "#11475f", color: "white", fontWeight: "bold", fontSize: "28px" }}
+          className="btn quickCard"
+          style={{ color: "black", fontWeight: "bold", fontSize: "28px" }}
           onClick={() => handleButtonClick('viewDepartments')}
         >
           Innovation and Research Sector
@@ -61,7 +61,7 @@ const OrganizationStructureSection = () => {
             <button
               className="btn mb-2"
               style={{
-                backgroundColor: selectedButton === department.name ? 'orange' : '#11676d',
+                backgroundColor: selectedButton === department.name ? 'black' : 'goldenrod',
                 color: 'white',
                 fontSize: '20px', // Adjusted font size
                 width: "100%", // Set width to 100%
@@ -78,11 +78,11 @@ const OrganizationStructureSection = () => {
                 ))}
               </ul>
             )}
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default OrganizationStructureSection;
+        );
+      }
+      
+      export default OrganizationStructureSection;

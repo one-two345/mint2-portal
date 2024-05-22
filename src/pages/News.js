@@ -10,7 +10,7 @@ const News = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5001/news')
+      .get('https://research-portal-server-9.onrender.com/news')
       .then(response => {
         const parsedData =
           typeof response.data === 'string'
@@ -102,6 +102,7 @@ const News = () => {
               <div className="d-flex px-4 my-2">
                 <Link
                   to='/viewNews'
+                  style={{color: "#fff"}}
                   state={{id:newsItem._id}}
                   className="btn btn-primary px-3"
                 >
@@ -114,9 +115,9 @@ const News = () => {
       </div>
       <div className="text-right mt-3">
         <Link
-          style={{ marginBottom: '30px' }}
-          to="/view-more"
-          className="btn btn-primary"
+          style={{ marginBottom: '30px', color: "#fff", background: 'gray' }}
+          to="/viewNews"
+          className="btn "
         >
           View More
         </Link>
