@@ -5,7 +5,7 @@ import {getNews} from './actions/news'
 import './App.css';
 import RoutesComponent from './Routes';
 
-//pppp
+//ppppp
 function App() {
  
   return (
